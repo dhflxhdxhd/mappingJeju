@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 function Login(props) {
   return (
   <div className="wrapper">
-    <nav className="header">
+    <nav className="loginheader">
         <button className="loginheader_item"><Link to="/Mypage">mypage</Link></button> 
     </nav>
     <div>
@@ -13,7 +13,7 @@ function Login(props) {
     </div>
     <button className="loginbutton">카카오톡으로 로그인</button>
   </div>
-  );
+  ); 
 }
 
 export default Login;

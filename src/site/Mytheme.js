@@ -1,5 +1,6 @@
-import React from "react";
-import './New.css';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import './App.css';
 
 function Mytheme(props) {
   return (
@@ -9,7 +10,7 @@ function Mytheme(props) {
         <span className="mythemetext2">제작한 테마지도 모음입니다.</span>
     </div>
     <div className="maketheme">
-    <button className="makethemebutton">+</button>
+    <button className="makethemebutton"><Link to="/Maketheme">+</Link></button>
     </div>
     <div className="viewalltheme">
         <div className="theme"></div>
