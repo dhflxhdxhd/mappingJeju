@@ -17,7 +17,7 @@ function Main(props) {
                     <input type="text" className="searchbox" placeholder="테마를 검색하세요!"></input>
                 </div>
             </div>
-          <img src='/img/mainpic.jpg' className="mainpic"/>
+          <img src='/img/mainpic.png' className="mainpic"/>
           <div className="seeall">
                 <button className="all"><Link to="/alltheme"> {'>'} 전체 테마 보러가기</Link></button>     
                 <button className="all"><Link to="/allcourse"> {'>'} 전체 코스 보러가기 </Link></button>     
