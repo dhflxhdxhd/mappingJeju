@@ -1,0 +1,151 @@
+.New {
+    background-color: #68C481;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: center;   
+}
+
+.loginheader {
+    text-align: center;
+}
+
+.loginheader_item {
+    float: right;
+    margin: 10px;
+    color: white;
+    background-color: #68C481;
+    border: none;
+    outline: none;
+    font-size: 15px;
+  }
+  
+
+span.logintext {
+    display: block;
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+    margin: 100px 0 0 100px;
+}
+
+.loginbutton {
+    margin: 90px 0 0 430px;
+    width: 250px;
+    height: 50px;
+    border: 2px solid #68C481;
+    background: white;
+    border-radius: 8px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+span.mypagetext {
+    display: block;
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+    margin: 100px 0 0 100px;
+}
+
+.gothemebutton {
+    display: inline-block;
+    width: 250px;
+    height: 50px;
+    margin: 90px 0 0 230px;
+    border: 2px solid #68C481;
+    background: white;
+    border-radius: 8px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.gofavoritebutton {
+    display: inline-block;
+    width: 250px;
+    height: 50px;
+    margin: 90px 0 0 100px;
+    border: 2px solid #68C481;
+    background: white;
+    border-radius: 8px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.mytheme {
+    padding: 40px 0 0 130px;
+}
+
+.mythemesidetext {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: bolder;
+}
+  
+span.mythemetext {
+    display: block;
+    font-size: 19px;
+    font-weight: bolder;
+}
+  
+span.mythemetext2 {
+    display: block;
+    font-size: 13px;
+    font-weight: bolder;
+    color: rgb(175, 175, 175);
+}
+
+.maketheme {
+    display: inline;
+    
+}
+
+.makethemebutton {
+    float: right;
+    width: 100px;
+    height: 40px;
+    margin: 0 650px 0 0;
+    background: #68C481;
+    border-radius: 20px;
+    border: none;
+    font-size: 25px;
+    font-weight: bolder;
+    color: white;
+}
+
+.mythemesidetext {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: bolder;
+}
+
+.favoritetheme {
+    padding: 40px 0 0 130px;
+}
+
+span.favoritethemetext {
+    display: block;
+    font-size: 19px;
+    font-weight: bolder;
+}
+  
+span.favoritethemetext2 {
+    display: block;
+    font-size: 13px;
+    font-weight: bolder;
+    color: rgb(175, 175, 175);
+}
+
+.goallthemebutton {
+    width: 260px;
+    height: 40px;
+    margin: 40px 0 0 255px;
+    background: #68C481;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+
+}
