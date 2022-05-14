@@ -1,7 +1,7 @@
 // OAuthRedirectHandler.js
 import { useEffect, useState } from 'react';
 import axios from "axios"
-import Spinner from './spinner';
+import Spinner from '../spinner';
 
 
 function OAuthRedirectHandler(){  

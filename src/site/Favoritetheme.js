@@ -1,6 +1,7 @@
-import './New.css';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import React, {Component} from 'react';
+import '../css/New.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 function Favoritetheme(props) {
   return (

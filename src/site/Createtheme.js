@@ -1,6 +1,5 @@
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import React, {useState} from 'react';
-import './New.css';
+import '../css/New.css';
 import Registerplace from './Registerplace';
 
 const Createtheme = () => {

@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import React from 'react';
-import './New.css';
+import { Link } from 'react-router-dom';
+import '../css/New.css';
 
 const Maketheme = () => {
 

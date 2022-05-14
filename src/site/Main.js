@@ -1,7 +1,8 @@
-import './App.css';
-import {  Link } from 'react-router-dom';
 import React from 'react';
+import {  Link } from 'react-router-dom';
+import '../css/App.css';
 import mainImg from '../img/mainpic.jpg'
+
 
 function Main(props) {
   return (

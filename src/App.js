@@ -1,21 +1,21 @@
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import React from 'react-router-dom'
-import Searchtheme from './Searchtheme';
-import Main from './Main';
+import Searchtheme from './site/Searchtheme';
+import Main from './site/Main';
 
-import Mypage from './Mypage';
-import MoveToLogin from './Login';
-import OAuthRedirectHandler from './OAuthRedirectHandler';
+import Mypage from './site/Mypage';
+import MoveToLogin from './login/Login';
+import OAuthRedirectHandler from './login/OAuthRedirectHandler';
 
-import Alltheme from './Alltheme';
-import Allcourse from './Allcourse';
-import Mytheme from './Mytheme';
-import Favoritetheme from './Favoritetheme';
-import Maketheme from './Maketheme';
-import Createtheme from './Createtheme';
-import Createcourse from './Createcourse';
+import Alltheme from './site/Alltheme';
+import Allcourse from './site/Allcourse';
+import Mytheme from './site/Mytheme';
+import Favoritetheme from './site/Favoritetheme';
+import Maketheme from './site/Maketheme';
+import Createtheme from './site/Createtheme';
+import Createcourse from './site/Createcourse';
 import Header from './header';
-import isLogin from './checkLogin';
+import isLogin from './login/checkLogin';
 
 function App() {
   return (

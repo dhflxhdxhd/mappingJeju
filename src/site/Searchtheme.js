@@ -1,6 +1,5 @@
-import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import React, {useState} from 'react';
+import '../css/App.css';
+import React from 'react';
 
 
 const Searchtheme = () => {

@@ -1,6 +1,5 @@
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import React from 'react';
-import './New.css';
+import '../css/App.css';
 
 const Registerplace = (props) => {
     // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴

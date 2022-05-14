@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { Link, Route } from "react-router-dom"
-import isLogin from "./checkLogin";
+import isLogin from "./login/checkLogin";
 
 const Header = () => {
     console.log(isLogin);
