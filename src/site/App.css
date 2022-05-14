@@ -4,7 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   align-items: center;
-
+  height: 100%;
 }
 
 .App-logo {
