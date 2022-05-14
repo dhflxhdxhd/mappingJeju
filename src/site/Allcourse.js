@@ -20,7 +20,7 @@ function Allcourse(props) {
         <div className="course"></div>
     </div>
       <button className="viewmorebutton">
-      <img src="/img/viewmore.png" className="viewmorepic" />
+      <img src="/img/viewmore.png" className="viewmorepic" alt="더보기" />
       </button>
   </div>
   );

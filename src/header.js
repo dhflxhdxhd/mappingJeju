@@ -1,9 +1,10 @@
-import isLogin from "./login/checkLogin";
+import logout from "./login/Logout";
 
 const Header = () => {
-    console.log(isLogin);
+    let isLogin = JSON.parse(sessionStorage.getItem("isAuthorized"))
+
     function handleLogOut(event){
-        console.log("logout clicked");
+        logout();
     }
 
     function handleMypage(event){
@@ -29,4 +30,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header 

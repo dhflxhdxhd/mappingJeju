@@ -6,28 +6,29 @@ import Spinner from '../spinner';
 
 function OAuthRedirectHandler(){  
     const [isLogin, setIsLogin] = useState(false);
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(false);
+    sessionStorage.setItem("isAuthorized",isLogin);
 
     useEffect(() => {
-        const CODE = new URL(window.location.href).searchParams.get("code");
+        // const CODE = new URL(window.location.href).searchParams.get("code");
 
         const sendToken = async () => {
             setLoading(true);
             console.log("Loading NOW");
-            
+
             try {
-                const result = await axios.post('/api',
-                    {
-                        code : CODE
-                    }
-                ).then((response) => {
+                const result = await axios({
+                    method : 'get',
+                    url : 'https://c761f5bd-e611-47d2-8912-46c738863cee.mock.pstmn.io/list/login'
+                }).then((response) => {
                     console.log(response);
                     const ACCESS_TOKEN = JSON.stringify(response.data.token);
-                    // const ACCESS_TOKEN = response.data.access_token;
-                    localStorage.setItem("token",ACCESS_TOKEN);
-                    setIsLogin(true);
+                    const LOGIN_STATUS = JSON.stringify(response.data.isAuthorized);
+                    sessionStorage.setItem("isAuthorized", LOGIN_STATUS);
+                    sessionStorage.setItem("token",ACCESS_TOKEN);
                     setLoading(false);
-                    document.location.href = "/main"
+                    setIsLogin(JSON.parse(sessionStorage.getItem("isAuthorized")))
+                    document.location.href = "/"
 
                 })
 
@@ -36,12 +37,15 @@ function OAuthRedirectHandler(){
             } catch (error) {
                 console.log(error);
                 setLoading(false);
+                sessionStorage.clear();
+                sessionStorage.setItem("isAuthorized",isLogin);
                 window.alert("login failed by ah");
-                document.location.href = "/";
+                document.location.href = "/login";
             }
         }
 
-        if(CODE){ sendToken(); }
+        sendToken();
+
     },[isLogin]);
 
     return( <div className='loading'>{loading ? <Spinner/>:""}</div> )
@@ -49,8 +53,3 @@ function OAuthRedirectHandler(){
 
 
 export default OAuthRedirectHandler;
-
-
-
-
-

@@ -15,9 +15,11 @@ import Maketheme from './site/Maketheme';
 import Createtheme from './site/Createtheme';
 import Createcourse from './site/Createcourse';
 import Header from './header';
-import isLogin from './login/checkLogin';
+
 
 function App() {
+  let isLogin = JSON.parse(sessionStorage.getItem("isAuthorized"))
+  
   return (
     <div className="App">
       <Header />
