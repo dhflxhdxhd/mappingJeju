@@ -1,14 +1,11 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import React, {Component} from 'react';
+import {  Link } from 'react-router-dom';
+import React from 'react';
+import mainImg from '../img/mainpic.jpg'
 
 function Main(props) {
   return (
       <div className="wrapper">
-        <nav className="header">
-        <button className="header_item"><Link to="/Login">login</Link></button>     
-        <button className="header_item"><Link to="/Mypage">mypage</Link></button> 
-        </nav>
         <section className="main">
             <div className="maintext">
                 <span className="sidetext">n개의 테마</span> 
@@ -17,7 +14,7 @@ function Main(props) {
                     <input type="text" className="searchbox" placeholder="테마를 검색하세요!"></input>
                 </div>
             </div>
-          <img src='/img/mainpic.jpg' className="mainpic"/>
+          <img src={mainImg} className="mainpic" alt="메인화면IMG"/>
           <div className="seeall">
                 <button className="all"><Link to="/alltheme"> {'>'} 전체 테마 보러가기</Link></button>     
                 <button className="all"><Link to="/allcourse"> {'>'} 전체 코스 보러가기 </Link></button>     
