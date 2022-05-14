@@ -1,19 +1,18 @@
-import './New.css';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import React, {Component} from 'react';
 
-function Login(props) {
-  return (
+import './New.css';
+import './App.css';
+import { Link } from 'react-router-dom';
+import React from 'react';
+import { KAKAO_AUTH_URL } from "./OAuth"
+import Header from './header';
+import kakaoBtn from '../img/kakaoBtn.png'
+
+function MoveToLogin(props) {
+  return(
   <div className="wrapper">
-    <nav className="loginheader">
-        <button className="loginheader_item"><Link to="/Mypage">mypage</Link></button> 
-    </nav>
-    <div>
-    <span className="logintext">로그인</span>
-    </div>
-    <button className="loginbutton">카카오톡으로 로그인</button>
+      <a href={KAKAO_AUTH_URL}><img src={kakaoBtn} alt="kakao_login"/></a>
   </div>
   ); 
 }
 
-export default Login;
+export default MoveToLogin;
