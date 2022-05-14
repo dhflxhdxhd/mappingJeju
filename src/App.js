@@ -16,7 +16,6 @@ import Createtheme from './site/Createtheme';
 import Createcourse from './site/Createcourse';
 import Header from './header';
 
-
 function App() {
   let isLogin = JSON.parse(sessionStorage.getItem("isAuthorized"))
   

@@ -11,10 +11,10 @@ function OAuthRedirectHandler(){
 
     useEffect(() => {
         // const CODE = new URL(window.location.href).searchParams.get("code");
-
         const sendToken = async () => {
             setLoading(true);
             console.log("Loading NOW");
+
 
             try {
                 const result = await axios({
@@ -29,7 +29,6 @@ function OAuthRedirectHandler(){
                     setLoading(false);
                     setIsLogin(JSON.parse(sessionStorage.getItem("isAuthorized")))
                     document.location.href = "/"
-
                 })
 
                 console.log(result);
@@ -37,6 +36,7 @@ function OAuthRedirectHandler(){
             } catch (error) {
                 console.log(error);
                 setLoading(false);
+
                 sessionStorage.clear();
                 sessionStorage.setItem("isAuthorized",isLogin);
                 window.alert("login failed by ah");

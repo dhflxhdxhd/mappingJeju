@@ -1,7 +1,9 @@
 import logout from "./login/Logout";
 
+
 const Header = () => {
     let isLogin = JSON.parse(sessionStorage.getItem("isAuthorized"))
+    console.log(isLogin);
 
     function handleLogOut(event){
         logout();
