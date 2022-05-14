@@ -1,11 +1,17 @@
+<<<<<<< Updated upstream:src/site/header.js
 import { useState } from "react";
 import { Link, Route } from "react-router-dom"
 import isLogin from "./checkLogin";
+=======
+import logout from "./login/Logout";
+>>>>>>> Stashed changes:src/header.js
 
 const Header = () => {
+
+    let isLogin = JSON.parse(sessionStorage.getItem("isAuthorized"))
     console.log(isLogin);
     function handleLogOut(event){
-        console.log("logout clicked");
+        logout();
     }
 
     function handleMypage(event){

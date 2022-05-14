@@ -15,9 +15,15 @@ import Maketheme from './Maketheme';
 import Createtheme from './Createtheme';
 import Createcourse from './Createcourse';
 import Header from './header';
+<<<<<<< Updated upstream:src/site/App.js
 import isLogin from './checkLogin';
+=======
+
+>>>>>>> Stashed changes:src/App.js
 
 function App() {
+  let isLogin = JSON.parse(sessionStorage.getItem("isAuthorized"))
+  
   return (
     <div className="App">
       <Header />
