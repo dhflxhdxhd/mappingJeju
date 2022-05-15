@@ -15,6 +15,10 @@ import Maketheme from './site/Maketheme';
 import Createtheme from './site/Createtheme';
 import Createcourse from './site/Createcourse';
 import Header from './header';
+import Spinner from './spinner';
+
+import 'D:/git/mappingJeju/src/reset.css'
+import 'D:/git/mappingJeju/src/App.css'
 
 function App() {
   let isLogin = JSON.parse(sessionStorage.getItem("isAuthorized"))
@@ -26,7 +30,7 @@ function App() {
         {isLogin ? (
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/mypage" element={<Mypage />} />
+            <Route path="/Mypage" element={<Mypage />} />
             <Route path="/Mytheme" element={<Mytheme />} />
             <Route path="/Favoritetheme" element={<Favoritetheme />} />
             <Route path="/Maketheme" element={<Maketheme />} />
@@ -39,6 +43,7 @@ function App() {
           </Routes>
         ) : (
           <Routes>
+            <Route path="/spinner" element={<Spinner />} />
             <Route path="/" element={<Main />} />
             <Route path="/login"  element={<MoveToLogin />}/>
             <Route path="/oauth/callback/kakao" element={<OAuthRedirectHandler />}></Route>
@@ -50,7 +55,7 @@ function App() {
         )}
 
       </Router>
-    </div>
+      </div>
   );
 }
 

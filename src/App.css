@@ -1,137 +1,132 @@
-.App {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-  box-sizing: border-box;
-  align-items: center;
-  height: 100vh;
+html{
   width: 100%;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+} 
+
+#root, .App{
+  width: 100%;
+  height: 100%; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.wrapper {
-  display: grid;
-}
-
+/* header */
 .header {
   background-color: #68C481;
+  height: 7%;
 }
 
 .header_item {
   float: right;
   margin: 10px;
   color: white;
-  background-color: #68C481;
-  border: none;
-  outline: none;
   font-size: 15px;
 }
 
+.contents-wrapper{
+  width: 100%;
+  height: 93%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login */
+.Login-wrapper p{
+  text-align: center;
+  color: #b2bec3;
+}
+
+.Login-wrapper #Login-title{
+  font-size: 18px;
+}
+
+.Login-wrapper #Login-sub{
+  font-size: 15px;
+}
+
+
+/* Main */
+.main-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 3%;
+}
+
+.mainpic {
+  width: 350px;
+}
+
 span.sidetext {
-  display: block;
   font-size: 30px;
   font-weight: bolder;
 }
 
 span.sidetext2 {
-  display: block;
   font-size: 15px;
   font-weight: bolder;
   color: #AAA;
 }
 
-.maintext {
-  float: left;
-  margin-top: 280px;
-  margin-left: 230px;
+.mainText-search{
+  margin-top: 10%;
+}
 
+.search{
+  padding: 0;
 }
 
 .searchbox {
-  width: 300px;
+  width: 350px;
   height: 50px;
-  font-size: 40px;
   background-color: transparent;
   border: none;
   border-bottom: 4px solid #CCC;
   color: #555;
-  box-sizing: border-box;
   font-size: 38px;
-  left: 40%;
-  margin: -30px 0 0 -180px;
-  padding: 0px 0px;
-  position: relative;
-  outline: none;
   font-weight: bolder;
+  outline: none;
 }
+
 .searchbox::-webkit-input-placeholder {
   color: rgb(104, 104, 104);
 }
+
 
 .searchbox:focus::-webkit-input-placeholder {
   color: #68C481;
 }
 
-.mainpic {
-  margin-top: 150px;
-  margin-left: 50px;
-  width: 350px;
+.seeall{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-.seeall {
-  margin: -10px 0 0 420px;
-
-}
-
-.all {
-  display: block;
-  margin: 10px 0 0 0;
-  padding: 0;
+.all{
   border: none;
-  background: none; 
+  background-color: white;
+  text-decoration: none;
+  color: #b2bec3;
 }
 
-.search {
-  padding: 40px 0 0 130px;
+.all:hover{
+  color: #fdcb6e;
 }
 
-span.searchtext {
-  display: block;
-  font-size: 19px;
-  font-weight: bolder;
-}
-
-span.searchtext2 {
-  display: block;
-  font-size: 13px;
-  font-weight: bolder;
-  color: rgb(175, 175, 175);
-}
-
+/*
 .theme {
   margin: 10px 10px 0 0;
   display: inline-block;
@@ -192,12 +187,4 @@ span.allcoursetext2 {
   height: 100px;
   background-color: #9b9b9b;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+ */

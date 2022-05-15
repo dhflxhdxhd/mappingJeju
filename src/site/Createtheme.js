@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../css/New.css';
+import '../New.css';
 import Registerplace from './Registerplace';
 
 const Createtheme = () => {

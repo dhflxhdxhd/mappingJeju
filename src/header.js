@@ -21,17 +21,17 @@ const Header = () => {
         window.location.href = "/Login"
     }
     return (
-        <nav className="header" style={ {"height" : "50px"}}>
+        <nav className="header" >
             {isLogin ? (
                 <ul>
-                    <li className="header_item" onClick={GotoMain}>LOGO</li>
                     <li className="header_item" onClick={handleLogOut}>로그아웃</li>
                     <li className="header_item" onClick={handleMypage}>MYPAGE</li>
+                    <li className="header_item" onClick={GotoMain}>HOME</li>
                 </ul>
             ) : (
                 <ul>
-                    <li className="header_item" onClick={GotoMain}>LOGO</li>
                     <li className="header_item" onClick={handleLogIn}>LOGIN</li>
+                    <li className="header_item" onClick={GotoMain}>HOME</li>
                 </ul>
             )}
         </nav>

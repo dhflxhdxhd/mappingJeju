@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../css/New.css';
+import '../New.css';
 
 const Maketheme = () => {
 
