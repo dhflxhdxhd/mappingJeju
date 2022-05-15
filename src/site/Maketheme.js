@@ -5,18 +5,15 @@ import '../New.css';
 const Maketheme = () => {
 
   return (
-    <div className="wrapper">
-        <nav className="loginheader">
-        <button className="loginheader_item"><Link to="/Mypage">mypage</Link></button> 
-        </nav>
+    <div className="inputm-wrapper">
         <div className="inputthemedata">
             <div className="titletheme">
-            <span className="makethemetext">테마 지도 이름</span>
-            <textarea className="inputthemetitle"></textarea>   
+                <span className="makethemetext">테마 지도 이름</span>
+                <textarea className="inputthemetitle"></textarea>   
             </div>
             <div className="explaintheme">
-            <span className="makethemetext">테마 지도 설명</span>
-            <textarea className="inputthemeexplain" placeholder="후기, 주차 장소, 꿀팁 등"></textarea>   
+                <span className="makethemetext">테마 지도 설명</span>
+                <textarea className="inputthemeexplain" placeholder="후기, 주차 장소, 꿀팁 등"></textarea>   
             </div>
             <div className="shareswitch">
                 <span className="sharetext">다른 사람과 테마 지도 공유</span>

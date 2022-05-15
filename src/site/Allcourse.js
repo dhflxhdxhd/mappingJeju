@@ -5,7 +5,7 @@ import moreImg from '../img/viewmore.png'
 function Allcourse(props) {
   return (
   <div className="allcourse">
-    <div className="allcoursetext">
+    <div className="allcoursesidetext">
         <span className="allcoursetext">전체 코스</span> 
         <span className="allcoursetext2">등록되어 있는 코스들입니다.</span>
     </div>

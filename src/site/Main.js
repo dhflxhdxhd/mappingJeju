@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom'
 import mainImg from '../img/mainpic.jpg'
 import '../App.css'
 
@@ -11,7 +11,7 @@ function Main(props) {
                 <span className="sidetext">n개의 테마</span> 
                 <span className="sidetext2">당신의 주변 사람들이 장소를 공유합니다.</span>    
                 <div className='mainText-search'>
-                  <div className="search">
+                  <div className="searchboxdiv">
                       <input type="text" className="searchbox" placeholder="테마를 검색하세요!"></input>
                   </div>
                   <div className="seeall">

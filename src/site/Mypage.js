@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../New.css';
 
 const Mypage = () => {
   return (
     <div className="contents-wrapper">
       <div className='mp-wrapper'>
-        <div>
+        <div className="mypagetextd">
           <span className="mypagetext">마이페이지</span>
         </div>
         <div className="mypagebutton">

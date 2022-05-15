@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import Main from './Main';
 import Searchtheme from './Searchtheme';
 
-class MainS extends Component {
+class MainP extends Component {
     render() {
         return(
             <div className="MainP">
@@ -15,4 +15,4 @@ class MainS extends Component {
     }
 }
 
-export default MainS;
+export default MainP;

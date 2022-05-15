@@ -15,7 +15,7 @@ const Createtheme = () => {
 
   return (
       
-    <div className="wrapper">
+    <div className="createtheme-wrapper">
         <nav className="createthemeheader">
         <button className="bookmark"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bookmark-heart" viewBox="0 0 16 16">
         <path fillRule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
@@ -23,7 +23,7 @@ const Createtheme = () => {
         <button className="plus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="plus-lg" viewBox="0 0 16 16">
         <path fillRule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/></svg></button>
         </nav>
-         <div className="serchplace">
+         <div className="searchplace">
             <input type="text" className="placesearchbar" placeholder="장소 검색"></input>
         </div>
         <div className="themelist">

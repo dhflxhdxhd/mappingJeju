@@ -4,8 +4,8 @@ import moreImg from '../img/viewmore.png'
 
 const Searchtheme = () => {
   return (
-    <div className="search">
-      <div className="serchsidetext">
+    <div className="searchtheme">
+      <div className="searchsidetext">
         <span className="searchtext">검색결과</span> 
         <span className="searchtext2">검색어와 관련된 테마들입니다.</span>
       </div>
@@ -20,9 +20,11 @@ const Searchtheme = () => {
         <div className="theme"></div>
         <div className="theme"></div>
       </div>
+      <div className="viewmore">
       <button className="viewmorebutton">
       <img src={moreImg} className="viewmorepic" />
       </button>
+      </div>
     </div>
   );
 }

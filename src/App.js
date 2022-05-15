@@ -29,7 +29,7 @@ function App() {
       <Router>
         {isLogin ? (
           <Routes>
-            <Route path="/" element={<MainP />} />
+            <Route path="/" element={<MainP/>} />
             <Route path="/Mypage" element={<MypageP />} />
             <Route path="/Mytheme" element={<Mytheme />} />
             <Route path="/Favoritetheme" element={<Favoritetheme />} />
@@ -44,10 +44,9 @@ function App() {
         ) : (
           <Routes>
             <Route path="/spinner" element={<Spinner />} />
-            <Route path="/" element={<Main />} />
+            <Route path="/" element={<MainP />} />
             <Route path="/login"  element={<MoveToLogin />}/>
             <Route path="/oauth/callback/kakao" element={<OAuthRedirectHandler />}></Route>
-
             <Route path="/Searchtheme" element={<Searchtheme />} />
             <Route path="/Alltheme" element={<Alltheme />} />
             <Route path="/Allcourse" element={<Allcourse />} />

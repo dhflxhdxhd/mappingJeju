@@ -14,10 +14,10 @@ body{
   height: 100%; 
 }
 
-/* header */
+/* Header */
 .header {
   background-color: #68C481;
-  height: 7%;
+  height: 6%;
 }
 
 .header_item {
@@ -29,7 +29,7 @@ body{
 
 .contents-wrapper{
   width: 100%;
-  height: 93%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,13 +49,14 @@ body{
   font-size: 15px;
 }
 
-
 /* Main */
 .main-wrapper{
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 35vh;
+  margin-bottom: 30vh;
 }
 
 .mainText{
@@ -66,7 +67,7 @@ body{
 }
 
 .mainpic {
-  width: 350px;
+  width: 380px;
 }
 
 span.sidetext {
@@ -82,10 +83,6 @@ span.sidetext2 {
 
 .mainText-search{
   margin-top: 10%;
-}
-
-.search{
-  padding: 0;
 }
 
 .searchbox {
@@ -127,27 +124,26 @@ span.sidetext2 {
 }
 
 .viewmorebutton {
-  width: 100px;
-  margin: 10px 0 0 330px;
+  display: block;
+  width: 100%;
+  margin: 10px 0 0 0;
   border: none;
   background: none;
 }
 
-
-
-/*
-
-
-/* mypage */
-.mp-wrapper{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.viewmore {
+  display: block;
 }
 
 .theme {
+  margin: 10px 10px 0 0;
+  display: inline-block;
+  width: 250px;
+  height: 100px;
+  background-color: #9b9b9b;
+}
+
+.course {
   margin: 10px 10px 0 0;
   display: inline-block;
   width: 250px;
@@ -159,45 +155,119 @@ span.sidetext2 {
   width: 90px;
 }
 
+/* alltheme */
 .alltheme {
-  padding: 40px 0 0 130px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.allthemesidetext {
+  width: 780px;
+  margin: auto;
 }
 
 span.allthemetext {
   display: block;
+  text-align: left;
+  width: 100%;
   font-size: 19px;
   font-weight: bolder;
 }
 
 span.allthemetext2 {
   display: block;
+  text-align: left;
+  width: 100%;
   font-size: 13px;
   font-weight: bolder;
   color: rgb(175, 175, 175);
 }
 
+.viewalltheme {
+  display: inline-block;
+  width: 800px;
+}
+
+/* allcourse */
 .allcourse {
-  padding: 40px 0 0 130px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.allcoursesidetext {
+  width: 780px;
+  margin: auto;
 }
 
 span.allcoursetext {
   display: block;
+  text-align: left;
+  width: 100%;
   font-size: 19px;
   font-weight: bolder;
 }
 
 span.allcoursetext2 {
   display: block;
+  text-align: left;
+  width: 100%;
   font-size: 13px;
   font-weight: bolder;
   color: rgb(175, 175, 175);
 }
 
-.course {
-  margin: 10px 10px 0 0;
+.viewallcourse {
   display: inline-block;
-  width: 250px;
-  height: 100px;
-  background-color: #9b9b9b;
+  width: 800px;
+}
+
+/* searchtheme */
+.searchtheme {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 10vh;
+}
+
+.searchsidetext {
+  width: 780px;
+  margin: auto;
+}
+
+span.searchtext {
+  display: block;
+  text-align: left;
+  width: 100%;
+  font-size: 19px;
+  font-weight: bolder;
+}
+
+span.searchtext2 {
+  display: block;
+  text-align: left;
+  width: 100%;
+  font-size: 13px;
+  font-weight: bolder;
+  color: rgb(175, 175, 175);
+}
+
+.searchedtheme {
+  display: inline-block;
+  width: 800px;
+}
+
+@media (max-width:768px){
+  #main {
+      display: block;
+  }
+  #main .sidebar {
+      min-height: 0;
+  }
 }
 

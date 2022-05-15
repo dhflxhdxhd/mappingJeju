@@ -7,19 +7,36 @@
     align-items: center;  
 }
 
-span.mypagetext {
+/* Mypage */
+.mp-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+    margin-bottom: 35vh;
+}
+
+.mypagetextd {
     display: block;
-    font-size: 20px;
+    margin-left: -55vh;
+}
+
+span.mypagetext {
+    font-size: 25px;
     font-weight: bolder;
     color: black;
-    margin: 100px 0 0 100px;
+}
+
+.mypagebutton {
+    margin-top: 20vh;
 }
 
 .gothemebutton {
     display: inline-block;
     width: 250px;
     height: 50px;
-    margin: 90px 0 0 230px;
     border: 2px solid #68C481;
     background: white;
     border-radius: 8px;
@@ -31,7 +48,7 @@ span.mypagetext {
     display: inline-block;
     width: 250px;
     height: 50px;
-    margin: 90px 0 0 100px;
+    margin-left: 100px;
     border: 2px solid #68C481;
     background: white;
     border-radius: 8px;
@@ -39,39 +56,62 @@ span.mypagetext {
     font-size: 20px;
 }
 
+/* Mytheme */
 .mytheme {
-    padding: 40px 0 0 130px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
+.mythemetextandbtn {
+    display: block;
+    margin: auto;
+    width: 780px;
+    
+}
+  
 .mythemesidetext {
     display: inline-block;
-    font-size: 19px;
-    font-weight: bolder;
+    width: 150px;
+    margin-left: -55%;
 }
   
 span.mythemetext {
     display: block;
+    text-align: left;
+    width: 100%;
     font-size: 19px;
     font-weight: bolder;
 }
   
 span.mythemetext2 {
     display: block;
+    text-align: left;
+    width: 100%;
     font-size: 13px;
     font-weight: bolder;
     color: rgb(175, 175, 175);
 }
+  
+.viewmytheme {
+    display: inline-block;
+    width: 800px;
+}
 
 .maketheme {
-    display: inline;
-    
+    display: inline-block;
+    width: 200px;
+    height: 32px;    
 }
 
 .makethemebutton {
     float: right;
     width: 100px;
     height: 40px;
-    margin: 0 650px 0 0;
+
     background: #68C481;
     border-radius: 20px;
     border: none;
@@ -80,60 +120,84 @@ span.mythemetext2 {
     color: white;
 }
 
-.mythemesidetext {
-    display: inline-block;
-    font-size: 19px;
-    font-weight: bolder;
-}
-
+/* Favoritetheme */
 .favoritetheme {
-    padding: 40px 0 0 130px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10vh;
+    padding-bottom: 10vh;
 }
-
+  
+.favoritethemesidetext {
+    width: 780px;
+    margin: auto;
+}
+  
 span.favoritethemetext {
     display: block;
+    text-align: left;
+    width: 100%;
     font-size: 19px;
     font-weight: bolder;
 }
   
 span.favoritethemetext2 {
     display: block;
+    text-align: left;
+    width: 100%;
     font-size: 13px;
     font-weight: bolder;
     color: rgb(175, 175, 175);
 }
+  
+.viewfavoritetheme {
+    display: inline-block;
+    width: 800px;
+}
 
 .goallthemebutton {
+    display: block;
+    margin: auto;
     width: 260px;
     height: 40px;
-    margin: 40px 0 0 255px;
+    margin-top: 40px;
     background: #68C481;
     border-radius: 10px;
     border: none;
     font-size: 15px;
     font-weight: bolder;
     color: white;
+}
 
+/*Maketheme*/
+
+.inputm-wrapper {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
 .inputthemedata {
     display: inline-block;
-    margin: auto;
-    margin-top: 70px;
+    margin-top: 10vh;
+    margin-left: -10%;
 }
 
 .makethemetext {
-    margin-left: -25%;
+    margin-left: -20vh;
 }
 
 .inputthemetitle {
     display: block;
     width: 150%;
     height: 50px;
-    padding: 10px;
     box-sizing: border-box;
     border: solid 2px #68C481;
-    margin-left: -25%;
 }
 
 .explaintheme {
@@ -147,11 +211,14 @@ span.favoritethemetext2 {
     padding: 10px;
     box-sizing: border-box;
     border: solid 2px #68C481;
-    margin-left: -25%;
 }
 
 .shareswitch {
     margin-top: 10px;
+}
+
+.tg {
+    margin-top: 1px;
 }
 
 ul {
@@ -226,7 +293,12 @@ li {
     background: #68C481;
 }
 
-.serchplace {
+/* Createtheme */
+.createtheme-wrapper {
+    width: 100%;
+}
+
+.searchplace {
     margin-top: 10px;
     margin-left: 10px;
     width: 35%;
@@ -249,13 +321,13 @@ li {
     color: rgb(104, 104, 104);
   }
   
-  .placesearchbar:focus::-webkit-input-placeholder {
+.placesearchbar:focus::-webkit-input-placeholder {
     color: #68C481;
-  }
+}
 
 .themelist {
-    display: inline-block;
-    margin-left: 73%;
+    display: block;
+    float: right;
   }
 
 .themetitle {
@@ -367,6 +439,10 @@ li {
     height: 150px;
 }
 
+.createtheme {
+    margin-top: 5vh;
+}
+
 .createthemebutton {
     margin-left: 15%;
     background-color: white;
@@ -446,20 +522,8 @@ li {
   }
   .modal > section > main {
     padding: 16px;
-    border-bottom: 1px solid #dee2e6;
     border-top: 1px solid #dee2e6;
   }
-  .modal > section > footer {
-    padding: 12px 16px;
-    text-align: right;
-  }
-  .modal > section > footer button {
-    padding: 6px 12px;
-    color: #fff;
-    background-color: #6c757d;
-    border-radius: 5px;
-    font-size: 13px;
-}
 
 .modal.openModal {
     display: flex;
