@@ -21,7 +21,8 @@ function Alltheme(props) {
         <div className="theme"></div>
       </div>
       <button className="viewmorebutton">
-      <img src={moreImg} className="viewmorepic" />
+      <img src={moreImg} className="viewmorepic" alt="더보기"/>
+
       </button>
   </div>
 

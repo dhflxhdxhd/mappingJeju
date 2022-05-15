@@ -136,6 +136,17 @@ span.sidetext2 {
 
 
 /*
+
+
+/* mypage */
+.mp-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .theme {
   margin: 10px 10px 0 0;
   display: inline-block;
@@ -189,4 +200,4 @@ span.allcoursetext2 {
   height: 100px;
   background-color: #9b9b9b;
 }
- */
+

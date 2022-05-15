@@ -4,13 +4,15 @@ import '../App.css';
 
 const Mypage = () => {
   return (
-    <div className="mp-wrapper">
-      <div>
-        <span className="mypagetext">마이페이지</span>
-      </div>
-      <div className="mypagebutton">
-        <button className="gothemebutton"><Link to="/Mytheme">나의 테마지도 보러가기</Link></button>
-        <button className="gofavoritebutton"><Link to="/Favoritetheme">나의 찜 목록 보러가기</Link></button>
+    <div className="contents-wrapper">
+      <div className='mp-wrapper'>
+        <div>
+          <span className="mypagetext">마이페이지</span>
+        </div>
+        <div className="mypagebutton">
+          <button className="gothemebutton"><Link to="/Mytheme">나의 테마지도 보러가기</Link></button>
+          <button className="gofavoritebutton"><Link to="/Favoritetheme">나의 찜 목록 보러가기</Link></button>
+        </div>
       </div>
     </div>
   );
