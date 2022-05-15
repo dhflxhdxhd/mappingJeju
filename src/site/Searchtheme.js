@@ -1,6 +1,6 @@
 import '../App.css';
 import React from 'react';
-
+import moreImg from '../img/viewmore.png'
 
 const Searchtheme = () => {
   return (
@@ -21,7 +21,7 @@ const Searchtheme = () => {
         <div className="theme"></div>
       </div>
       <button className="viewmorebutton">
-      <img src="/img/viewmore.png" className="viewmorepic" />
+      <img src={moreImg} className="viewmorepic" />
       </button>
     </div>
   );
