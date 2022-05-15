@@ -2,11 +2,11 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Searchtheme from './site/Searchtheme';
 import Main from './site/Main';
-
+import MainP from './site/MainP';
 import Mypage from './site/Mypage';
 import MoveToLogin from './login/Login';
 import OAuthRedirectHandler from './login/OAuthRedirectHandler';
-
+import MypageP from './site/MypageP'
 import Alltheme from './site/Alltheme';
 import Allcourse from './site/Allcourse';
 import Mytheme from './site/Mytheme';
@@ -29,8 +29,8 @@ function App() {
       <Router>
         {isLogin ? (
           <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/Mypage" element={<Mypage />} />
+            <Route path="/" element={<MainP />} />
+            <Route path="/Mypage" element={<MypageP />} />
             <Route path="/Mytheme" element={<Mytheme />} />
             <Route path="/Favoritetheme" element={<Favoritetheme />} />
             <Route path="/Maketheme" element={<Maketheme />} />
