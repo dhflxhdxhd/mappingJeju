@@ -17,8 +17,8 @@ import Createcourse from './site/Createcourse';
 import Header from './header';
 import Spinner from './spinner';
 
-import 'D:/git/mappingJeju/src/reset.css'
-import 'D:/git/mappingJeju/src/App.css'
+import './reset.css'
+import './App.css'
 
 function App() {
   let isLogin = JSON.parse(sessionStorage.getItem("isAuthorized"))

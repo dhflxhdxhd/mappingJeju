@@ -1,5 +1,6 @@
 import React from "react";
 import '../App.css';
+import moreImg from '../img/viewmore.png'
 
 function Allcourse(props) {
   return (
@@ -20,7 +21,7 @@ function Allcourse(props) {
         <div className="course"></div>
     </div>
       <button className="viewmorebutton">
-      <img src="/img/viewmore.png" className="viewmorepic" alt="더보기" />
+      <img src={moreImg} className="viewmorepic" />
       </button>
   </div>
   );

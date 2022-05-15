@@ -126,6 +126,15 @@ span.sidetext2 {
   color: #fdcb6e;
 }
 
+.viewmorebutton {
+  width: 100px;
+  margin: 10px 0 0 330px;
+  border: none;
+  background: none;
+}
+
+
+
 /*
 .theme {
   margin: 10px 10px 0 0;
@@ -133,13 +142,6 @@ span.sidetext2 {
   width: 250px;
   height: 100px;
   background-color: #9b9b9b;
-}
-
-.viewmorebutton {
-  width: 100px;
-  margin: 10px 0 0 330px;
-  border: none;
-  background: none;
 }
 
 .viewmorepic {

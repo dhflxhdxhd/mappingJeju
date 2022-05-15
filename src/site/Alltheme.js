@@ -1,5 +1,6 @@
 import React from "react";
 import '../App.css';
+import moreImg from '../img/viewmore.png'
 
 function Alltheme(props) {
   return (
@@ -20,7 +21,7 @@ function Alltheme(props) {
         <div className="theme"></div>
       </div>
       <button className="viewmorebutton">
-      <img src="/img/viewmore.png" className="viewmorepic" />
+      <img src={moreImg} className="viewmorepic" />
       </button>
   </div>
 
