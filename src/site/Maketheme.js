@@ -17,12 +17,14 @@ const Maketheme = () => {
             </div>
             <div className="shareswitch">
                 <span className="sharetext">다른 사람과 테마 지도 공유</span>
-                <ul className="tg-list">
-                    <li className="tg-list-item">
-                    <input className="tgl tgl-light" id="cb1" type="checkbox"/>
-                    <label className="tgl-btn" htmlFor="cb1"></label>
-                    </li>
-                </ul>
+                <div className="tg">
+                    <ul className="tg-list">
+                        <li className="tg-list-item">
+                        <input className="tgl tgl-light" id="cb1" type="checkbox"/>
+                        <label className="tgl-btn" htmlFor="cb1"></label>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div className="createtheme">
                 <button className="createthemebutton"><Link to="/Createtheme">생성하기</Link></button>

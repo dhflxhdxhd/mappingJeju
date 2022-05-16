@@ -172,7 +172,6 @@ span.favoritethemetext2 {
 }
 
 /*Maketheme*/
-
 .inputm-wrapper {
     width: 100%;
     align-items: center;
@@ -189,7 +188,7 @@ span.favoritethemetext2 {
 }
 
 .makethemetext {
-    margin-left: -20vh;
+    margin-left: -13vh;
 }
 
 .inputthemetitle {
@@ -214,11 +213,14 @@ span.favoritethemetext2 {
 }
 
 .shareswitch {
+    display: inline-block;
     margin-top: 10px;
 }
 
 .tg {
-    margin-top: 1px;
+    display: inline-block;
+    width: 20px;
+    margin-left: 5px;
 }
 
 ul {
