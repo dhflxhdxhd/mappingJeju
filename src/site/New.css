@@ -260,36 +260,10 @@ li {
     background: #68C481;
 }
 
-.serchplace {
-    margin-top: 10px;
-    margin-left: 10px;
-    width: 35%;
-    height: 34px;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-.placesearchbar {
-    width: 88%;
-    margin-top:7px;
-    margin-left: 20px;
-    border: none;
-    border-bottom: 1px solid rgb(175, 175, 175);
-    outline: none;
-    font-weight: bolder;
-}
-
-.placesearchbar::-webkit-input-placeholder {
-    color: rgb(104, 104, 104);
-  }
-  
-  .placesearchbar:focus::-webkit-input-placeholder {
-    color: #68C481;
-  }
-
 .themelist {
     display: inline-block;
     margin-left: 73%;
+    z-index: 3;
   }
 
 .themetitle {
@@ -300,6 +274,7 @@ li {
     height: 90px;
     border-radius: 10px;
     margin-bottom: 5px;
+    z-index: 3;
 }
 
 .place {
@@ -320,6 +295,8 @@ li {
 
 .createthemeheader {
     margin-top: 10px;
+    margin-bottom: 10px;
+    z-index: 2;
 }
 
 .bookmark {
@@ -500,8 +477,159 @@ li {
     align-items: center;
     /* 팝업이 열릴때 스르륵 열리는 효과 */
     animation: modal-bg-show 0.3s;
-  }
-  @keyframes modal-show {
+}
+
+body {
+    margin: 0;
+}
+
+.searchplace {
+    position:absolute;
+    top: 35px;
+    left: 5px;
+    bottom:0;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 25%;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 2;
+    background: white;
+}
+
+.placesearchbar {
+    width: 70%;
+    margin-left: 10px;
+    border: none;
+    border-bottom: 1px solid rgb(175, 175, 175);
+    outline: none;
+    font-weight: bolder;
+}
+
+.placesearchbar::-webkit-input-placeholder {
+    color: rgb(104, 104, 104);
+}
+
+.placesearchbar:focus::-webkit-input-placeholder {
+    color: #68C481;
+}
+
+.searchplace > button {
+    margin-left: 5px;
+    width: 20%;
+    border: none;
+    background-color: white;
+}
+  
+.map_wrap{
+margin:0;
+padding:0;
+font-family:'Malgun Gothic',dotum,'돋움',sans-serif;
+font-size:12px;
+position:absolute;
+width:100%;
+height:100vh;
+z-index: 1;
+}
+
+.App #result-list {
+position:absolute;
+top:70px;
+left:0;
+bottom:0;
+width:25%;
+margin:10px 0 30px 10px;
+padding:5px;
+overflow-y:auto;
+background:rgba(255, 255, 255, 0.7);
+z-index: 2;
+font-size:12px;
+border-radius: 10px;
+}
+
+.App #result-list li {
+list-style: none;
+}
+
+.App #result-list .item {
+position:relative;
+border-bottom:1px solid #888;
+overflow: hidden;
+cursor: pointer;
+min-height: 65px;
+}
+.App #result-list .item span {
+display: block;
+margin-top:4px;
+}
+
+.App #result-list .item .markerbg {
+float:left;
+position:absolute;
+width:36px; 
+height:37px;
+margin:10px 0 0 10px;
+background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;
+}
+
+.App #result-list .item .marker_1 {background-position: 0 -10px;}
+.App #result-list .item .marker_2 {background-position: 0 -56px;}
+.App #result-list .item .marker_3 {background-position: 0 -102px}
+.App #result-list .item .marker_4 {background-position: 0 -148px;}
+.App #result-list .item .marker_5 {background-position: 0 -194px;}
+.App #result-list .item .marker_6 {background-position: 0 -240px;}
+.App #result-list .item .marker_7 {background-position: 0 -286px;}
+.App #result-list .item .marker_8 {background-position: 0 -332px;}
+.App #result-list .item .marker_9 {background-position: 0 -378px;}
+.App #result-list .item .marker_10 {background-position: 0 -423px;}
+.App #result-list .item .marker_11 {background-position: 0 -470px;}
+.App #result-list .item .marker_12 {background-position: 0 -516px;}
+.App #result-list .item .marker_13 {background-position: 0 -562px;}
+.App #result-list .item .marker_14 {background-position: 0 -608px;}
+.App #result-list .item .marker_15 {background-position: 0 -654px;}
+
+
+.App #result-list .item h5, .App #result-list .item .info {
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+}
+
+.App #result-list .item h5 {
+font-size: 12px;
+margin: 8px 0;
+}
+
+.App #result-list .info {
+padding:5px 0 5px 55px;
+text-align: left;
+}
+.App #result-list .info .gray {color:#8a8a8a;}
+.App #result-list .info .jibun {
+padding-left:26px;
+background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;
+}
+.App #result-list .info .tel {color:#009900;}
+
+.App #pagination {
+margin:10px auto;
+text-align:center;
+}
+
+.App #pagination a {
+color: black;
+display:inline-block;
+margin-right:10px;
+}
+
+.App #pagination a.on {
+font-weight: bold;
+cursor: default;
+color:#777;
+}
+
+@keyframes modal-show {
     from {
       opacity: 0;
       margin-top: -50px;
@@ -510,12 +638,12 @@ li {
       opacity: 1;
       margin-top: 0;
     }
-  }
-  @keyframes modal-bg-show {
+}
+@keyframes modal-bg-show {
     from {
       opacity: 0;
     }
     to {
       opacity: 1;
     }
-  }
+}
