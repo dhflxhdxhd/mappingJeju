@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 '''BLUEPRINT'''
-import thema
+from . import thema
 app.register_blueprint(thema.bp)
 
 @app.route('/home')

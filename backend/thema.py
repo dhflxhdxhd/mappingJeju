@@ -1,28 +1,28 @@
 from flask import Flask
 from flask import Blueprint, session, request, redirect, url_for, jsonify
 import bson
-import db
+from . import db
 from bson.objectid import ObjectId
 
 database = db.get_db()
 bp = Blueprint('thema', __name__, url_prefix='/thema')
 
 # 테마 생성
-@bp.route('/', methods=['POST'])
+@bp.route('/sendThema', methods=['POST'])
 def create_thema():
     result = {}
     err = ''
-    temp = 0
+
     if 'user_id' in session:
         thema_name = request.form['thema_name']
         thema_explain = request.form['thema_explain']
-
+        share = request.form['share']
         _id = database.thema.insert_one({
             'thema_name': thema_name,
             'thema_explain': thema_explain,
             'thema_host': session['user_id'],
             'place': [],
-            'share': temp
+            'share': share
         })
 
         database.users.update_one({'id': session['user_id']},

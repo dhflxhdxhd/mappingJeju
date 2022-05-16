@@ -11,8 +11,8 @@ const Maketheme = () => {
         thema_explain : ''
     })
 
-    const [chekedItem, setCheckedItem] = useState(false)
-
+    const [checkedItem, setCheckedItem] = useState(false)
+    
     const {thema_name, thema_explain} = inputs;
 
     const handleChange = (event) => {
@@ -24,27 +24,29 @@ const Maketheme = () => {
         });
     };
 
-    
-    const handleChecked = (checked) => {
+    console.log(checkedItem);
+    const handleChecked = (event) => {
 
-       if(checked){
+       if(event.target.checked){
            setCheckedItem(true);
        }else{
            setCheckedItem(false);
        }
+
+       console.log(checkedItem);
     }
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-        console.log(inputs);
-        console.log(chekedItem);
+        console.log(inputs.thema_name);
+        console.log(checkedItem);
 
         let form = new FormData()
-        form.append('thema_name', this.thema_name)
-        form.append('thema_explain', this.thema_explain)
-        form.append('share', this.chekedItem)
+        form.append('thema_name', inputs.thema_name)
+        form.append('thema_explain',inputs.thema_name)
+        form.append('share', checkedItem)
 
-        axios.post(`/sendThema`,form)
+        axios.post(`/thema/sendThema`,form)
         .then(response => {
             console.log('response', response)
             document.location.href = "/Createtheme"
@@ -71,7 +73,7 @@ const Maketheme = () => {
                 <div className="tg">
                     <ul className="tg-list">
                         <li className="tg-list-item">
-                            <input className="tgl tgl-light" id="cb1" type="checkbox"  name="share" onChange={(event)=> {handleChecked(event.currentTarget.checked)}}/>
+                            <input className="tgl tgl-light" id="cb1" type="checkbox"  name="share" onChange={handleChecked}/>
                             <label className="tgl-btn" htmlFor="cb1"></label>
                         </li>
                     </ul>
