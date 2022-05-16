@@ -374,6 +374,8 @@ li {
 
 .bookmark {
     margin-left: 10px;
+    width: 30px;
+    height: 30px;
     border: none;
     background-color: white;
     border-radius: 20px;
@@ -711,3 +713,75 @@ color:#777;
       opacity: 1;
     }
 }
+
+/* responsive */
+@media screen and (max-width:768px) {
+    .mythemetextandbtn, .favoritethemesidetext {
+        margin-left: 3vh;
+    } 
+    .theme, .course {
+      width: 230px;
+    }
+    .viewallcourse, .viewalltheme, .viewmytheme, .viewfavoritetheme {
+      margin-left: -1vh;
+    }
+  }
+  
+  @media screen and (max-width:414px) {
+    .theme, .course {
+        width: 350px;
+        height: 150px;
+    }
+    .viewalltheme, .viewallcourse {
+        margin-left: 0;
+    }
+    .mypagetextd {
+        margin-left: -20vh;
+    }
+    .mypagebutton {
+        width: 270px;
+        margin-top: 10vh;
+
+    }
+    .gofavoritebutton {
+        margin-top: 3vh;
+        margin-left: 0;
+    }
+    .viewmytheme, .viewfavoritetheme {
+        width: 430px;
+        margin-left: 0;
+      }  
+    .inputthemetitle, .inputthemeexplain {
+        margin-left: -15%;
+    }
+    .makethemetext {
+        margin-left: -18vh;
+    }
+    .searchplace {
+        margin-top: 0.7vh;
+        width: 40%
+    }
+    .placesearchbar {
+        width: 72%;
+    }
+    .searchplace > button {
+        background-color: transparent;
+        height: 20px;
+    }
+    .feather-search {
+        width: 15px;
+    }
+    .App #result-list {
+        width: 48%;
+        font-size: 5px;
+    }
+    .themelist {
+        margin-left: 55%;
+    }
+    .themetitle, .place {
+        width: 170px;
+        height: 70px;
+    }
+  }
+  
+  
