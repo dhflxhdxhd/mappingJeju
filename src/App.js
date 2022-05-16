@@ -17,11 +17,12 @@ import Createcourse from './site/Createcourse';
 import Header from './header';
 import Spinner from './spinner';
 
+
 import './reset.css'
 import './App.css'
 
 function App() {
-  let isLogin = JSON.parse(sessionStorage.getItem("isAuthorized"))
+  let isLogin = JSON.parse(localStorage.getItem("isAuthorized"))
   
   return (
     <div className="App">

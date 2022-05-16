@@ -7,40 +7,44 @@ import Spinner from '../spinner';
 function OAuthRedirectHandler(){  
     const [isLogin, setIsLogin] = useState(false);
     const [loading, setLoading] = useState(false);
-    sessionStorage.setItem("isAuthorized",isLogin);
+    localStorage.setItem("isAuthorized",isLogin);
 
     useEffect(() => {
-        // const CODE = new URL(window.location.href).searchParams.get("code");
+        const CODE = new URL(window.location.href).searchParams.get("code");
+
         const sendToken = async () => {
             setLoading(true);
             console.log("Loading NOW");
 
-
             try {
                 const result = await axios({
-                    method : 'get',
-                    url : 'https://c761f5bd-e611-47d2-8912-46c738863cee.mock.pstmn.io/list/login'
+                    method : 'post',
+                    url : '/login',
+                    data : JSON.stringify({
+                        code : CODE,
+                    }),
+                    headers: {
+                        "Content-Type": `application/json`,
+                    },
                 }).then((response) => {
                     console.log(response);
-                    const ACCESS_TOKEN = JSON.stringify(response.data.token);
+                    const USERID = JSON.stringify(response.data.user);
                     const LOGIN_STATUS = JSON.stringify(response.data.isAuthorized);
-                    sessionStorage.setItem("isAuthorized", LOGIN_STATUS);
-                    sessionStorage.setItem("token",ACCESS_TOKEN);
+                    localStorage.setItem("isAuthorized", LOGIN_STATUS);
+                    localStorage.setItem("userID",USERID);
                     setLoading(false);
-                    setIsLogin(JSON.parse(sessionStorage.getItem("isAuthorized")))
+                    setIsLogin(JSON.parse(localStorage.getItem("isAuthorized")))
                     document.location.href = "/"
                 })
 
                 console.log(result);
 
             } catch (error) {
-                console.log(error);
-                setLoading(false);
-
-                sessionStorage.clear();
-                sessionStorage.setItem("isAuthorized",isLogin);
-                window.alert("login failed by ah");
-                document.location.href = "/login";
+                // console.log(error);
+                // setLoading(false);
+                // localStorage.clear();
+                // localStorage.setItem("isAuthorized",isLogin);
+                // document.location.href = "/login";
             }
         }
 
