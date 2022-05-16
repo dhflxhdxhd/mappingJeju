@@ -28,10 +28,10 @@ function OAuthRedirectHandler(){
                     },
                 }).then((response) => {
                     console.log(response);
-                    const ACCESS_TOKEN = JSON.stringify(response.data.token);
+                    const USERID = JSON.stringify(response.data.user);
                     const LOGIN_STATUS = JSON.stringify(response.data.isAuthorized);
                     localStorage.setItem("isAuthorized", LOGIN_STATUS);
-                    localStorage.setItem("token",ACCESS_TOKEN);
+                    localStorage.setItem("userID",USERID);
                     setLoading(false);
                     setIsLogin(JSON.parse(localStorage.getItem("isAuthorized")))
                     document.location.href = "/"
@@ -40,11 +40,11 @@ function OAuthRedirectHandler(){
                 console.log(result);
 
             } catch (error) {
-                console.log(error);
-                setLoading(false);
-                localStorage.clear();
-                localStorage.setItem("isAuthorized",isLogin);
-                document.location.href = "/";
+                // console.log(error);
+                // setLoading(false);
+                // localStorage.clear();
+                // localStorage.setItem("isAuthorized",isLogin);
+                // document.location.href = "/login";
             }
         }
 

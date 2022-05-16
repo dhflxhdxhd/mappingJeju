@@ -60,8 +60,10 @@ def login():
     session['token'] = access_token
     session['user_id'] = data['id']
 
+    print(session['user_id'])
     return {
-        "isAuthorized" : "true"
+        "isAuthorized" : "true",
+        "user" : session['user_id']
     }
 
 @app.route('/logout', methods=['GET'])
