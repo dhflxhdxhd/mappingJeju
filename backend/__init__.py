@@ -5,10 +5,14 @@ from . import db
 
 app = Flask(__name__)
 
+
+'''BLUEPRINT'''
+import thema
+app.register_blueprint(thema.bp)
+
 @app.route('/home')
 def home():
     return 'hello'
-
 
 import requests
 import json
@@ -23,6 +27,7 @@ CLIENT_ID = '03062174fc92c96245f37bd14ab9bdb8'
 REDIRECT_URI = 'http://localhost:5000'
 SIGNOUT_REDIRECT_URI = 'http://localhost:5000'
 app.secret_key = 'mappingjeju'
+
 
 @app.route('/kakaoauth', methods=['GET'])
 def kakao_auth():
