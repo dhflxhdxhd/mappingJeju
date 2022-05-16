@@ -2,15 +2,11 @@ from flask import Flask, render_template, make_response
 from flask import request
 from . import db
 
-
 app = Flask(__name__)
-
-
 
 @app.route('/home')
 def home():
     return 'homehome'
-
 
 if __name__ == "__main__":
     app.run(debug=True)
@@ -29,11 +25,11 @@ REDIRECT_URI = 'http://localhost:3000/oauth/callback/kakao'
 SIGNOUT_REDIRECT_URI = 'http://localhost:5000'
 app.secret_key = 'mappingjeju'
 
-@app.route('/kakaoauth', methods=['GET'])
-def kakao_auth():
-    redirect_uri = REDIRECT_URI + '/login'
-    url = f"https://kauth.kakao.com/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={redirect_uri}&response_type=code"
-    return redirect(url)
+# @app.route('/kakaoauth', methods=['GET'])
+# def kakao_auth():
+#     redirect_uri = REDIRECT_URI + '/login'
+#     url = f"https://kauth.kakao.com/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={redirect_uri}&response_type=code"
+#     return redirect(url)
 
 @app.route('/login', methods=['GET','POST'])
 def login():
