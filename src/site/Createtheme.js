@@ -37,15 +37,10 @@ const Createtheme = () => {
           <path fillRule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/></svg></button>
         </nav>
 
-
-         {/* <div className="searchplace">
-            <input type="text" className="placesearchbar" placeholder="장소 검색"></input>
-        </div>
-
         <form className="searchplace" onSubmit={handleSubmit}>
           <input className="placesearchbar" placeholder="검색어를 입력하세요" onChange={onChange} value={InputText} />
           <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-        </form> */}
+        </form> 
         <Map searchPlace={Place} />
 
         <div className="themelist">
@@ -62,7 +57,7 @@ const Createtheme = () => {
                             <span className="picregist">사진 등록</span>
                             <div className="pic"></div>
                             <div className="picplusdiv">
-                            <button className="picplus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="plus-lg" viewBox="0 0 16 16">
+                            <button className="picplus"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="plus-lg" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/></svg></button>
                             </div>
                         </div>

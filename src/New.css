@@ -297,15 +297,18 @@ li {
 /* Createtheme */
 .createtheme-wrapper {
     width: 100%;
+    height: 94%;
 }
 
-.searchplace {
+/* .searchplace {
+    position:absolute;
     margin-top: 10px;
     margin-left: 10px;
-    width: 35%;
+    width: 25%;
     height: 34px;
     border: 1px solid black;
     border-radius: 10px;
+    z-index: 2;
 }
 
 .placesearchbar {
@@ -324,15 +327,14 @@ li {
   
 .placesearchbar:focus::-webkit-input-placeholder {
     color: #68C481;
-}
+} */
 
 .themelist {
-    /* 겹쳐서 수정바람 */
-    /* display: block;
-    float: right; */
+    position: absolute;
     display: inline-block;
+    margin-top: 30px    ;
     margin-left: 73%;
-    z-index: 3;
+    z-index: 2;
 }
 
 .themetitle {
@@ -343,7 +345,6 @@ li {
     height: 90px;
     border-radius: 10px;
     margin-bottom: 5px;
-    z-index: 3;
 }
 
 .place {
@@ -363,6 +364,7 @@ li {
 }
 
 .createthemeheader {
+    position: absolute;
     margin-top: 10px;
     margin-bottom: 10px;
     z-index: 2;
@@ -546,21 +548,21 @@ body {
 
 .searchplace {
     position:absolute;
-    top: 35px;
-    left: 5px;
+    top: 80px;
     bottom:0;
     margin-top: 10px;
     margin-left: 10px;
-    width: 25%;
+    width: 26%;
     height: 30px;
     border: 1px solid black;
     border-radius: 10px;
     z-index: 2;
     background: white;
+    
 }
 
 .placesearchbar {
-    width: 70%;
+    width: 77%;
     margin-left: 10px;
     border: none;
     border-bottom: 1px solid rgb(175, 175, 175);
@@ -577,8 +579,7 @@ body {
 }
 
 .searchplace > button {
-    margin-left: 5px;
-    width: 20%;
+    padding-top: 3px;   
     border: none;
     background-color: white;
 }
