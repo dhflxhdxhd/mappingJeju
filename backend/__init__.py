@@ -4,9 +4,15 @@ from . import db
 
 app = Flask(__name__)
 
+
+'''BLUEPRINT'''
+import thema
+app.register_blueprint(thema.bp)
+
 @app.route('/home')
 def home():
     return 'homehome'
+
 
 if __name__ == "__main__":
     app.run(debug=True)
