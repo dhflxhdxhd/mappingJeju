@@ -1,21 +1,11 @@
 import React, {useState} from 'react';
 import '../New.css';
-import Registerplace from './Registerplace';
-import Placemodal from './Placemodal';
 import Map from './Map';
 
 const Createtheme = () => {
 
-  const [modalOpen, setModalOpen] = useState(false);
   const [InputText, setInputText] = useState('');
   const [Place, setPlace] = useState('');
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
 
   const onChange = (e) => {
     setInputText(e.target.value)
@@ -47,10 +37,7 @@ const Createtheme = () => {
         <div className="themelist">
             <div className="themetitle"></div>
             <React.Fragment>
-                <button onClick={openModal} className="explainplace"><div className="place"></div></button>
-                <Registerplace open={modalOpen} close={closeModal} header="장소 등록" className="modaltitle">
-                  <Placemodal />   
-                </Registerplace>
+                <button className="explainplace"><div className="place"></div></button>
             </React.Fragment>
         </div>
     </div>

@@ -8,7 +8,7 @@ const Placemodal = (props) => {
             <div className="modaldata">
                 <div className="placename">
                     <span className="placename">장소 이름</span>
-                    <input type="text" className="placenamebox" text={place_name}></input>
+                    <input type="text" className="placenamebox" defaultValue={place_name}></input>
                 </div>
                 <div>
                     <span className="picregist">사진 등록</span>
