@@ -1,14 +1,17 @@
 from flask import Flask, render_template, make_response
 from flask import request
-from . import db
+from db import db
 
 
 app = Flask(__name__)
 
 @app.route('/home')
 def home():
-    return 'hello'
+    return 'cheer up'
 
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 import requests
 import json
