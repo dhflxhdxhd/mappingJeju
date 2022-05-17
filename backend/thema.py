@@ -54,10 +54,9 @@ def find_my_thema():
         thema_list = []
         for temp in my_id['thema']:
             t = database.thema.find_one({'_id':temp})
-
-            if t:
-                print(json_util.dumps(t))
-                thema_list.append(t)
+            
+            print(json_util.dumps(t))
+            thema_list.append(t)
 
         filter(None, thema_list)
         print(thema_list)
