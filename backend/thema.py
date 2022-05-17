@@ -1,3 +1,4 @@
+from unittest import result
 from flask import Flask
 from flask import Blueprint, session, request, redirect, url_for, jsonify
 import bson
@@ -75,12 +76,15 @@ def find_my_thema():
 # 장소 생성
 @bp.route('/sendPlace', methods=['POST'])
 def add_thema_place():
+    result = 'ok'
+    err = ''
     if 'user_id' in session:
         place_name = request.form['place_name']
         place_lat = request.form['lat']
         place_lng = request.form['lng']
         place_photos = request.form['photos']
         place_explain = request.form['explain']
+        
 
         _id = database.place.insert_one({
                 "place_name": place_name,
@@ -90,17 +94,11 @@ def add_thema_place():
                 "explain": place_explain
         })
      
-        try:
-            thema_id = ObjectId(request.form['thema_id'])
-            if database.thema.find_one({'_id': thema_id}) is None:
-                err = '테마가 존재하지 않습니다.'
-            else:
-                database.thema.update_one({'_id': thema_id},
-                                           {'$addToSet':
-                                                {'place': _id.inserted_id}
-                                            })
-        except bson.errors.InvalidId:
-            err = '에러'
+
+        thema_id = ObjectId(request.form['thema_id'])
+        database.thema.update_one({'_id': thema_id},{'$addToSet':{'place': _id.inserted_id}})
+
     else:
         err = '로그인이 필요합니다.'
-        result = ''
+        
+    return {'thema_id': result, 'error': err}
