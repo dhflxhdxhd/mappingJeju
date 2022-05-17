@@ -75,9 +75,7 @@ def find_my_thema():
 # 장소 생성
 @bp.route('/sendPlace', methods=['POST'])
 def add_thema_place():
-    err = ''
-    result = 'OK'
-
+    
     if 'user_id' in session:
         place_data = {
                 "place_name": request.form['place_name'],
@@ -92,7 +90,7 @@ def add_thema_place():
             if database.thema.find_one({'_id': thema_id}) is None:
                 err = '테마가 존재하지 않습니다.'
             else:
-                database.thema.update_one({'_id': ObjectId(request.form['thema_id'])},
+                database.thema.update_one({'_id': thema_id},
                                            {'$addToSet':
                                                 {'place': place_data}
                                             })
