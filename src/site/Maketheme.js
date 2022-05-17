@@ -4,8 +4,6 @@ import '../New.css';
 
 const Maketheme = () => {
 
-    
-
     const [inputs, setInputs] = useState({
         thema_name : '',
         thema_explain : ''
@@ -43,7 +41,7 @@ const Maketheme = () => {
 
         let form = new FormData()
         form.append('thema_name', inputs.thema_name)
-        form.append('thema_explain',inputs.thema_name)
+        form.append('thema_explain',inputs.thema_explain)
         form.append('share', checkedItem)
 
         axios.post(`/thema/sendThema`,form)
