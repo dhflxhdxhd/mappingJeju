@@ -1,21 +1,11 @@
 import React, {useState} from 'react';
 import '../New.css';
-import Registerplace from './Registerplace';
-import Placemodal from './Placemodal';
 import Map from './Map';
 
 const Createtheme = () => {
 
-  const [modalOpen, setModalOpen] = useState(false);
   const [InputText, setInputText] = useState('');
   const [Place, setPlace] = useState('');
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
 
   const onChange = (e) => {
     setInputText(e.target.value)
@@ -40,17 +30,14 @@ const Createtheme = () => {
 
         <form className="searchplace" onSubmit={handleSubmit}>
           <input className="placesearchbar" placeholder="검색어를 입력하세요" onChange={onChange} value={InputText} />
-          <button type="submit" className="submitbtn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+          <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 -3 20 25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
         </form> 
         <Map searchPlace={Place} />
 
         <div className="themelist">
             <div className="themetitle"></div>
             <React.Fragment>
-                <button onClick={openModal} className="explainplace"><div className="place"></div></button>
-                <Registerplace open={modalOpen} close={closeModal} header="장소 등록" className="modaltitle">
-                  <Placemodal />   
-                </Registerplace>
+                <button className="explainplace"><div className="place"></div></button>
             </React.Fragment>
         </div>
     </div>
