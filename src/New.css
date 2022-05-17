@@ -300,35 +300,6 @@ li {
     height: 94%;
 }
 
-/* .searchplace {
-    position:absolute;
-    margin-top: 10px;
-    margin-left: 10px;
-    width: 25%;
-    height: 34px;
-    border: 1px solid black;
-    border-radius: 10px;
-    z-index: 2;
-}
-
-.placesearchbar {
-    width: 88%;
-    margin-top:7px;
-    margin-left: 20px;
-    border: none;
-    border-bottom: 1px solid rgb(175, 175, 175);
-    outline: none;
-    font-weight: bolder;
-}
-
-.placesearchbar::-webkit-input-placeholder {
-    color: rgb(104, 104, 104);
-  }
-  
-.placesearchbar:focus::-webkit-input-placeholder {
-    color: #68C481;
-} */
-
 .themelist {
     position: absolute;
     display: inline-block;
@@ -398,22 +369,24 @@ li {
     text-align: center;
 }
 
+.delete-lg {
+    display: inline-block;
+    text-align: center;
+}
+
 .placename {
     display: block;
 }
 
 .picregist {
-    display: block;
+    /* display: block; */
 }
 
-.pic {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    background-color: rgb(219, 219, 219);;
+.picinput {
+    display: none;
 }
 
-.picplusdiv {
+.picpluslabel {
     display: inline-block;
     position: relative;
     margin-bottom: 15px;
@@ -424,13 +397,39 @@ li {
     position: absolute;
     display: inline-block;
     margin-left: 10px;
-    margin-top: -50px;
+    margin-top: -5px;
     width: 30px;
     height: 30px;
     border: none;
-    background-color: white;
+    background-color: #68C481;
     border-radius: 20px;
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.picwrapper {
+    width: 95%;
+    height: 125px;
+    margin-top: 15px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.picwrapper::-webkit-scrollbar{ 
+    display:none; 
+}
+
+.piccontainer {
+   margin-left: 5px;
+}
+
+.pic {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+.picdelete {
+    display: inline-block;
+    background-color: #ffff;
 }
 
 .placeexplain {
@@ -439,13 +438,13 @@ li {
 }
 
 .placenamebox {
-    width: 300px;
+    width: 95%;
     height: 50px;
     margin-bottom: 20px;
 }
 
 .placeexplainbox {
-    width: 300px;
+    width: 95%;
     height: 150px;
 }
 
@@ -552,7 +551,7 @@ body {
     bottom:0;
     margin-top: 10px;
     margin-left: 10px;
-    width: 26%;
+    width: 25%;
     height: 30px;
     border: 1px solid black;
     border-radius: 10px;
@@ -578,10 +577,10 @@ body {
     color: #68C481;
 }
 
-.searchplace > button {
-    padding-top: 3px;   
+.searchplace > button { 
     border: none;
     background-color: white;
+    margin-left: 5px;
 }
   
 .map_wrap{
