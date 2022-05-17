@@ -1,8 +1,17 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../App.css';
 
 function Mytheme(props) {
+  // const USERID = localStorage.getItem('userID')
+  axios.get(`/thema/getMyThema`)
+  .then(response => {
+      console.log('response', response)
+  }).catch(error => {
+      console.log('failed!', error)
+  })
+  
   return (
   <div className="mytheme">
     <div className="mythemetextandbtn">

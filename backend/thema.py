@@ -2,7 +2,8 @@ from flask import Flask
 from flask import Blueprint, session, request, redirect, url_for, jsonify
 import bson
 from . import db
-from bson.objectid import ObjectId
+from bson import json_util, ObjectId
+import json
 
 database = db.get_db()
 bp = Blueprint('thema', __name__, url_prefix='/thema')
@@ -16,7 +17,8 @@ def create_thema():
     if 'user_id' in session:
         thema_name = request.form['thema_name']
         thema_explain = request.form['thema_explain']
-        share = request.form['share']
+        share = json.loads(request.form['share'].lower())
+
         _id = database.thema.insert_one({
             'thema_name': thema_name,
             'thema_explain': thema_explain,
@@ -38,18 +40,33 @@ def create_thema():
 
 
 # 테마 조회
-@bp.route('/', methods=['GET'])
+@bp.route('/getMyThema', methods=['GET'])
 def find_my_thema():
+    print(session['user_id'])
+
     if 'user_id' in session:
         my_id = database.users.find_one({'id': session['user_id']})
+        # print(str(my_id))
+        # thema_list = []
+        # for t in database.thema.find({"thema_host":my_id}):
+        #      thema_list.append(t)
+
         thema_list = []
-
         for temp in my_id['thema']:
-            t = database.thema.find_one({'_id': temp})
-            thema_list.append(t)
+            t = database.thema.find_one({'_id':temp})
 
-        return jsonify({"thema": thema_list})
-    
+            if t:
+                print(json_util.dumps(t))
+                thema_list.append(t)
+
+        filter(None, thema_list)
+        print(thema_list)
+
+        data = {"thema_list" : thema_list}
+        print(json.loads(json_util.dumps(data)))
+
+        return json.loads(json_util.dumps(data))
+
     else:
         err = '로그인이 필요합니다.'
         return redirect(url_for('home'))
