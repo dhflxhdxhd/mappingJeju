@@ -73,7 +73,7 @@ def find_my_thema():
 
 
 # 장소 생성
-@bp.route('/', methods=['POST'])
+@bp.route('/sendPlace', methods=['POST'])
 def add_thema_place():
     err = ''
     result = 'OK'
@@ -81,9 +81,9 @@ def add_thema_place():
     if 'user_id' in session:
         place_data = {
                 "place_name": request.form['place_name'],
-                "lat": request.form['latitude'],
-                "lng": request.form['longitude'],
-                "address_name": request.form['address_name'],
+                "lat": request.form['lat'],
+                "lng": request.form['lng'],
+                "photos": request.form['photos'],
                 "explain": request.form['explain']
             }
 
