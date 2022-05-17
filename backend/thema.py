@@ -75,16 +75,21 @@ def find_my_thema():
 # 장소 생성
 @bp.route('/sendPlace', methods=['POST'])
 def add_thema_place():
-    
     if 'user_id' in session:
-        place_data = {
-                "place_name": request.form['place_name'],
-                "lat": request.form['lat'],
-                "lng": request.form['lng'],
-                "photos": request.form['photos'],
-                "explain": request.form['explain']
-            }
+        place_name = request.form['place_name']
+        place_lat = request.form['lat']
+        place_lng = request.form['lng']
+        place_photos = request.form['photos']
+        place_explain = request.form['explain']
 
+        _id = database.place.insert_one({
+                "place_name": place_name,
+                "lat": place_lat,
+                "lng": place_lng,
+                "photos": place_photos,
+                "explain": place_explain
+        })
+     
         try:
             thema_id = ObjectId(request.form['thema_id'])
             if database.thema.find_one({'_id': thema_id}) is None:
@@ -92,7 +97,7 @@ def add_thema_place():
             else:
                 database.thema.update_one({'_id': thema_id},
                                            {'$addToSet':
-                                                {'place': place_data}
+                                                {'place': _id.inserted_id}
                                             })
         except bson.errors.InvalidId:
             err = '에러'
