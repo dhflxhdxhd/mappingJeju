@@ -25,8 +25,9 @@ const Placemodal = (props) => {
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-
+        const thema_id = sessionStorage.getItem('thema_id')
         let form = new FormData()
+        form.append('thema_id',thema_id )
         form.append('place_name', inputs.name)
         form.append('explain',inputs.explain)
         form.append('photos', showImages)

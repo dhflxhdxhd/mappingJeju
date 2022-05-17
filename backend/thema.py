@@ -37,40 +37,44 @@ def create_thema():
     else:
         err = '로그인이 필요합니다.'
 
-    return {'thema_id': result, 'error': err}
+    thema_info = database.thema.find_one({'thema_name' : thema_name})
+    thema_id_dict = {thema_info['_id']}
+    thema_id =(json.loads(json_util.dumps(thema_id_dict))[0])['$oid']
+    print(thema_id)
+    return {'thema_id': thema_id , 'error': err}
 
 
 # 테마 조회
-@bp.route('/getMyThema', methods=['GET'])
-def find_my_thema():
-    print(session['user_id'])
+# @bp.route('/getMyThema', methods=['GET'])
+# def find_my_thema():
+#     print(session['user_id'])
 
-    if 'user_id' in session:
-        my_id = database.users.find_one({'id': session['user_id']})
-        # print(str(my_id))
-        # thema_list = []
-        # for t in database.thema.find({"thema_host":my_id}):
-        #      thema_list.append(t)
+#     if 'user_id' in session:
+#         my_id = database.users.find_one({'id': session['user_id']})
+#         # print(str(my_id))
+#         # thema_list = []
+#         # for t in database.thema.find({"thema_host":my_id}):
+#         #      thema_list.append(t)
 
-        thema_list = []
-        for temp in my_id['thema']:
-            t = database.thema.find_one({'_id':temp})
+#         thema_list = []
+#         for temp in my_id['thema']:
+#             t = database.thema.find_one({'_id':temp})
 
-            if t:
-                print(json_util.dumps(t))
-                thema_list.append(t)
+#             if t:
+#                 print(json_util.dumps(t))
+#                 thema_list.append(t)
 
-        filter(None, thema_list)
-        print(thema_list)
+#         filter(None, thema_list)
+#         print(thema_list)
 
-        data = {"thema_list" : thema_list}
-        print(json.loads(json_util.dumps(data)))
+#         data = {"thema_list" : thema_list}
+#         print(json.loads(json_util.dumps(data)))
 
-        return json.loads(json_util.dumps(data))
+#         return json.loads(json_util.dumps(data))
 
-    else:
-        err = '로그인이 필요합니다.'
-        return redirect(url_for('home'))
+#     else:
+#         err = '로그인이 필요합니다.'
+#         return redirect(url_for('home'))
 
 
 # 장소 생성
@@ -95,7 +99,7 @@ def add_thema_place():
                 "explain": place_explain
         })
      
-        database.thema.update_one({'_id': thema_id},{'$addToSet':{'place': _id.inserted_id}})
+        database.thema.update_one({'_id': 'thema_id'},{'$addToSet':{'place': _id.inserted_id}})
 
     else:
         err = '로그인이 필요합니다.'
