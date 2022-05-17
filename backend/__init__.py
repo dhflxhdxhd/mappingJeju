@@ -1,13 +1,17 @@
 from flask import Flask, render_template, make_response
 from flask import request
-from db import db
-
+from . import db
 
 app = Flask(__name__)
 
+
+'''BLUEPRINT'''
+from . import thema
+app.register_blueprint(thema.bp)
+
 @app.route('/home')
 def home():
-    return 'cheer up'
+    return 'homehome'
 
 
 if __name__ == "__main__":
@@ -23,20 +27,23 @@ USER_PW = '1234'
 
 '''KAKAO'''
 CLIENT_ID = '03062174fc92c96245f37bd14ab9bdb8'
-REDIRECT_URI = 'http://localhost:5000'
+REDIRECT_URI = 'http://localhost:3000/oauth/callback/kakao'
 SIGNOUT_REDIRECT_URI = 'http://localhost:5000'
 app.secret_key = 'mappingjeju'
 
-@app.route('/kakaoauth', methods=['GET'])
-def kakao_auth():
-    redirect_uri = REDIRECT_URI + '/login'
-    url = f"https://kauth.kakao.com/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={redirect_uri}&response_type=code"
-    return redirect(url)
+# @app.route('/kakaoauth', methods=['GET'])
+# def kakao_auth():
+#     redirect_uri = REDIRECT_URI + '/login'
+#     url = f"https://kauth.kakao.com/oauth/authorize?client_id={CLIENT_ID}&redirect_uri={redirect_uri}&response_type=code"
+#     return redirect(url)
 
-@app.route('/login', methods=['GET'])
+@app.route('/login', methods=['GET','POST'])
 def login():
-    auth_code = request.args.get('code')
-    redirect_uri = REDIRECT_URI + '/login'
+    CODE = request.get_json()
+    auth_code = CODE['code']
+    # auth_code = request.args.get('code')
+    # redirect_uri = REDIRECT_URI + '/login'
+    redirect_uri = REDIRECT_URI
     token_request = requests.post(
         f"https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={CLIENT_ID}&redirect_uri={redirect_uri}&code={auth_code}"
     )
@@ -55,7 +62,11 @@ def login():
     session['token'] = access_token
     session['user_id'] = data['id']
 
-    return redirect(url_for('home'))
+    print(session['user_id'])
+    return {
+        "isAuthorized" : "true",
+        "user" : session['user_id']
+    }
 
 @app.route('/logout', methods=['GET'])
 def logout():

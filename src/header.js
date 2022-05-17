@@ -2,7 +2,7 @@ import logout from "./login/Logout";
 
 
 const Header = () => {
-    let isLogin = JSON.parse(sessionStorage.getItem("isAuthorized"))
+    let isLogin = JSON.parse(localStorage.getItem("isAuthorized"))
     console.log(isLogin);
 
     function GotoMain(event){

@@ -55,7 +55,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 35vh;
+  margin-top: 30vh;
   margin-bottom: 30vh;
 }
 
@@ -197,6 +197,7 @@ span.allthemetext2 {
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-top: 10vh;
 }
 
 .allcoursesidetext {
@@ -262,12 +263,52 @@ span.searchtext2 {
   width: 800px;
 }
 
-@media (max-width:768px){
-  #main {
-      display: block;
+@media only all and (min-width: 500px) and (max-width:820px) {
+  .main-wrapper {
+    margin-left: 3vh;
+    margin-bottom: 40vh;
   }
-  #main .sidebar {
-      min-height: 0;
+  .mainpic {
+    width: 90%;
+  }
+  .all {
+    margin-top: 0.2vh;
+    font-size: 1.1em;
+  }
+  .searchsidetext, .allcoursesidetext, .allthemesidetext {
+    margin-left: 3vh;
+  }
+  .theme, .course {
+    width: 230px;
+  }
+  .searchedtheme, .viewallcourse, .viewalltheme, .viewmytheme {
+    margin-left: -1vh;
+  }
+}
+
+@media only all and (max-width:415px) {
+  .main-wrapper {
+    margin-top: 35vh;
+    margin-bottom: 45vh;
+    margin-left: 1vh;
+  }
+  .searchbox {
+    margin-top: -2vh;
+    font-size: 2.5em;
+  }
+  .mainpic {
+    display: none;
+  }
+  .searchsidetext, .allcoursesidetext, .allthemesidetext {
+    margin-left: 3vh;
+  }
+  .theme, .course {
+    width: 350px;
+    height: 150px;
+  }
+  .searchedtheme, .viewalltheme, .viewallcourse {
+    width: 430px;
+    margin-left: 0;
   }
 }
 
