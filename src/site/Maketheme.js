@@ -46,7 +46,9 @@ const Maketheme = () => {
 
         axios.post(`/thema/sendThema`,form)
         .then(response => {
-            console.log('response', response)
+            console.log('response', response.data.thema_id)
+            sessionStorage.setItem('thema_id', response.data.thema_id)
+            console.log("hihi")
             document.location.href = "/Createtheme"
         }).catch(error => {
             console.log('failed!', error)

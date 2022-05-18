@@ -1,3 +1,4 @@
+from unittest import result
 from flask import Flask
 from flask import Blueprint, session, request, redirect, url_for, jsonify
 import bson
@@ -36,67 +37,71 @@ def create_thema():
     else:
         err = '로그인이 필요합니다.'
 
-    return {'thema_id': result, 'error': err}
+    thema_info = database.thema.find_one({'thema_name' : thema_name})
+    thema_id_dict = {thema_info['_id']}
+    thema_id =(json.loads(json_util.dumps(thema_id_dict))[0])['$oid']
+    print(thema_id)
+    return {'thema_id': thema_id , 'error': err}
 
 
 # 테마 조회
-@bp.route('/getMyThema', methods=['GET'])
-def find_my_thema():
-    print(session['user_id'])
+# @bp.route('/getMyThema', methods=['GET'])
+# def find_my_thema():
+#     print(session['user_id'])
 
-    if 'user_id' in session:
-        my_id = database.users.find_one({'id': session['user_id']})
-        # print(str(my_id))
-        # thema_list = []
-        # for t in database.thema.find({"thema_host":my_id}):
-        #      thema_list.append(t)
+#     if 'user_id' in session:
+#         my_id = database.users.find_one({'id': session['user_id']})
+#         # print(str(my_id))
+#         # thema_list = []
+#         # for t in database.thema.find({"thema_host":my_id}):
+#         #      thema_list.append(t)
 
-        thema_list = []
-        for temp in my_id['thema']:
-            t = database.thema.find_one({'_id':temp})
-            
-            print(json_util.dumps(t))
-            thema_list.append(t)
+#         thema_list = []
+#         for temp in my_id['thema']:
+#             t = database.thema.find_one({'_id':temp})
 
-        filter(None, thema_list)
-        print(thema_list)
+#             if t:
+#                 print(json_util.dumps(t))
+#                 thema_list.append(t)
 
-        data = {"thema_list" : thema_list}
-        print(json.loads(json_util.dumps(data)))
+#         filter(None, thema_list)
+#         print(thema_list)
 
-        return json.loads(json_util.dumps(data))
+#         data = {"thema_list" : thema_list}
+#         print(json.loads(json_util.dumps(data)))
 
-    else:
-        err = '로그인이 필요합니다.'
-        return redirect(url_for('home'))
+#         return json.loads(json_util.dumps(data))
+
+#     else:
+#         err = '로그인이 필요합니다.'
+#         return redirect(url_for('home'))
 
 
 # 장소 생성
-@bp.route('/', methods=['POST'])
+@bp.route('/sendPlace', methods=['POST'])
 def add_thema_place():
+    result = 'ok'
     err = ''
-    result = 'OK'
 
     if 'user_id' in session:
-        place_data = {
-                "place_name": request.form['place_name'],
-                "lat": request.form['latitude'],
-                "lng": request.form['longitude'],
-                "address_name": request.form['address_name'],
-                "explain": request.form['explain']
-            }
+        place_name = request.form['place_name']
+        place_lat = request.form['lat']
+        place_lng = request.form['lng']
+        place_photos = request.form['photos']
+        place_explain = request.form['explain']
+        thema_id = request.form['thema_id']
 
-        try:
-            thema_id = ObjectId(request.form['thema_id'])
-            if database.thema.find_one({'_id': thema_id}) is None:
-                err = '테마가 존재하지 않습니다.'
-            else:
-                database.thema.update_one({'_id': ObjectId(request.form['thema_id'])},
-                                           {'$addToSet':
-                                                {'place': place_data}
-                                            })
-        except bson.errors.InvalidId:
-            err = '에러'
+        _id = database.place.insert_one({
+                "place_name": place_name,
+                "lat": place_lat,
+                "lng": place_lng,
+                "photos": place_photos,
+                "explain": place_explain
+        })
+     
+        database.thema.update_one({'_id': 'thema_id'},{'$addToSet':{'place': _id.inserted_id}})
+
     else:
         err = '로그인이 필요합니다.'
-        result = ''
+        
+    return {'thema_id': result, 'error': err}
