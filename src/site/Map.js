@@ -137,19 +137,19 @@ const Map = ({ searchPlace }) => {
   }, [searchPlace])
 
   return (
-    <div className='map_wrap'>
+    <><div className='map_wrap'>
       <div
         id="myMap"
         style={{
           width: '100%',
           height: '100%',
-          position:'realtive',
+          position: 'realtive',
           overflow: 'hidden',
         }}
       ></div>
       <ul id="result-list">
         {Places.map((item, i) => (
-          <li className='item' key={i} onClick={(e)=>{openModal(item.y, item.x, item.place_name)}}>
+          <li className='item' key={i} onClick={(e) => { openModal(item.y, item.x, item.place_name) } }>
             <span className={'markerbg marker_' + (i + 1)}></span>
             <div className='info'>
               <h5>{item.place_name}</h5>
@@ -167,10 +167,10 @@ const Map = ({ searchPlace }) => {
         ))}
         <div id="pagination"></div>
       </ul>
-      <Registerplace open={modalOpen} close={closeModal} header="장소 등록" className="modaltitle">
-        <Placemodal lat={placeLat} lng={placeLng} place_name={placeName}/>
-      </Registerplace>
     </div>
+    <Registerplace open={modalOpen} close={closeModal} header="장소 등록" className="modaltitle">
+      <Placemodal lat={placeLat} lng={placeLng} place_name={placeName} />
+    </Registerplace></>
   )
 }
 

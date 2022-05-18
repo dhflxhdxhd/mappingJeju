@@ -34,12 +34,12 @@ const Createtheme = () => {
         </form> 
         <Map searchPlace={Place} />
 
-        {/* <div className="themelist">
+        <div className="themelist">
             <div className="themetitle"></div>
-            <React.Fragment>
+            {/* <React.Fragment>
                 <button className="explainplace"><div className="place"></div></button>
-            </React.Fragment>
-        </div> */}
+            </React.Fragment> */}
+        </div>
     </div>
   );
 }
