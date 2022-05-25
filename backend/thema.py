@@ -105,3 +105,23 @@ def add_thema_place():
         err = '로그인이 필요합니다.'
         
     return {'thema_id': result, 'error': err}
+
+# 장소 불러오기 
+@bp.route('/', methods=['POST'])
+def get_thema_place():
+    result = 'ok'
+    err = ''
+    thema_id = request.form['thema_id']
+    places = []
+
+    if 'user_id' in session:
+        thema_info = database.thema.find_one({'id': ObjectId(thema_id)})
+        thema_place_id_list = thema_info['place']
+        for place_id in thema_place_id_list:
+            p = database.place.find_many({'_id': place_id})
+            p['_id'] = str(p['_id'])
+            places.append(p)
+    else:
+        err = '로그인이 필요합니다.'
+        
+    return {'places': places}
