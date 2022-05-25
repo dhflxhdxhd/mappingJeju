@@ -99,7 +99,7 @@ def add_thema_place():
                 "explain": place_explain
         })
      
-        database.thema.update_one({'_id': 'thema_id'},{'$addToSet':{'place': _id.inserted_id}})
+        database.thema.update_one({'_id': ObjectId(thema_id)},{'$addToSet':{'place': _id.inserted_id}})
 
     else:
         err = '로그인이 필요합니다.'
