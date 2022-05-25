@@ -12,7 +12,6 @@ bp = Blueprint('thema', __name__, url_prefix='/thema')
 # 테마 생성
 @bp.route('/sendThema', methods=['POST'])
 def create_thema():
-    result = {}
     err = ''
 
     if 'user_id' in session:
@@ -80,7 +79,6 @@ def create_thema():
 # 장소 생성
 @bp.route('/sendPlace', methods=['POST'])
 def add_thema_place():
-    result = 'ok'
     err = ''
 
     if 'user_id' in session:
@@ -104,12 +102,11 @@ def add_thema_place():
     else:
         err = '로그인이 필요합니다.'
         
-    return {'thema_id': result, 'error': err}
+    return {'thema_id': thema_id, 'error': err}
 
 # 장소 불러오기 
 @bp.route('/', methods=['POST'])
 def get_thema_place():
-    result = 'ok'
     err = ''
     thema_id = request.form['thema_id']
     places = []
