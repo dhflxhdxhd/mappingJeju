@@ -105,7 +105,7 @@ def add_thema_place():
     return {'thema_id': thema_id, 'error': err}
 
 # 장소 불러오기 
-@bp.route('/', methods=['POST'])
+@bp.route('/', methods=['GET'])
 def get_thema_place():
     err = ''
     thema_id = request.form['thema_id']
@@ -122,3 +122,4 @@ def get_thema_place():
         err = '로그인이 필요합니다.'
         
     return {'places': places}
+
