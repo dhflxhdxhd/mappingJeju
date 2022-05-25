@@ -115,7 +115,7 @@ def get_thema_place():
         thema_info = database.thema.find_one({'id': ObjectId(thema_id)})
         thema_place_id_list = thema_info['place']
         for place_id in thema_place_id_list:
-            p = database.place.find_many({'_id': place_id})
+            p = database.place.find_one({'_id': place_id})
             p['_id'] = str(p['_id'])
             places.append(p)
     else:
