@@ -42,43 +42,44 @@ def create_thema():
     print(thema_id)
     return {'thema_id': thema_id , 'error': err}
 
+    
 
 # 테마 조회
-# @bp.route('/getMyThema', methods=['GET'])
-# def find_my_thema():
-#     print(session['user_id'])
+@bp.route('/getMyThema', methods=['GET'])
+def find_my_thema():
+    print(session['user_id'])
 
-#     if 'user_id' in session:
-#         my_id = database.users.find_one({'id': session['user_id']})
-#         # print(str(my_id))
-#         # thema_list = []
-#         # for t in database.thema.find({"thema_host":my_id}):
-#         #      thema_list.append(t)
+    if 'user_id' in session:
+        my_id = database.users.find_one({'id': session['user_id']})
+        # print(str(my_id))
+        # thema_list = []
+        # for t in database.thema.find({"thema_host":my_id}):
+        #      thema_list.append(t)
 
-#         thema_list = []
-#         for temp in my_id['thema']:
-#             t = database.thema.find_one({'_id':temp})
+        thema_list = []
+        for temp in my_id['thema']:
+            t = database.thema.find_one({'_id':temp})
 
-#             if t:
-#                 print(json_util.dumps(t))
-#                 thema_list.append(t)
+            if t:
+                print(json_util.dumps(t))
+                thema_list.append(t)
 
-#         filter(None, thema_list)
-#         print(thema_list)
+        print(thema_list)
 
-#         data = {"thema_list" : thema_list}
-#         print(json.loads(json_util.dumps(data)))
+        data = {"thema_list" : thema_list}
+        print(json.loads(json_util.dumps(data)))
 
-#         return json.loads(json_util.dumps(data))
+        return json.loads(json_util.dumps(data))
 
-#     else:
-#         err = '로그인이 필요합니다.'
-#         return redirect(url_for('home'))
+    else:
+        err = '로그인이 필요합니다.'
+        return redirect(url_for('home'))
 
 
 # 장소 생성
 @bp.route('/sendPlace', methods=['POST'])
 def add_thema_place():
+    result = 'ok'
     err = ''
 
     if 'user_id' in session:
@@ -104,22 +105,5 @@ def add_thema_place():
         
     return {'thema_id': thema_id, 'error': err}
 
-# 장소 불러오기 
-@bp.route('/', methods=['GET'])
-def get_thema_place():
-    err = ''
-    thema_id = request.form['thema_id']
-    places = []
 
-    if 'user_id' in session:
-        thema_info = database.thema.find_one({'id': ObjectId(thema_id)})
-        thema_place_id_list = thema_info['place']
-        for place_id in thema_place_id_list:
-            p = database.place.find_one({'_id': place_id})
-            p['_id'] = str(p['_id'])
-            places.append(p)
-    else:
-        err = '로그인이 필요합니다.'
-        
-    return {'places': places}
 

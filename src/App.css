@@ -138,11 +138,27 @@ span.sidetext2 {
 .theme {
   margin: 10px 10px 0 0;
   display: inline-block;
+  display:inline-block;
   width: 250px;
   height: 100px;
   background-color: #9b9b9b;
+  background-color: #F8F8F8;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+  border-radius: 12px;
+  padding: 2px;
 }
 
+.theme:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.themeName{
+  font-size: 16px;
+}
+
+.themeExplain{
+  font-size: 14px;
+}
 .course {
   margin: 10px 10px 0 0;
   display: inline-block;
