@@ -14,7 +14,7 @@ def login(user_id):
 
 def regist_if_not_exists(id, kakao_account):
     if not get_user(id):
-        db.users.insert_one({'id': id, 'kakao_account': kakao_account, 'thema':[], 'group':[], 'cource':[]})
+        db.users.insert_one({'id': id, 'kakao_account': kakao_account, 'thema':[], 'group':[], 'cource':[], 'zzim_thema':[]})
         print('사용자 생성 : ', id)
 
 def get_user(id):
