@@ -1,3 +1,4 @@
+import React from 'react'
 import { KAKAO_AUTH_URL } from "./OAuth"
 import kakaoBtn from '../img/kakaoBtn.png'
 

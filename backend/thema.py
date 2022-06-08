@@ -95,7 +95,8 @@ def add_thema_place():
                 "lat": place_lat,
                 "lng": place_lng,
                 "photos": place_photos,
-                "explain": place_explain
+                "explain": place_explain,
+                "thema_id": thema_id
         })
      
         database.thema.update_one({'_id': ObjectId(thema_id)},{'$addToSet':{'place': _id.inserted_id}})
@@ -105,7 +106,24 @@ def add_thema_place():
         
     return {'thema_id': thema_id, 'error': err}
 
+# 장소 불러오기 
+@bp.route('/getPlace', methods=['GET'])
+def get_thema_place():
+    err = ''
+    thema_id = request.form['thema_id']
+    places = []
 
+    if 'user_id' in session:
+        thema_info = database.thema.find_one({'id': ObjectId(thema_id)})
+        thema_place_id_list = thema_info['place']
+        for place_id in thema_place_id_list:
+            p = database.place.find_one({'_id': place_id})
+            p['_id'] = str(p['_id'])
+            places.append(p)
+    else:
+        err = '로그인이 필요합니다.'
+        
+    return {'places': places}
 
 # 테마 찜하기
 @bp.route('/', methods=['POST'])

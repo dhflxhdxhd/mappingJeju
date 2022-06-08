@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import '../New.css';
 import Map from './Map';
 
@@ -6,6 +7,18 @@ const Createtheme = () => {
 
   const [InputText, setInputText] = useState('');
   const [Place, setPlace] = useState('');
+  const [PlaceList, setPlaceList] = useState([]);
+
+  useEffect(()=>{
+    const fetchPlace = async() => {
+      const result = await axios(`/thema/getPlace`);
+      console.log(result.data.places)
+      setPlaceList(result.data.places);
+    };
+
+    fetchPlace();
+    
+  },[]);
 
   const onChange = (e) => {
     setInputText(e.target.value)

@@ -48,6 +48,7 @@ const Maketheme = () => {
         .then(response => {
             console.log('response', response)
             console.log('response', response.data)
+            const thema_id = sessionStorage.setItem("thema_id",response.data.thema_id)
             document.location.href = "/Createtheme"
         }).catch(error => {
             console.log('failed!', error)

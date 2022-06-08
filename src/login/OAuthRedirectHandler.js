@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import axios from "axios"
 import Spinner from '../spinner';
-
+import React from 'react'
 
 function OAuthRedirectHandler(){  
     const [isLogin, setIsLogin] = useState(false);
