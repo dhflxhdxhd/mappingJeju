@@ -106,21 +106,22 @@ def add_thema_place():
     return {'thema_id': thema_id}
 
 # 장소 조회
-@bp.route('/getplaces', methods=['get'])
+@bp.route('/', methods=['get'])
 def get_thema_place():
     thema_id = ObjectId(request.form['thema_id'])
     places = []
 
-    thema_info = database.thema.find_one({'_id': thema_id})
-    thema_place_id_list =  thema_info['place']
-    
-    for place_id in thema_place_id_list:
-        p = database.place.find_one({'_id': place_id})
-        if p:
-            places.append(p)
+    if 'user_id' in session:
+        thema_info = database.thema.find_one({'_id': thema_id})
+        thema_place_id_list =  thema_info['place']
+        for place_id in thema_place_id_list:
+            p = database.place.find_one({'_id': place_id})
+            if p:
+                places.append(p)
+    else:
+        err = '로그인이 필요합니다.'
     
     data = {'places': places}
-
     return json.loads(json_util.dumps(data))
 
 # 장소 불러오기 
@@ -178,22 +179,5 @@ def find_my_zzim():
         err = '로그인이 필요합니다.'
         return redirect(url_for('home'))
 
-# # 장소 조회
-# @bp.route('/', methods=['get'])
-# def get_thema_place():
-#     thema_id = ObjectId(request.form['thema_id'])
-#     places = []
 
-#     if 'user_id' in session:
-#         thema_info = database.thema.find_one({'_id': thema_id})
-#         thema_place_id_list =  thema_info['place']
-#         for place_id in thema_place_id_list:
-#             p = database.place.find_one({'_id': place_id})
-#             if p:
-#                 places.append(p)
-#     else:
-#         err = '로그인이 필요합니다.'
-    
-#     data = {'places': places}
-#     return json.loads(json_util.dumps(data))
 
