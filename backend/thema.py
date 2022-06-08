@@ -125,21 +125,19 @@ def add_zzim_thema():
 # 찜 조회
 @bp.route('/getMyZzim', methods=['GET'])
 def find_my_zzim():
-    print(session['user_id'])
 
     if 'user_id' in session:
         my_id = database.users.find_one({'id': session['user_id']})
         zzim_list = []
-        for temp in my_id['zzim']:
+        for temp in my_id['zzim_thema']:
             t = database.thema.find_one({'_id':temp})
             if t:
-                print(json_util.dumps(t))
                 zzim_list.append(t)
 
         print(zzim_list)
 
         data = {"zzim_list" : zzim_list}
-        print(json.loads(json_util.dumps(data)))
+
         return json.loads(json_util.dumps(data))
     else:
         err = '로그인이 필요합니다.'
