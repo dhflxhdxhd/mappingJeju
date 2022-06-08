@@ -98,7 +98,7 @@ def add_thema_place():
                 "explain": place_explain
         })
      
-        database.thema.update_one({'_id': ObjectId(thema_id)},{'$addToSet':{'place': _id.inserted_id}})
+        database.thema.update_one({'_id': thema_id},{'$addToSet':{'place': _id.inserted_id}})
 
     else:
         err = '로그인이 필요합니다.'
@@ -111,15 +111,16 @@ def add_thema_place():
 @bp.route('/', methods=['POST'])
 def add_zzim_thema():
     if 'user_id' in session:
-        thema_id = request.form['thema_id']
-        database.users.update_one({'id': session['user_id']},
-                {'$addToSet': {
-                    'zzim': ObjectId(thema_id)
-                    }
-                })
-    else:
-        err = '먼저 로그인을 해주세요'
-        return redirect(url_for('home'))
+        thema_id = ObjectId(request.form['thema_id'])
+        database.users.update_one({'id': session('user_id')},
+            {'$addToSet': {
+                'zzim_thema': thema_id
+                }
+            })
+    data = {"zzim_id" : thema_id}
+
+    return json.loads(json_util.dumps(data))
+
 
 # 찜 조회
 @bp.route('/getMyZzim', methods=['GET'])
