@@ -76,11 +76,10 @@ def find_my_thema():
         return redirect(url_for('home'))
 
 
+
 # 장소 생성
 @bp.route('/sendPlace', methods=['POST'])
 def add_thema_place():
-    result = 'ok'
-    err = ''
 
     if 'user_id' in session:
         place_name = request.form['place_name']
@@ -104,7 +103,25 @@ def add_thema_place():
     else:
         err = '로그인이 필요합니다.'
         
-    return {'thema_id': thema_id, 'error': err}
+    return {'thema_id': thema_id}
+
+# 장소 조회
+@bp.route('/getplaces', methods=['get'])
+def get_thema_place():
+    thema_id = ObjectId(request.form['thema_id'])
+    places = []
+
+    thema_info = database.thema.find_one({'_id': thema_id})
+    thema_place_id_list =  thema_info['place']
+    
+    for place_id in thema_place_id_list:
+        p = database.place.find_one({'_id': place_id})
+        if p:
+            places.append(p)
+    
+    data = {'places': places}
+
+    return json.loads(json_util.dumps(data))
 
 # 장소 불러오기 
 @bp.route('/getPlace', methods=['GET'])
@@ -139,8 +156,8 @@ def add_zzim_thema():
         err = '먼저 로그인을 해주세요'
         return redirect(url_for('home'))
 
-# 찜 조회
-@bp.route('/getMyZzim', methods=['GET'])
+# 테마 찜 조회
+@bp.route('/getmyzzim', methods=['GET'])
 def find_my_zzim():
 
     if 'user_id' in session:
@@ -160,3 +177,23 @@ def find_my_zzim():
     else:
         err = '로그인이 필요합니다.'
         return redirect(url_for('home'))
+
+# # 장소 조회
+# @bp.route('/', methods=['get'])
+# def get_thema_place():
+#     thema_id = ObjectId(request.form['thema_id'])
+#     places = []
+
+#     if 'user_id' in session:
+#         thema_info = database.thema.find_one({'_id': thema_id})
+#         thema_place_id_list =  thema_info['place']
+#         for place_id in thema_place_id_list:
+#             p = database.place.find_one({'_id': place_id})
+#             if p:
+#                 places.append(p)
+#     else:
+#         err = '로그인이 필요합니다.'
+    
+#     data = {'places': places}
+#     return json.loads(json_util.dumps(data))
+
