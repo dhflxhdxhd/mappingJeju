@@ -106,15 +106,17 @@ def add_thema_place():
     return {'thema_id': thema_id}
 
 # 장소 조회
-@bp.route('/', methods=['get'])
+@bp.route('/getPlace', methods=['GET'])
 def get_thema_place():
     thema_id = ObjectId(request.form['thema_id'])
     places = []
+    print(thema_id)
 
     if 'user_id' in session:
         thema_info = database.thema.find_one({'_id': thema_id})
         thema_place_id_list =  thema_info['place']
         for place_id in thema_place_id_list:
+            print(place_id)
             p = database.place.find_one({'_id': place_id})
             if p:
                 places.append(p)

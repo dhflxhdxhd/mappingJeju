@@ -12,8 +12,8 @@ const Createtheme = () => {
   useEffect(()=>{
     const fetchPlace = async() => {
       const result = await axios(`/thema/getPlace`);
-      console.log(result.data.places)
-      setPlaceList(result.data.places);
+      console.log(result)
+      // setPlaceList(result.data);
     };
 
     fetchPlace();
