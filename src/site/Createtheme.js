@@ -9,17 +9,6 @@ const Createtheme = () => {
   const [Place, setPlace] = useState('');
   const [PlaceList, setPlaceList] = useState([]);
 
-  useEffect(()=>{
-    const fetchPlace = async() => {
-      const result = await axios(`/thema/getPlace`);
-      console.log(result)
-      // setPlaceList(result.data);
-    };
-
-    fetchPlace();
-    
-  },[]);
-
   const onChange = (e) => {
     setInputText(e.target.value)
   };
@@ -29,6 +18,18 @@ const Createtheme = () => {
     setPlace(InputText)
     setInputText(InputText)
   };
+
+  useEffect(()=>{
+    const fetchPlace = async() => {
+      const params = {thema_id : sessionStorage.getItem('thema_id')}
+      const result = await axios(`/thema/getPlace`, {params});
+      console.log(result)
+      // setPlaceList(result.data);
+    };
+
+    fetchPlace();
+    
+  },[]);
 
   return (
       

@@ -110,7 +110,7 @@ def add_thema_place():
 # 장소 조회
 @bp.route('/getPlace', methods=['GET'])
 def get_thema_place():
-    thema_id = ObjectId(request.form['thema_id'])
+    thema_id = ObjectId(request.args.get('thema_id'))
     places = []
     print(thema_id)
 
