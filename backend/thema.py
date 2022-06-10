@@ -87,7 +87,7 @@ def add_thema_place():
         place_lng = request.form['lng']
         place_photos = request.form['photos']
         place_explain = request.form['explain']
-        thema_id = request.form['thema_id']
+        thema_id = ObjectId(request.form['thema_id'])
 
         _id = database.place.insert_one({
                 "place_name": place_name,
@@ -102,7 +102,7 @@ def add_thema_place():
 
     else:
         err = '로그인이 필요합니다.'
-        
+    data = {'thema_id': thema_id}
     return {'thema_id': thema_id}
 
 # 장소 조회
