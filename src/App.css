@@ -17,7 +17,7 @@ body{
 /* Header */
 .header {
   background-color: #68C481;
-  height: 6%;
+  height: 40px;
 }
 
 .header_item {
