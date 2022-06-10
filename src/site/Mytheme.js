@@ -10,8 +10,8 @@ function Mytheme(props) {
   useEffect(()=>{
     const fetchMytheme = async() => {
       const result = await axios(`/thema/getMyThema`);
-      console.log(result.data.thema_list.length)
-        setMyThemaList(result.data.thema_list);
+      // console.log(result.data.thema_list)
+      setMyThemaList(result.data.thema_list);
     };
 
     fetchMytheme();
@@ -21,6 +21,8 @@ function Mytheme(props) {
   // if(MythemaList.length === 0){
   //   return null
   // }
+
+
 
   return (
     <div className="mytheme">
