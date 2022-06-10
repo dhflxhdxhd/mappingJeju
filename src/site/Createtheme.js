@@ -2,23 +2,13 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../New.css';
 import Map from './Map';
+import ShowPlaceList from './ShowPlaceList';
 
 const Createtheme = () => {
 
   const [InputText, setInputText] = useState('');
   const [Place, setPlace] = useState('');
   const [PlaceList, setPlaceList] = useState([]);
-
-  useEffect(()=>{
-    const fetchPlace = async() => {
-      const result = await axios(`/thema/getPlace`);
-      console.log(result.data.places)
-      setPlaceList(result.data.places);
-    };
-
-    fetchPlace();
-    
-  },[]);
 
   const onChange = (e) => {
     setInputText(e.target.value)
@@ -29,6 +19,18 @@ const Createtheme = () => {
     setPlace(InputText)
     setInputText(InputText)
   };
+
+  useEffect(()=>{
+    const fetchPlace = async() => {
+      const params = {thema_id : sessionStorage.getItem('thema_id')}
+      const result = await axios(`/thema/getPlace`, {params});
+      console.log(result.data.places);
+      setPlaceList(result.data.places);
+    };
+
+    fetchPlace();
+    
+  },[]);
 
   return (
       
@@ -49,9 +51,9 @@ const Createtheme = () => {
 
         <div className="themelist">
             <div className="themetitle"></div>
-            {/* <React.Fragment>
-                <button className="explainplace"><div className="place"></div></button>
-            </React.Fragment> */}
+            <React.Fragment>
+                <button className="explainplace">< ShowPlaceList placeitems={PlaceList}/></button>
+            </React.Fragment>
         </div>
     </div>
   );

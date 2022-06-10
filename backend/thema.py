@@ -87,7 +87,7 @@ def add_thema_place():
         place_lng = request.form['lng']
         place_photos = request.form['photos']
         place_explain = request.form['explain']
-        thema_id = request.form['thema_id']
+        thema_id = ObjectId(request.form['thema_id'])
 
         _id = database.place.insert_one({
                 "place_name": place_name,
@@ -102,19 +102,23 @@ def add_thema_place():
 
     else:
         err = '로그인이 필요합니다.'
-        
-    return {'thema_id': thema_id}
+
+    data = {'thema_id': thema_id}
+    
+    return json.loads(json_util.dumps(data))
 
 # 장소 조회
-@bp.route('/', methods=['get'])
+@bp.route('/getPlace', methods=['GET'])
 def get_thema_place():
-    thema_id = ObjectId(request.form['thema_id'])
+    thema_id = ObjectId(request.args.get('thema_id'))
     places = []
+    print(thema_id)
 
     if 'user_id' in session:
         thema_info = database.thema.find_one({'_id': thema_id})
         thema_place_id_list =  thema_info['place']
         for place_id in thema_place_id_list:
+            print(place_id)
             p = database.place.find_one({'_id': place_id})
             if p:
                 places.append(p)
