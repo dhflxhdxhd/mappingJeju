@@ -47,11 +47,18 @@ def create_thema():
     return {'thema_id': thema_id , 'error': err}
 
 # 타켓 테마 조회
-@bp.route('/<thema_id>', methods=['GET'])
-def get_thema_info(thema_id):
-
+@bp.route('/getThema', methods=['GET'])
+def get_thema_info():
+    places = []
+    thema_id = request.args.get('thema_id')
     thema_info = database.thema.find_one({'_id': ObjectId(thema_id)})
-    data = {"thema_info": thema_info}
+    thema_place_list =  thema_info['place']
+    for place_id in thema_place_list:     
+        p = database.place.find_one({'_id': place_id})
+        if p:
+            places.append(p)
+    
+    data = {"thema_info": thema_info, "thema_place_info": places}
 
     return json.loads(json_util.dumps(data))
 
@@ -66,7 +73,7 @@ def get_all_thema_info():
     return json.loads(json_util.dumps(data))
 
 
-# 테마 조회
+# 마이 페이지 테마 조회
 @bp.route('/getMyThema', methods=['GET'])
 def find_my_thema():
     print(session['user_id'])
@@ -134,7 +141,6 @@ def add_thema_place():
 def get_thema_place():
     thema_id = ObjectId(request.args.get('thema_id'))
     places = []
-    print(thema_id)
 
     if 'user_id' in session:
         thema_info = database.thema.find_one({'_id': thema_id})
