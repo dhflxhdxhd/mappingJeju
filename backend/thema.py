@@ -1,10 +1,14 @@
+from cgitb import text
+from crypt import methods
+from itertools import count
 from unittest import result
 from flask import Flask
 from flask import Blueprint, session, request, redirect, url_for, jsonify
 import bson
 from . import db
 from bson import json_util, ObjectId
-import json
+import json, pymongo
+
 
 database = db.get_db()
 bp = Blueprint('thema', __name__, url_prefix='/thema')
@@ -183,4 +187,13 @@ def find_my_zzim():
         return redirect(url_for('home'))
 
 
-
+# 테마 검색
+@bp.route('/search', methods=['GET'])
+def search_thema():
+    keyword = request.args.get('keyword')
+    search_result = database.thema.find({"thema_name": {"$regex": keyword}})
+    # thema_index = database.thema.create_index([('thema_name', 'text')])
+    # search_result = database.thema.find({'$text':{'$search': keyword}},{'score':{'$meta':"textScore"}})
+    
+    data = {'result': search_result}
+    return json.loads(json_util.dumps(data))
