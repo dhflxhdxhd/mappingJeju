@@ -42,7 +42,25 @@ def create_thema():
     print(thema_id)
     return {'thema_id': thema_id , 'error': err}
 
-    
+# 타켓 테마 조회
+@bp.route('/<thema_id>', methods=['GET'])
+def get_thema_info(thema_id):
+
+    thema_info = database.thema.find_one({'_id': ObjectId(thema_id)})
+    data = {"thema_info": thema_info}
+
+    return json.loads(json_util.dumps(data))
+
+
+# 전체 테마 조회
+@bp.route('/getAllThema', methods=['GET'])
+def get_all_thema_info():
+
+    all_thema_info = database.thema.find()
+    data = {"thema_info": all_thema_info}
+
+    return json.loads(json_util.dumps(data))
+
 
 # 테마 조회
 @bp.route('/getMyThema', methods=['GET'])
