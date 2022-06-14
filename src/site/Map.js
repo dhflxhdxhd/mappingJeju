@@ -7,9 +7,10 @@ const { kakao } = window
 var placeLat, placeLng = 0.0,
     placeName = ""
 
-const Map = ({ searchPlace }) => {
+const Map = (props) => {
+  const {searchPlace, Showing} = props
+
   const [modalOpen, setModalOpen] = useState(false)
-  
   const [Places, setPlaces] = useState([]) // 검색결과 배열에 담아줌
 
   const openModal = (lat, lng, place_name) => {
@@ -106,7 +107,8 @@ const Map = ({ searchPlace }) => {
         clickable: true 
       })
       
-      marker.setMap(map)
+      marker.setMap(Showing ? map : null)
+      Showing ? console.log("yes"):console.log("no")
 
       kakao.maps.event.addListener(map, 'click', (MouseEvent) => {
         let latlng = MouseEvent.latLng
@@ -116,11 +118,6 @@ const Map = ({ searchPlace }) => {
         kakao.maps.event.addListener(marker, 'click',(MouseEvent) => {
           openModal(latlng.getLat(), latlng.getLng(), "")
         })
-
-        let message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고,'
-        message += '경도는 ' + latlng.getLng() + ' 입니다.'
-        
-        console.log(message)
       })
     }
 
@@ -132,9 +129,9 @@ const Map = ({ searchPlace }) => {
     map.setMaxLevel(13)
     ps.keywordSearch(searchPlace, placesSearchCB)
 
-    positionMarker()
+    positionMarker()   
 
-  }, [searchPlace])
+  }, [searchPlace, Showing])
 
   return (
     <><div className='map_wrap'>
@@ -147,6 +144,7 @@ const Map = ({ searchPlace }) => {
           overflow: 'hidden',
         }}
       ></div>
+      {Showing ? 
       <ul id="result-list">
         {Places.map((item, i) => (
           <li className='item' key={i} onClick={(e) => { openModal(item.y, item.x, item.place_name) } }>
@@ -167,10 +165,13 @@ const Map = ({ searchPlace }) => {
         ))}
         <div id="pagination"></div>
       </ul>
+      : null}
     </div>
+    {Showing ?
     <Registerplace open={modalOpen} close={closeModal} header="장소 등록" className="modaltitle">
       <Placemodal lat={placeLat} lng={placeLng} place_name={placeName} />
-    </Registerplace></>
+    </Registerplace> 
+    : null}</>
   )
 }
 
