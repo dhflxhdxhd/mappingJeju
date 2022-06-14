@@ -9,6 +9,7 @@ const Createtheme = () => {
   const [InputText, setInputText] = useState('');
   const [Place, setPlace] = useState('');
   const [PlaceList, setPlaceList] = useState([]);
+  const [ThemaInfo, setThemaInfo] = useState([]);
 
   const onChange = (e) => {
     setInputText(e.target.value)
@@ -21,14 +22,22 @@ const Createtheme = () => {
   };
 
   useEffect(()=>{
-    const fetchPlace = async() => {
-      const params = {thema_id : sessionStorage.getItem('thema_id')}
-      const result = await axios(`/thema/getPlace`, {params});
-      console.log(result.data.places);
-      setPlaceList(result.data.places);
-    };
+    // const fetchPlace = async() => {
+    //   const params = {thema_id : sessionStorage.getItem('thema_id')}
+    //   const result = await axios(`/thema/getPlace`, {params});
+    //   console.log(result.data.places);
+    //   setPlaceList(result.data.places);
+    // };
 
-    fetchPlace();
+    const fetchThema = async() => {
+      const params = {thema_id : sessionStorage.getItem('thema_id')}
+      const result = await axios(`/thema/getThema`, {params});
+      console.log(result.data);
+      setThemaInfo(result.data.thema_info);
+      setPlaceList(result.data.thema_place_info);
+    }
+
+    fetchThema();
     
   },[]);
 
@@ -50,7 +59,7 @@ const Createtheme = () => {
         <Map searchPlace={Place} />
 
         <div className="themelist">
-            <div className="themetitle"></div>
+            <div className="themetitle">{ThemaInfo.thema_name}</div>
             <React.Fragment>
                 <button className="explainplace">< ShowPlaceList placeitems={PlaceList}/></button>
             </React.Fragment>
