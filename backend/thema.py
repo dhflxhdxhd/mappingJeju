@@ -1,5 +1,5 @@
 from cgitb import text
-from crypt import methods
+# from crypt import methods
 from itertools import count
 from unittest import result
 from flask import Flask
