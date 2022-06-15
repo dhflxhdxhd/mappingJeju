@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import '../App.css';
 import {  Link } from 'react-router-dom'
 import mainImg from '../img/mainpic.jpg'
-import '../App.css'
 
 function Main(props) {
+  const [keyword, setKeyword] = useState("");
+  const onChangeSearch = (e) => {
+    setKeyword(e.target.keyword);
+    
+  }
+
+  // useEffect(()=>{
+  //   const fetchAlltheme = async() => {
+  //     const result = await axios(`/thema/getAllThema`);
+  //     // console.log(result.data);
+  //     setAllThemaList(result.data.thema_info);
+  //   };
+
+  // const handleKeyPress = e => {
+  //   if(e.key === 'Enter') {
+  //     onChangeSearch(keyword);
+  //   }
+  // }
+  
+
+
   return (
       <div className="contents-wrapper">
         <section className="main-wrapper">
@@ -12,7 +34,10 @@ function Main(props) {
                 <span className="sidetext2">당신의 주변 사람들이 장소를 공유합니다.</span>    
                 <div className='mainText-search'>
                   <div className="searchboxdiv">
-                      <input type="text" className="searchbox" placeholder="테마를 검색하세요!"></input>
+                      <input type="text" className="searchbox" placeholder="테마를 검색하세요!"
+                      onChange={onChangeSearch}
+                      // onKeyPress={handleKeyPress} 
+                      />
                   </div>
                   <div className="seeall">
                     <button className="all"><Link className="all" to="/alltheme"> {'>'} 전체 테마 보러가기</Link></button>     
@@ -30,10 +55,5 @@ function Main(props) {
   );
 }
 
-const Searchthemes = (props) => {
-    return(
-        <div>함수형 컴포sdf넌트2</div>
-    );
-}
 
 export default Main;

@@ -6,18 +6,18 @@ import Main from './Main';
 import Searchtheme from './Searchtheme';
 import Mypage from './Mypage';
 import Mytheme from './Mytheme';
-import Favoritetheme from './Favoritetheme';
+// import Favoritetheme from './Favoritetheme';
 
-class MainS extends Component {
+class MypageP extends Component {
     render() {
         return(
-            <div className="MainS">
+            <div className="MypageP">
                 <Mypage/>
                 <Mytheme/>
-                <Favoritetheme/>
+                {/* <Favoritetheme/> */}
             </div>
         );
     }
 }
 
-export default MainS;
+export default MypageP;
