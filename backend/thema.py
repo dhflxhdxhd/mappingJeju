@@ -13,6 +13,7 @@ import json, pymongo
 database = db.get_db()
 bp = Blueprint('thema', __name__, url_prefix='/thema')
 
+
 # 테마 생성
 @bp.route('/sendThema', methods=['POST'])
 def create_thema():
@@ -80,10 +81,6 @@ def find_my_thema():
 
     if 'user_id' in session:
         my_id = database.users.find_one({'id': session['user_id']})
-        # print(str(my_id))
-        # thema_list = []
-        # for t in database.thema.find({"thema_host":my_id}):
-        #      thema_list.append(t)
 
         thema_list = []
         for temp in my_id['thema']:
@@ -157,15 +154,16 @@ def get_thema_place():
     return json.loads(json_util.dumps(data))
 
 # 테마 찜하기
-@bp.route('/', methods=['POST'])
+@bp.route('/addzzim', methods=['POST'])
 def add_zzim_thema():
     if 'user_id' in session:
         thema_id = request.form['thema_id']
         database.users.update_one({'id': session['user_id']},
                 {'$addToSet': {
-                    'zzim': ObjectId(thema_id)
+                    'zzim': thema_id
                     }
                 })
+        return "zzim"
     else:
         err = '먼저 로그인을 해주세요'
         return redirect(url_for('home'))
@@ -176,17 +174,20 @@ def find_my_zzim():
 
     if 'user_id' in session:
         my_id = database.users.find_one({'id': session['user_id']})
+        
         zzim_list = []
+        print("zzim",my_id['zzim'])
         for temp in my_id['zzim']:
-            t = database.thema.find_one({'_id':temp})
+            t = database.thema.find_one({'_id':ObjectId(temp)})
+        
             if t:
                 print(json_util.dumps(t))
                 zzim_list.append(t)
 
-        print(zzim_list)
+        print("zzim_list",zzim_list)
 
         data = {"zzim_list" : zzim_list}
-        print(json.loads(json_util.dumps(data)))
+        # print(json.loads(json_util.dumps(data)))
         return json.loads(json_util.dumps(data))
     else:
         err = '로그인이 필요합니다.'
