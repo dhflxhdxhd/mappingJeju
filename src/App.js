@@ -10,7 +10,7 @@ import MypageP from './site/MypageP'
 import Alltheme from './site/Alltheme';
 import Allcourse from './site/Allcourse';
 import Mytheme from './site/Mytheme';
-import Favoritetheme from './site/Favoritetheme';
+import Myzzim from './site/zzim';
 import Maketheme from './site/Maketheme';
 import Createtheme from './site/Createtheme';
 import Createcourse from './site/Createcourse';
@@ -33,7 +33,7 @@ function App() {
             <Route path="/" element={<MainP/>} />
             <Route path="/Mypage" element={<MypageP />} />
             <Route path="/Mytheme" element={<Mytheme />} />
-            <Route path="/Favoritetheme" element={<Favoritetheme />} />
+            <Route path="/Favoritetheme" element={<Myzzim />} />
             <Route path="/Maketheme" element={<Maketheme />} />
             <Route path="/Createtheme" element={<Createtheme />} />
             <Route path="/Createcourse" element={<Createcourse />} />

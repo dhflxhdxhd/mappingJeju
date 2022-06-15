@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../App.css';
+import '../New.css';
 import ShowzzimList from './showzzimList';
 
 function Myzzim(props) {
@@ -25,20 +26,18 @@ function Myzzim(props) {
 
 
   return (
-    <div className="mytheme">
-
-      <div className="mythemetextandbtn">
-        <div className="mythemesidetext">
-            <span className="mythemetext">나의 테마지도</span> 
-            <span className="mythemetext2">제작한 테마지도 모음입니다.</span>
+    <div className="favoritetheme">
+        <div className="favoritethemesidetext">
+            <span className="favoritethemetext">찜한 테마들</span> 
+            <span className="favoritethemetext2">즐겨찾기를 한 테마, 코스 리스트입니다.</span>
+            <span className="favoritethemetext2">더 멋진 테마지도를 완성하고 싶다면 장소들에 의견을 남겨주세요.</span>
         </div>
         <div className="maketheme">
-        <button className="makethemebutton"><Link to="/Maketheme">+</Link></button>
+            <button className="makethemebutton"><Link to="/Maketheme">+</Link></button>
         </div>
-      </div>
 
-      <ShowzzimList zzimitems={MyzzimList} />
-
+        <ShowzzimList zzimitems={MyzzimList} />
+        <button className="goallthemebutton"><Link to="/alltheme">전체 테마 보러가기</Link></button>     
     </div>
   );
 }
