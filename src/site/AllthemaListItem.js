@@ -1,5 +1,6 @@
 import React from "react";
 import '../App.css';
+import handleBookmark from "./bookmark";
 
 function AllthemaItem({allthemaitem}){
 
@@ -9,7 +10,7 @@ function AllthemaItem({allthemaitem}){
     function movetoMap(event){
         console.log(event.target.id)
 
-        if (window.localStorage.getItem('userID') == allthemaitem.thema_host) {
+        if (window.localStorage.getItem('userID') === allthemaitem.thema_host) {
             MyThema = 1;
             console.log(MyThema);
           } else {
@@ -21,10 +22,13 @@ function AllthemaItem({allthemaitem}){
         document.location.href = `/Createtheme?host=${MyThema}`
     }
 
+    
+
     return(
         <div className="theme" id={target_thema} onClick={movetoMap}>
             <div className="themeName">{allthemaitem.thema_name}</div>
             <div className="themeExplain">{allthemaitem.thema_explain}</div>
+            <button className="bookmark" onClick={handleBookmark}>bookmark</button>
         </div>
     )
 }

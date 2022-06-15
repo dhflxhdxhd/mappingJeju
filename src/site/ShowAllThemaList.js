@@ -5,8 +5,8 @@ import AllthemaItem from './AllthemaListItem';
 function ShowAllthemaList({allthemaitems}){
     return (
         <div className="viewalltheme" >
-            {allthemaitems.map((allthemaitem) => 
-                <AllthemaItem allthemaitem = {allthemaitem}/>
+            {allthemaitems.map((allthemaitem,index) => 
+                <AllthemaItem  key={index} allthemaitem = {allthemaitem}/>
             )}
         </div>
     )

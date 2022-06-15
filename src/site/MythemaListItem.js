@@ -1,6 +1,7 @@
 import React from "react";
 import '../App.css';
 
+
 function MythemaItem({mythemaitem}){
 
     let target_thema = mythemaitem["_id"]["$oid"]
@@ -10,7 +11,7 @@ function MythemaItem({mythemaitem}){
     function movetoMap(event){
         console.log(event.target.id)
 
-        if (window.localStorage.getItem('userID') == mythemaitem.thema_host) {
+        if (window.localStorage.getItem('userID') === mythemaitem.thema_host) {
             MyThema = 1;
             console.log(MyThema);
           } else {
