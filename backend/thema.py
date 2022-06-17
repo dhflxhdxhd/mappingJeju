@@ -1,4 +1,5 @@
-from ast import Str
+from ast import Str, keyword
+
 from cgitb import text
 # from crypt import methods
 from itertools import count
@@ -201,12 +202,14 @@ def find_my_zzim():
 @bp.route('/search', methods=['GET'])
 def search_thema():
     
-    keyword = request.args.get('keyword',type=str)
-    
+    data = {}
+    keyword = request.args.get('keyword', type=str)
+
     if keyword :
         search_result = database.thema.find({"thema_name": {"$regex": keyword}})
-         # thema_index = database.thema.create_index([('thema_name', 'text')])
-        # search_result = database.thema.find({'$text':{'$search': keyword}},{'score':{'$meta':"textScore"}})
-    
-    data = {'result': search_result}
+        data = {'result': search_result}
+
+    else:
+        data = {}
+  
     return json.loads(json_util.dumps(data))
