@@ -203,13 +203,13 @@ def find_my_zzim():
 def search_thema():
     
     data = {}
-    keyword = request.args.get('keyword', type=str)
+    # keyword = request.args.get('keyword', type=str)
+    keyword = "커피"
 
-    if keyword :
-        search_result = database.thema.find({"thema_name": {"$regex": keyword}})
-        data = {'result': search_result}
-
-    else:
+    if len(str(keyword)) == 0 :
         data = {}
+    else:
+        search_result = database.thema.find({"thema_name": {"$regex": str(keyword)}})
+        data = {'result': search_result}
   
     return json.loads(json_util.dumps(data))
