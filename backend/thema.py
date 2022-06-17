@@ -1,6 +1,8 @@
+from ast import Str
 from cgitb import text
 # from crypt import methods
 from itertools import count
+from re import T
 from unittest import result
 from flask import Flask
 from flask import Blueprint, session, request, redirect, url_for, jsonify
@@ -197,7 +199,7 @@ def find_my_zzim():
 # 테마 검색
 @bp.route('/search', methods=['GET'])
 def search_thema():
-    keyword = request.args.get('keyword')
+    keyword = request.args.get('keyword', '', type=str)
     search_result = database.thema.find({"thema_name": {"$regex": keyword}})
     # thema_index = database.thema.create_index([('thema_name', 'text')])
     # search_result = database.thema.find({'$text':{'$search': keyword}},{'score':{'$meta':"textScore"}})

@@ -14,6 +14,7 @@ function Searchtheme(props) {
     const fetchSearchtheme = async() => {
       const result = await axios(`/thema/search`);
       setSearchThemaList(result.data.result);
+      console.log(result.data.result);
     };
 
     fetchSearchtheme();

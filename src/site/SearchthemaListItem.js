@@ -1,9 +1,9 @@
 import React from "react";
 import '../App.css'; 
 
-function SearchthemaItem({mythemaitem}){
+function SearchthemaItem({searchthemaitem}){
 
-    let target_thema = mythemaitem["_id"]["$oid"]
+    let target_thema = searchthemaitem["_id"]["$oid"]
     
     function movetoMap(event){
         console.log(event.target.id)
@@ -14,8 +14,8 @@ function SearchthemaItem({mythemaitem}){
 
     return(
         <div className="theme" id={target_thema} onClick={movetoMap}>
-            <div className="themeName"  >{mythemaitem.thema_name}</div>
-            <div className="themeExplain">{mythemaitem.thema_explain}</div>
+            <div className="themeName"  >{searchthemaitem.thema_name}</div>
+            <div className="themeExplain">{searchthemaitem.thema_explain}</div>
         </div>
     )
 }

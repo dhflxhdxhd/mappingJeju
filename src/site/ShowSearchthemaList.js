@@ -7,8 +7,8 @@ function ShowSearchthemaList({searchthemaitems}){
 
     return (
         <div className="viewsearchtheme" >
-            {searchthemaitems.map((searchthemaitem) => 
-                <SearchthemaItem keyword={keyword} searchthemaitem = {searchthemaitem}/>
+            {searchthemaitems.map((searchthemaitem,index) => 
+                <SearchthemaItem key={index} searchthemaitem = {searchthemaitem}/>
             )}
         </div>
     )
