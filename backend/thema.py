@@ -203,8 +203,8 @@ def find_my_zzim():
 def search_thema():
     
     data = {}
-    # keyword = request.args.get('keyword', type=str)
-    keyword = "커피"
+    keyword = request.args.get('keyword', type=str)
+    # keyword = "커피"
 
     if len(str(keyword)) == 0 :
         data = {}

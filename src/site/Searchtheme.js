@@ -3,8 +3,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import ShowSearchList from './ShowSearchthemaList';
-import setQuery from './Main';
-
 import moreImg from '../img/viewmore.png'
 
 function Searchtheme(props) {
@@ -14,6 +12,7 @@ function Searchtheme(props) {
     const fetchSearchtheme = async() => {
       const result = await axios(`/thema/search`);
       setSearchThemaList(result.data.result);
+      // setkeyword(result.data.keyword);
       // console.log(result.data.result);
     };
 
