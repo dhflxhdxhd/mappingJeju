@@ -9,7 +9,7 @@ class MainP extends Component {
         return(
             <div className="MainP">
                 <Main/>
-                <Searchtheme/>
+                {/* <Searchtheme/> */}
             </div>
         );
     }

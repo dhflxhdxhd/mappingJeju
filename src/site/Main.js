@@ -46,7 +46,7 @@ function Main(props) {
                 <div className='small-sidetext'>
                   <span className="sidetext2">막상 어디에 가야할지 모르겠다면</span> 
                   <span>테마를 검색해보세요!</span>   
-                  <span>누군가의 취향이 담긴 장소를 알려드립니다.</span>
+                  <span>누군가의 "취향이 담긴 장소"를 알려드립니다.</span>
                 </div>
                 <div className='mainText-search'>
                   <div className="searchboxdiv">

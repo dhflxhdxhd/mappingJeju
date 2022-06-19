@@ -96,13 +96,13 @@ body{
   position: absolute;
   z-index: 3;
   cursor: pointer;
-  width: 150px;
-  top: 18%;
-  left: 12%;
+  width: 140px;
+  top: 25%;
+  left: 11%;
 }
 
 .mainImgItem2 {
-  width: 380px;
+  width: 440px;
   margin-left: 3.3em;
 }
 
@@ -125,7 +125,7 @@ span.sidetext {
 
 .sidetext3{
   font-size: 12px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .sidetext3 span{
