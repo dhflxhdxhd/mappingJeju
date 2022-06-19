@@ -6,11 +6,10 @@ function ShowAllthemaList({allthemaitems}){
     return (
         <div className="viewalltheme" >
             {allthemaitems.map((allthemaitem,index) => 
-                <AllthemaItem  key={index} allthemaitem = {allthemaitem}/>
+                <AllthemaItem allthemaitem = {allthemaitem}/>
             )}
         </div>
     )
 }
 
 export default ShowAllthemaList;
-

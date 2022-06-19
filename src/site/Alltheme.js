@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../App.css';
-import ShowAllList from './ShowAllthemaList';
+import ShowAllList from './ShowAllThemaList';
 
 
 function Alltheme(props) {
@@ -29,11 +29,11 @@ function Alltheme(props) {
 
     <ShowAllList allthemaitems={AllthemaList} />
 
-      <div className="viewmore">
-      <button className="viewmorebutton">
-      <img src={moreImg} className="viewmorepic" />
-      </button>
-      </div>
+    <div className="viewmore">
+    <button className="viewmorebutton">
+    <img src={moreImg} className="viewmorepic" />
+    </button>
+    </div>
   </div>
 
   );
