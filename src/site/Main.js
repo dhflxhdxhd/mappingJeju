@@ -7,37 +7,34 @@ import blueBtn from '../img/blueBtn.svg'
 import blueBtnHover from '../img/blueBtnHover.svg';
 import searchBtn from '../img/search.svg';
 import Searchtheme from './Searchtheme';
+import ShowSearchList from './ShowSearchthemaList';
 
 function Main(props) {
-  // const [keyword, setKeyword] = useState('');
-  // useEffect(() => {
-  //   console.log(keyword);
+  const [Key, setKey] = useState('')
+  const [Keyword, setKeyword] = useState('');
+  const [Searchedtheme, setSearchTheme] = useState([]);
 
-  //   return () => {
-  //     console.log("cleanup");
-  //   } //이전 값 삭제
-  // }, [keyword]);
-  // const onChangeSearch= (e) => {
-  //   setKeyword(e.target.value);
-  //   // console.log(e.target.keword);
-  // }
+  const onChange = (e) => {
+    setKey(e.target.value)
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setKeyword(Key)
+  };
 
-  // <a href="{{url_for('thema/search', keyword='keyword')}}">{{keyword}}</a>
+  useEffect(()=>{
+    const fetchsearch = async() => {
+      const params = {keyword : Keyword}
+      const result = await axios(`/thema/search`, {params});
+      setSearchTheme(result.data.result);
+    }
+    fetchsearch() 
+  },[Keyword]);
+
   // const blueBtn = document.querySelector(".blueBtn");
   // const blueBtnHover = document.querySelector(".blueBtnHover");
   const [isHovering, setIsHovering] = useState(false);
-
-  const onchange = (e) => {
-    e.target.value && axios.get("thema/search/", {
-      params: {
-        keyword: e.target.value
-      },
-      // headers: {
-      // },
-    })
-  }
-
-  
 
   return (
       <div className="contents-wrapper">
@@ -52,13 +49,15 @@ function Main(props) {
                 <div className='mainText-search'>
                   <div className="searchboxdiv">
                   <div className="searchboxdiv">
-                    {/* <form method="GET"> */}
+                  <form method="GET"
+                    onSubmit={handleSubmit}>
                       <input type="text" className="searchbox" placeholder="테마를 검색하세요!"
-                      name="keyword"
-                      onChange={onchange}
+                      value={Key}
+                      id="keyword"
+                      onChange={onChange}
                       />
                       <img src={searchBtn} alt="검색버튼" />
-                    {/* </form> */}
+                      </form>
                   </div>
                   </div>
                 </div>          
@@ -77,7 +76,11 @@ function Main(props) {
               <img src={mainImg} className="mainImgItem2" alt="메인화면IMG"/>
             </div>
         </section>
-        {/* <Searchtheme/> */}
+        <Searchtheme>
+        </Searchtheme>
+        <div className="searchtheme">
+            <ShowSearchList searchthemaitems={Searchedtheme} />
+        </div>
       </div>
   );
 }

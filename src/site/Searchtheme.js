@@ -6,19 +6,19 @@ import ShowSearchList from './ShowSearchthemaList';
 import moreImg from '../img/viewmore.png'
 
 function Searchtheme(props) {
-  const [SearchthemaList, setSearchThemaList] = useState([]);
+  // const [SearchthemaList, setSearchThemaList] = useState([]);
 
-  useEffect(()=>{
-    const fetchSearchtheme = async() => {
-      const result = await axios(`/thema/search`);
-      setSearchThemaList(result.data.result);
-      // setkeyword(result.data.keyword);
-      // console.log(result.data.result);
-    };
+  // useEffect(()=>{
+  //   const fetchSearchtheme = async() => {
+  //     const result = await axios(`/thema/search`, {params});
+  //     setSearchThemaList(result.data.result);
+  //     // setkeyword(result.data.keyword);
+  //     // console.log(result.data.result);
+  //   };
 
-    fetchSearchtheme();
+  //    fetchSearchtheme();
     
-  },[]);
+  // },[]);
 
   return (
     <div className="searchtheme">
@@ -27,11 +27,10 @@ function Searchtheme(props) {
         <span className="searchtext2">검색어와 관련된 테마들입니다.</span>
       </div>
 
-      <ShowSearchList searchthemaitems={SearchthemaList} />
+      {/* <ShowSearchList searchthemaitems={SearchthemaList} /> */}
 
       <div className="viewmore">
       <button className="viewmorebutton">
-      <img src={moreImg} className="viewmorepic" />
       </button>
       </div>
     </div>
