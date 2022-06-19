@@ -1,5 +1,6 @@
 import logout from "./login/Logout";
-import React from 'react'
+import React from 'react';
+import headerImg from '../src/img/header.png';
 
 const Header = () => {
     let isLogin = JSON.parse(localStorage.getItem("isAuthorized"))
@@ -22,6 +23,8 @@ const Header = () => {
     }
     return (
         <nav className="header" >
+            <img src={headerImg} alt="헤더 이미지" className="headerImg"/>
+            <span className="logo">맵핑제주</span>
             {isLogin ? (
                 <ul>
                     <li className="header_item" onClick={handleLogOut}>로그아웃</li>

@@ -16,6 +16,7 @@ function MythemaItem({mythemaitem}){
             console.log(MyThema);
           } else {
             MyThema = 0;
+            
             console.log(MyThema);
           }
 

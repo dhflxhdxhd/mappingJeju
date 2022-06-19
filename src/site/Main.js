@@ -2,23 +2,29 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../App.css';
 import {  Link } from 'react-router-dom'
-import mainImg from '../img/mainpic.jpg'
+import mainImg from '../img/main2.png'
+import blueBtn from '../img/blueBtn.svg'
+import blueBtnHover from '../img/blueBtnHover.svg';
+import searchBtn from '../img/search.svg';
 
-function Main({keyword}) {
+function Main(props) {
   // const [keyword, setKeyword] = useState('');
-  // useEffect( () => {
-  //   axios.get("thema/search/?keyword=", {
-  //     params: {
-  //       // 검색어 
-  //       keyword: ''
-  //     },
-  //     // headers: {
-  //     // },
-  //   })
-  //   // .then(res =>
-  //   //   setKeyword(res.data.keyword)
-  //   // )
-  // }, []);
+  // useEffect(() => {
+  //   console.log(keyword);
+
+  //   return () => {
+  //     console.log("cleanup");
+  //   } //이전 값 삭제
+  // }, [keyword]);
+  // const onChangeSearch= (e) => {
+  //   setKeyword(e.target.value);
+  //   // console.log(e.target.keword);
+  // }
+
+  // <a href="{{url_for('thema/search', keyword='keyword')}}">{{keyword}}</a>
+  // const blueBtn = document.querySelector(".blueBtn");
+  // const blueBtnHover = document.querySelector(".blueBtnHover");
+  const [isHovering, setIsHovering] = useState(false);
 
   const onchange = (e) => {
     e.target.value && axios.get("thema/search/", {
@@ -29,37 +35,21 @@ function Main({keyword}) {
       // },
     })
   }
+
   
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append('keyword', keyword)
-  // axios({data: formData});
-  // setKeyword('');
-  // }
-  // const handleUpload = (e) => {
-  //   e.preventDefault();
-  //   const keyword = e.target.value
-  //   setKeyword({keyword: keyword})
-  // }
-  // useEffect(() => {
-  //   console.log(keyword);
-  //   return () => {
-  //     console.log("cleanup");
-  //   } //이전 값 삭제
-  // }, [keyword]);
-  // const onChangeSearch= (e) => {
-  //   setKeyword(e.target.value);
-  //   // console.log(e.target.keword);
-  // }
 
   return (
       <div className="contents-wrapper">
         <section className="main-wrapper">
             <div className="mainText">
-                <span className="sidetext">n개의 테마</span> 
-                <span className="sidetext2">당신의 주변 사람들이 장소를 공유합니다.</span>    
+                <span className="sidetext">어디 갈까?</span> 
+                <div className='small-sidetext'>
+                  <span className="sidetext2">막상 어디에 가야할지 모르겠다면</span> 
+                  <span>테마를 검색해보세요!</span>   
+                  <span>누군가의 취향이 담긴 장소를 알려드립니다.</span>
+                </div>
                 <div className='mainText-search'>
+                  <div className="searchboxdiv">
                   <div className="searchboxdiv">
                     {/* <form method="GET"> */}
                       <input type="text" className="searchbox" placeholder="테마를 검색하세요!"
@@ -68,14 +58,19 @@ function Main({keyword}) {
                       />
                       {/* </form> */}
                   </div>
-                  <div className="seeall">
-                    <button className="all"><Link className="all" to="/alltheme"> {'>'} 전체 테마 보러가기</Link></button>     
-                    <button className="all"><Link className="all" to="/allcourse"> {'>'} 전체 코스 보러가기 </Link></button>     
-                  </div> 
+                  </div>
                 </div>          
+
             </div>
             <div className='mainImg'>
-              <img src={mainImg} className="mainpic" alt="메인화면IMG"/>
+              <div onMouseOver={()=>{setIsHovering(true)}} onMouseLeave = {()=>{setIsHovering(false)}}>
+              {!isHovering? (
+              <img src={blueBtn} className="mainImgItem1 blueBtn" alt="전체테마로 이동하기" /> ) 
+              : 
+              ( <img src={blueBtnHover} className="mainImgItem1 blueBtnHover" alt="전체테마로 이동하기 hover" onClick={()=> document.location.href = "/alltheme"}/>    
+              )}
+              </div>
+              <img src={mainImg} className="mainImgItem2" alt="메인화면IMG"/>
             </div>
         </section>
       </div>

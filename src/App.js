@@ -13,7 +13,6 @@ import Mytheme from './site/Mytheme';
 import Myzzim from './site/zzim';
 import Maketheme from './site/Maketheme';
 import Createtheme from './site/Createtheme';
-import Createcourse from './site/Createcourse';
 import Header from './header';
 import Spinner from './spinner';
 
@@ -22,6 +21,7 @@ import './reset.css'
 import './App.css'
 
 function App() {
+  // localStorage.clear()
   let isLogin = JSON.parse(localStorage.getItem("isAuthorized"))
   
   return (
@@ -36,8 +36,6 @@ function App() {
             <Route path="/Favoritetheme" element={<Myzzim />} />
             <Route path="/Maketheme" element={<Maketheme />} />
             <Route path="/Createtheme" element={<Createtheme />} />
-            <Route path="/Createcourse" element={<Createcourse />} />
-
             <Route path="/Searchtheme" element={<Searchtheme />} />
             <Route path="/Alltheme" element={<Alltheme />} />
             <Route path="/Allcourse" element={<Allcourse />} />
