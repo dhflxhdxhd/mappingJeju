@@ -37,7 +37,7 @@ const Placemodal = (props) => {
         axios.post(`/thema/sendPlace`,form)
         .then(response => {
             console.log('response', response)
-            document.location.href = "/Createtheme"
+            document.location.href = "/Createtheme?host=1"
         }).catch(error => {
             console.log('failed!', error)
         })            
