@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../App.css'
 import '../New.css';
 
 const Mypage = () => {
@@ -10,8 +11,8 @@ const Mypage = () => {
           <span className="mypagetext">마이페이지</span>
         </div>
         <div className="mypagebutton">
-          <button className="gothemebutton"><Link to="/Mytheme">나의 테마지도 보러가기</Link></button>
-          <button className="gofavoritebutton"><Link to="/Favoritetheme">나의 찜 목록 보러가기</Link></button>
+          <button className="gothemebutton"><Link to="/Mytheme">나의 테마지도</Link></button>
+          <button className="gofavoritebutton"><Link to="/Favoritetheme">찜 목록</Link></button>
         </div>
       </div>
     </div>

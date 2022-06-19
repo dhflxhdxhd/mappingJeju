@@ -6,6 +6,7 @@ import mainImg from '../img/main2.png'
 import blueBtn from '../img/blueBtn.svg'
 import blueBtnHover from '../img/blueBtnHover.svg';
 import searchBtn from '../img/search.svg';
+import Searchtheme from './Searchtheme';
 
 function Main(props) {
   // const [keyword, setKeyword] = useState('');
@@ -76,6 +77,7 @@ function Main(props) {
               <img src={mainImg} className="mainImgItem2" alt="메인화면IMG"/>
             </div>
         </section>
+        {/* <Searchtheme/> */}
       </div>
   );
 }

@@ -13,7 +13,7 @@ class MypageP extends Component {
         return(
             <div className="MypageP">
                 <Mypage/>
-                <Mytheme/>
+                {/* <Mytheme/> */}
                 {/* <Favoritetheme/> */}
             </div>
         );

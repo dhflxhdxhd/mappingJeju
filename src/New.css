@@ -9,18 +9,19 @@
 
 /* Mypage */
 .mp-wrapper{
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin-top: 25vh;
-    margin-bottom: 35vh;
 }
 
 .mypagetextd {
-    display: block;
-    margin-left: -55vh;
+    font-family: Pretendard;
+    font-weight: 600;
+    position: absolute;
+    top: 25%;
+    left: 14%;
 }
 
 span.mypagetext {
@@ -30,31 +31,36 @@ span.mypagetext {
 }
 
 .mypagebutton {
-    margin-top: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.gothemebutton {
-    display: inline-block;
+.mypagebutton button{
+    border: none;
     width: 250px;
-    height: 50px;
-    border: 2px solid #68C481;
-    background: white;
-    border-radius: 8px;
-    font-weight: bolder;
-    font-size: 20px;
+    height: 100px;
+    background-color: #9b9b9b;
+    background-color: #F8F8F8;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+    border-radius: 12px;
+    padding: 2px;
+}
+
+.mypagebutton button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+.gothemebutton {
+    margin-right: 5%;
 }
 
 .gofavoritebutton {
-    display: inline-block;
-    width: 250px;
-    height: 50px;
-    margin-left: 100px;
-    border: 2px solid #68C481;
-    background: white;
-    border-radius: 8px;
-    font-weight: bolder;
-    font-size: 20px;
-}
+    margin-left: 5%;
+} 
 
 /* Mytheme */
 .mytheme {
