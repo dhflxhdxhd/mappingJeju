@@ -56,11 +56,14 @@ function Main(props) {
                       name="keyword"
                       onChange={onchange}
                       />
-                      {/* </form> */}
+                      <img src={searchBtn} alt="검색버튼" />
+                    {/* </form> */}
                   </div>
                   </div>
                 </div>          
-
+                <div className='sidetext3'>
+                  <span>당신의 주변사람들이 장소를 공유하고 있습니다.</span>
+                </div>
             </div>
             <div className='mainImg'>
               <div onMouseOver={()=>{setIsHovering(true)}} onMouseLeave = {()=>{setIsHovering(false)}}>
