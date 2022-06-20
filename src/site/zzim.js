@@ -19,6 +19,7 @@ function Myzzim(props) {
     
   },[]);
 
+
   // if(MythemaList.length === 0){
   //   return null
   // }
