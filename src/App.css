@@ -103,11 +103,11 @@ body{
   cursor: pointer;
   width: 140px;
   top: 28%;
-  left: 4%;
+  left: 3%;
 }
 
 .mainImgItem3{
-  width: 140px;
+  width: 120px;
   position: absolute;
   cursor: pointer;
   top: 33%;
