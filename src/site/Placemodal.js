@@ -33,8 +33,10 @@ const Placemodal = (props) => {
         form.append('explain',inputs.explain)
         form.append('lat', lat)
         form.append('lng', lng)
-        form.append('photos', images)
-        // for (let i = 0; i < images.length; i++) {  }
+        // form.append('photos', images)
+        for (let i = 0; i < images.length; i++) { 
+            form.append('photos', images[i].uploadedFiles)
+         }
         for (var pair of form.entries()) {
             console.log(pair[0]+ ', ' + pair[1]); 
         }
@@ -53,7 +55,7 @@ const Placemodal = (props) => {
         const imageLists = event.target.files;
         let imageUrlLists = [...showImages];
         // let imageInputLists = [...images];
-        console.log(imageLists[0])
+        // console.log(images)
 
         for (let i = 0; i < imageLists.length; i++) {
             const currentImageUrl = URL.createObjectURL(imageLists[i]);
@@ -64,7 +66,7 @@ const Placemodal = (props) => {
         if (imageUrlLists.length > 10) {
             imageUrlLists = imageUrlLists.slice(0, 10);
         }
-        setImages(imageLists[0])
+        setImages([...images, {uploadedFiles: imageLists[0]}])
         setShowImages(imageUrlLists)
         console.log(showImages)
         console.log(images)
@@ -73,6 +75,7 @@ const Placemodal = (props) => {
     // X버튼 클릭 시 이미지 삭제
     const handleDeleteImage = (id) => {
         setShowImages(showImages.filter((_, index) => index !== id));
+        setImages(images.filter((_, index) => index !== id));
     };
     return(     
         <>

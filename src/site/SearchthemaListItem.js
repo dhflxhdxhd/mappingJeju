@@ -9,7 +9,7 @@ function SearchthemaItem({searchthemaitem}){
     
     function movetoMap(event){
         console.log(window.localStorage.getItem('userID'))
-        console.log(searchthemaitem.thema_host)
+        console.log(event.target.id)
 
         if (window.localStorage.getItem('userID') == searchthemaitem.thema_host) {
             MyThema = 1;
@@ -19,7 +19,7 @@ function SearchthemaItem({searchthemaitem}){
             console.log(MyThema);
           }
 
-        sessionStorage.setItem("thema_id",event.target.id)
+        sessionStorage.setItem("thema_id", event.target.id)
         document.location.href = `/Createtheme?host=${MyThema}`
     }
 

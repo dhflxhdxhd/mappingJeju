@@ -10,7 +10,7 @@ function AllthemaItem({allthemaitem}){
     function movetoMap(event){
         console.log(event.target.id)
 
-        if (window.localStorage.getItem('userID') === allthemaitem.thema_host) {
+        if (window.localStorage.getItem('userID') == allthemaitem.thema_host) {
             MyThema = 1;
             console.log(MyThema);
           } else {
@@ -18,7 +18,7 @@ function AllthemaItem({allthemaitem}){
             console.log(MyThema);
           }
 
-        sessionStorage.setItem("thema_id",event.target.id)
+        sessionStorage.setItem("thema_id", event.target.id)
         document.location.href = `/Createtheme?host=${MyThema}`
     }
 
