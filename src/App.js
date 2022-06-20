@@ -15,6 +15,7 @@ import Maketheme from './site/Maketheme';
 import Createtheme from './site/Createtheme';
 import Header from './header';
 import Spinner from './spinner';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import './reset.css'
