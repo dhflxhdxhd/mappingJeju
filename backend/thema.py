@@ -149,7 +149,7 @@ def add_thema_place():
                 "photos": photo_names,
                 "explain": place_explain,
                 "thema_id": thema_id,
-                "comment": {'user':'', 'comment':''}
+                "comment": []
         })
      
         database.thema.update_one({'_id': thema_id},{'$addToSet':{'place': _id.inserted_id}})
@@ -309,15 +309,46 @@ def update_place():
 
     return json.loads(json_util.dumps(data))
 
-# 장소 댓글
-@bp.route('/comentPlace', methods=['POST'])
-def place_comment():
+# # 장소 댓글 생성
+# @bp.route('/creatComment', methods=['POST'])
+# def create_place_comment():
 
+#     if 'user_id' in session:
+#         place_id = ObjectId(request.form['place_id'])
+#         place_comment = request.form['place_comment']
+#         c = database.place.update_one({'_id' : place_id}, {'$set' : {'comment' : {'user' :user_id,'comment': place_comment}}})
+#         data = {'result': place_id}
+#     else:
+#         err = '먼저 로그인을 해주세요'
+#         data = {'err': err}
+
+#     return json.loads(json_util.dumps(data))
+
+# 장소 댓글 조회
+@bp.route('/getComment', methods=['POST'])
+def get_place_comment():
+
+    comment_list=[]
+    place_id = ObjectId(request.form['place_id'])
+
+    place_info = database.place.find_one({'_id' : place_id})
+    comment_info= place_info['comment']
+   
+    for comment in comment_info:  
+        comment_list.append(comment[1])
+    
+    data = {'result': comment_list}
+
+    return json.loads(json_util.dumps(data))
+
+# 장소 댓글 생성
+@bp.route('/creatComment', methods=['POST'])
+def create_place_comment():
     if 'user_id' in session:
         place_id = ObjectId(request.form['place_id'])
         place_comment = request.form['place_comment']
-        c = database.place.update_one({'_id' : place_id, }, {'$set' : {'comment' : {'user' :user_id,'comment': place_comment}}})
-        data = {'result': place_id}
+        c = database.place.update_one({'_id' : place_id}, {'$addToSet' : {'comment' : [session['user_id'], place_comment]}})
+        data = {'result': [session['user_id'], place_comment]}
     else:
         err = '먼저 로그인을 해주세요'
         data = {'err': err}
