@@ -18,7 +18,6 @@ const Map = (props) => {
     placeLat = lat
     placeLng = lng
     placeName = place_name
-    console.log(placeName)
     setModalOpen(true)
   }
   const closeModal = () => {
@@ -109,12 +108,10 @@ const Map = (props) => {
       })
       
       marker.setMap(Showing ? map : null)
-      // Showing ? console.log("yes"):console.log("no")
 
       kakao.maps.event.addListener(map, 'click', (MouseEvent) => {
         let latlng = MouseEvent.latLng
         marker.setPosition(latlng)
-        console.log(latlng)
 
         kakao.maps.event.addListener(marker, 'click',() => {
           openModal(latlng.getLat(), latlng.getLng(), "")
@@ -128,7 +125,6 @@ const Map = (props) => {
           imageSize = new kakao.maps.Size(36, 37),
           markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
           
-
       const placeItems = place.map((placeItem) => {
         let latlng = new kakao.maps.LatLng(Number(placeItem.lat), Number(placeItem.lng)),
             marker = new kakao.maps.Marker({
@@ -192,11 +188,9 @@ const Map = (props) => {
       </ul>
       : null}
     </div>
-    {Showing ?
     <Registerplace open={modalOpen} close={closeModal} header="장소 등록" className="modaltitle">
       <Placemodal lat={placeLat} lng={placeLng} place_name={placeName} />
-    </Registerplace> 
-    : null}</>
+    </Registerplace></>
   )
 }
 
