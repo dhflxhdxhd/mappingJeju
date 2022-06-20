@@ -148,7 +148,8 @@ def add_thema_place():
                 "lng": place_lng,
                 "photos": photo_names,
                 "explain": place_explain,
-                "thema_id": thema_id
+                "thema_id": thema_id,
+                "comment": {'user':'', 'comment':''}
         })
      
         database.thema.update_one({'_id': thema_id},{'$addToSet':{'place': _id.inserted_id}})
@@ -175,7 +176,7 @@ def get_thema_place():
             if p:
                 places.append(p)
     else:
-        err = '로그인이 필요합니다.'
+        err = '먼저 로그인을 해주세요'
     
     data = {'places': places}
     return json.loads(json_util.dumps(data))
@@ -194,6 +195,19 @@ def add_zzim_thema():
     else:
         err = '먼저 로그인을 해주세요'
         return redirect(url_for('home'))
+
+# # 테마 찜 삭제
+# @bp.route('/deletezzim', methods=['POST'])
+# def delete_zzim_thema():
+#     # if 'user_id' in session:
+#     user_id = 2223212557
+#     thema_id = request.form['thema_id']
+#     delete_zzim = database.users.update_one({"_id": user_id}, {'$pull' : {'zzim': str(thema_id) }})
+#     # else:
+#     #     err = '먼저 로그인을 해주세요'
+#     #     return redirect(url_for('home'))
+#     data = {'result' : thema_id}
+#     return json.loads(json_util.dumps(data))
 
 # 테마 찜 조회
 @bp.route('/getmyzzim', methods=['GET'])
@@ -293,5 +307,20 @@ def update_place():
     update_place = database.place.update_one({'_id' : ObjectId(place_id)}, {'$set' : {'place_name' : place_name, 'place_explain' : place_explain, 'place_photos': place_photos}})
     
     data = {'result': place_id }
+
+    return json.loads(json_util.dumps(data))
+
+# 장소 댓글
+@bp.route('/comentPlace', methods=['POST'])
+def place_comment():
+
+    if 'user_id' in session:
+        place_id = ObjectId(request.form['place_id'])
+        place_comment = request.form['place_comment']
+        c = database.place.update_one({'_id' : place_id, }, {'$set' : {'comment' : {'user' :user_id,'comment': place_comment}}})
+        data = {'result': place_id}
+    else:
+        err = '먼저 로그인을 해주세요'
+        data = {'err': err}
 
     return json.loads(json_util.dumps(data))
