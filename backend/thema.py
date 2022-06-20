@@ -196,18 +196,19 @@ def add_zzim_thema():
         err = '먼저 로그인을 해주세요'
         return redirect(url_for('home'))
 
-# # 테마 찜 삭제
-# @bp.route('/deletezzim', methods=['POST'])
-# def delete_zzim_thema():
-#     # if 'user_id' in session:
-#     user_id = 2223212557
-#     thema_id = request.form['thema_id']
-#     delete_zzim = database.users.update_one({"_id": user_id}, {'$pull' : {'zzim': str(thema_id) }})
-#     # else:
-#     #     err = '먼저 로그인을 해주세요'
-#     #     return redirect(url_for('home'))
-#     data = {'result' : thema_id}
-#     return json.loads(json_util.dumps(data))
+# 테마 찜 삭제
+@bp.route('/deletezzim', methods=['POST'])
+def delete_zzim_thema():
+    if 'user_id' in session:
+        user_id = 2223212557
+        thema_id = request.form['thema_id']
+        delete_zzim = database.users.update_one({"id": user_id}, {'$pull' : {'zzim': ObjectId(thema_id)}})
+    else:
+        err = '먼저 로그인을 해주세요'
+        return redirect(url_for('home'))
+    
+    data = {'result' : thema_id}
+    return json.loads(json_util.dumps(data))
 
 # 테마 찜 조회
 @bp.route('/getmyzzim', methods=['GET'])
@@ -317,20 +318,6 @@ def update_place():
 
     return json.loads(json_util.dumps(data))
 
-# # 장소 댓글 생성
-# @bp.route('/creatComment', methods=['POST'])
-# def create_place_comment():
-
-#     if 'user_id' in session:
-#         place_id = ObjectId(request.form['place_id'])
-#         place_comment = request.form['place_comment']
-#         c = database.place.update_one({'_id' : place_id}, {'$set' : {'comment' : {'user' :user_id,'comment': place_comment}}})
-#         data = {'result': place_id}
-#     else:
-#         err = '먼저 로그인을 해주세요'
-#         data = {'err': err}
-
-#     return json.loads(json_util.dumps(data))
 
 # 장소 댓글 조회
 @bp.route('/getComment', methods=['POST'])
