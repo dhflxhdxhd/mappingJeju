@@ -311,7 +311,8 @@ li {
 .themelist {
     position: absolute;
     display: inline-block;
-    margin-top: 30px    ;
+    float: right;
+    margin-top: 10px;
     margin-left: 75%;
     z-index: 2;
 }
@@ -320,8 +321,8 @@ li {
     display: block;
     background-color: #68C481;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.1);
-    width: 270px;
-    height: 90px;
+    width: 250px;
+    height: 80px;
     border-radius: 10px;
     margin-bottom: 5px;
     text-align : center;
@@ -331,11 +332,21 @@ li {
     display: block;
     background-color: white;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.1);
-    width: 270px;
-    height: 90px;
+    width: 250px;
+    height: 80px;
     border-radius: 10px;
     margin-bottom: 5px;
     text-align : center;
+}
+
+.listthemename {
+    padding-top: 30px;
+    font-size: 17px;
+}
+
+.listplacename {
+    margin-top: 10px;
+    font-size: 17px;
 }
 
 .explainplace {
@@ -345,7 +356,7 @@ li {
 
 .createthemeheader {
     position: absolute;
-    margin-top: 10px;
+    margin-top: 7px;
     margin-bottom: 10px;
     z-index: 2;
 }
@@ -439,8 +450,13 @@ li {
     height: 100px;
 }
 
+.span.delbutton {
+    width: 10px;
+}
+
 .picdelete {
     display: inline-block;
+    margin-top: 10px;
     background-color: #ffff;
 }
 
@@ -462,6 +478,7 @@ li {
     margin-top: 20px;
     display: block;
 }
+
 .placeexplaintext {
     margin-left: 8px;
 }
@@ -603,7 +620,7 @@ body {
 }
 
 .placesearchbar {
-    width: 77%;
+    width: 80%;
     margin-left: 10px;
     border: none;
     border-bottom: 1px solid rgb(175, 175, 175);
@@ -622,7 +639,7 @@ body {
 .searchplace > button { 
     border: none;
     background-color: white;
-    margin-left: 8px;
+    margin-right: 1%;
 }
   
 .map_wrap{
@@ -632,7 +649,7 @@ font-family:'Malgun Gothic',dotum,'돋움',sans-serif;
 font-size:12px;
 position:absolute;
 width:100%;
-height:90vh;
+height:100vh;
 z-index: 1;
 }
 
@@ -759,8 +776,25 @@ color:#777;
     .theme, .course {
       width: 230px;
     }
+    .themelist {
+        margin-left: 65%;
+    }
     .viewallcourse, .viewalltheme, .viewmytheme, .viewfavoritetheme {
       margin-left: -1vh;
+    }
+    .searchplace {
+        margin-top: 0.9vh;
+        width: 48%
+    }
+    .placesearchbar {
+        width: 90%;
+    }
+    .searchplace > button {
+        visibility: hidden;
+    }
+    .App #result-list {
+        width: 48%;
+        font-size: 5px;
     }
   }
   
@@ -778,7 +812,6 @@ color:#777;
     .mypagebutton {
         width: 270px;
         margin-top: 10vh;
-
     }
     .gofavoritebutton {
         margin-top: 3vh;
@@ -795,15 +828,14 @@ color:#777;
         margin-left: -18vh;
     }
     .searchplace {
-        margin-top: 0.7vh;
-        width: 40%
+        margin-top: 0.9vh;
+        width: 48%
     }
     .placesearchbar {
-        width: 72%;
+        width: 90%;
     }
     .searchplace > button {
-        background-color: transparent;
-        height: 20px;
+        visibility: hidden;
     }
     .feather-search {
         width: 15px;
@@ -815,7 +847,7 @@ color:#777;
     .themelist {
         margin-left: 55%;
     }
-    .themetitle, .place {
+    .themetitle, .place, .listthemename, .listplacename {
         width: 170px;
         height: 70px;
     }

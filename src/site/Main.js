@@ -56,7 +56,7 @@ function Main(props) {
                       id="keyword"
                       onChange={onChange}
                       />
-                      <img src={searchBtn} alt="검색버튼" />
+                      <img src={searchBtn} alt="검색버튼"/>
                       </form>
                   </div>
                   </div>

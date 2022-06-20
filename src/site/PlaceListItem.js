@@ -55,17 +55,21 @@ function PlaceItem({placeitem, themahost, Showing}){
     }
 
     return(
-        <><div className="place" onClick={openModal}>
-            {Showing ? 
-            <><span>
-                <button className="placedelete" onClick={deletePlace}><svg xmlns="http://www.w3.org/2000/svg" className="delete-lg" viewBox="0 0 50 50" width="20px" height="20px">
-                <path fill="#F44336" d="M21.5 4.5H26.501V43.5H21.5z" transform="rotate(45.001 24 24)" /><path fill="#F44336" d="M21.5 4.5H26.5V43.501H21.5z" transform="rotate(135.008 24 24)" /></svg></button>
-            </span><span>
-                <button className="placeupdate" onClick={updatePlace}><svg height="20px" viewBox="0 0 48 48" width="20px" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 34.5v7.5h7.5l22.13-22.13-7.5-7.5-22.13 22.13zm35.41-20.41c.78-.78.78-2.05 0-2.83l-4.67-4.67c-.78-.78-2.05-.78-2.83 0l-3.66 3.66 7.5 7.5 3.66-3.66z" /><path d="M0 0h48v48h-48z" fill="none" /></svg></button>
-            </span></>
-            : null}
-            <div className="placeName">{placeitem.place_name}</div>
+        <><div className="alignplace">
+            <div className="place" onClick={openModal}>
+              {Showing ? 
+              <><span>
+                  <button className="placedelete" onClick={deletePlace}><svg xmlns="http://www.w3.org/2000/svg" className="delete-lg" viewBox="0 0 50 50" width="20px" height="20px">
+                  <path fill="#F44336" d="M21.5 4.5H26.501V43.5H21.5z" transform="rotate(45.001 24 24)" /><path fill="#F44336" d="M21.5 4.5H26.5V43.501H21.5z" transform="rotate(135.008 24 24)" /></svg></button>
+              </span><span>
+                  <button className="placeupdate" onClick={updatePlace}><svg height="20px" viewBox="0 0 48 48" width="20px" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 34.5v7.5h7.5l22.13-22.13-7.5-7.5-22.13 22.13zm35.41-20.41c.78-.78.78-2.05 0-2.83l-4.67-4.67c-.78-.78-2.05-.78-2.83 0l-3.66 3.66 7.5 7.5 3.66-3.66z" /><path d="M0 0h48v48h-48z" fill="none" /></svg></button>
+              </span></>
+              : null}
+            <div className="placeName">
+                <div className="listplacename">{placeitem.place_name}</div>
+            </div>
+          </div>
         </div>
         <Registerplace open={modalOpen} close={closeModal} header={placeitem.place_name} >
             <PlaceInfoModal place={placeitem} />
