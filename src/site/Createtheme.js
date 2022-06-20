@@ -51,8 +51,6 @@ const Createtheme = () => {
 
     fetchThema()
 
-    
-
   },[]);
 
   return (

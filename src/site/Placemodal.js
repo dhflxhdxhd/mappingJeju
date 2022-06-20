@@ -4,7 +4,7 @@ import '../New.css';
 
 const Placemodal = (props) => {
     const {lat, lng, place_id, place_name, place_explain, place_photos, isEdit} = props
-    console.log(props)
+    // console.log(props)
 
     // 배열이 비었는지 확인
     const isEmptyArr = (arr) => {
@@ -30,7 +30,7 @@ const Placemodal = (props) => {
 
     const handleChange = (event) => {
         const {value, name} = event.target;
-        console.log(event.target)
+        // console.log(event.target)
         setInputs({
             ...inputs,
             [name]:value
