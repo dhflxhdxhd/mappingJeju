@@ -73,7 +73,7 @@ const Createtheme = () => {
         <div className="themelist">
             <div className="themetitle">{ThemaInfo.thema_name}</div>
             <React.Fragment>
-                < ShowPlaceList placeitems={PlaceList} themahost={ThemaInfo.thema_host}/>
+                < ShowPlaceList placeitems={PlaceList} themahost={ThemaInfo.thema_host} Showing={Showing}/>
             </React.Fragment>
         </div>
     </div>

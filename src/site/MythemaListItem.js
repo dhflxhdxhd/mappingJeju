@@ -4,7 +4,7 @@ import '../App.css';
 
 function MythemaItem({mythemaitem}){
 
-    let target_thema = mythemaitem["_id"]["$oid"]
+    let target_thema = mythemaitem._id.$oid
     let MyThema = 0;  // 1:내 테마, 0:남의 테마
     
     
@@ -19,7 +19,7 @@ function MythemaItem({mythemaitem}){
             console.log(MyThema);
           }
 
-        sessionStorage.setItem("thema_id",event.target.id)
+        sessionStorage.setItem("thema_id", mythemaitem._id.$oid)
         document.location.href = `/Createtheme?host=${MyThema}`
     }
 
