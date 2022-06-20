@@ -33,7 +33,7 @@ const PlaceInfoModal = ({place}) => {
             console.log('failed!', error)
         }) 
 
-        setComment(" ")
+        setComment("")
     }
 
     useEffect(()=>{
