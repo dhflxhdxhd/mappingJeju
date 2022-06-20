@@ -102,8 +102,16 @@ body{
   z-index: 3;
   cursor: pointer;
   width: 140px;
-  top: 25%;
-  left: 11%;
+  top: 28%;
+  left: 4%;
+}
+
+.mainImgItem3{
+  width: 140px;
+  position: absolute;
+  cursor: pointer;
+  top: 33%;
+  left: 30%;
 }
 
 .mainImgItem2 {
@@ -424,3 +432,8 @@ span.searchtext2 {
   }
 }
 
+
+.markBtn{
+  width: 20px;
+  cursor: pointer;
+}

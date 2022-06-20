@@ -9,6 +9,9 @@ import searchBtn from '../img/search.svg';
 import Searchtheme from './Searchtheme';
 import ShowSearchList from './ShowSearchthemaList';
 
+import createBtn from '../img/makeThemeBtn.svg';
+import createBtnHover from '../img/blue_makeThemeBtn.svg';
+
 function Main(props) {
   const [Key, setKey] = useState('')
   const [Keyword, setKeyword] = useState('');
@@ -35,6 +38,7 @@ function Main(props) {
   // const blueBtn = document.querySelector(".blueBtn");
   // const blueBtnHover = document.querySelector(".blueBtnHover");
   const [isHovering, setIsHovering] = useState(false);
+  const [iscreateBtnHovering, setIscreateBtnHovering] = useState(false);
 
   return (
       <div className="contents-wrapper">
@@ -71,6 +75,14 @@ function Main(props) {
               <img src={blueBtn} className="mainImgItem1 blueBtn" alt="전체테마로 이동하기" /> ) 
               : 
               ( <img src={blueBtnHover} className="mainImgItem1 blueBtnHover" alt="전체테마로 이동하기 hover" onClick={()=> document.location.href = "/alltheme"}/>    
+              )}
+              </div>
+
+              <div onMouseOver={()=>{setIscreateBtnHovering(true)}} onMouseLeave = {()=>{setIscreateBtnHovering(false)}}>
+              {! iscreateBtnHovering? (
+              <img src={createBtnHover} className="mainImgItem3" alt="테마제작하기" /> ) 
+              : 
+              ( <img src={createBtn} className="mainImgItem3" alt="테마제작하기 hover" onClick={()=> document.location.href = "/Maketheme"}/>    
               )}
               </div>
               <img src={mainImg} className="mainImgItem2" alt="메인화면IMG"/>
