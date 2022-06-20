@@ -330,7 +330,7 @@ def get_place_comment():
     comment_info= place_info['comment']
    
     for comment in comment_info:  
-        comment_list.append(comment[1])
+        comment_list.append(comment)
     
     data = {'result': comment_list}
 
