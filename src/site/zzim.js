@@ -34,11 +34,11 @@ function Myzzim(props) {
             <span className="favoritethemetext2">더 멋진 테마지도를 완성하고 싶다면 장소들에 의견을 남겨주세요.</span>
         </div>
         <div className="maketheme">
-            <button className="makethemebutton"><Link to="/Maketheme">+</Link></button>
+            <button className="makethemebutton"><Link to="/Maketheme" style={{textDecoration: 'none'}}>+</Link></button>
         </div>
 
         <ShowzzimList zzimitems={MyzzimList} />
-        <button className="goallthemebutton"><Link to="/alltheme">전체 테마 보러가기</Link></button>     
+        <button className="goallthemebutton"><Link to="/alltheme" style={{textDecoration: 'none'}}>전체 테마 보러가기</Link></button>     
     </div>
   );
 }

@@ -11,8 +11,8 @@ const Mypage = () => {
           <span className="mypagetext">마이페이지</span>
         </div>
         <div className="mypagebutton">
-          <button className="gothemebutton"><Link to="/Mytheme">나의 테마지도</Link></button>
-          <button className="gofavoritebutton"><Link to="/Favoritetheme">찜 목록</Link></button>
+          <button className="gothemebutton"><Link to="/Mytheme" style={{textDecoration: 'none'}}>나의 테마지도</Link></button>
+          <button className="gofavoritebutton"><Link to="/Favoritetheme" style={{textDecoration: 'none'}}>찜 목록</Link></button>
         </div>
       </div>
     </div>
