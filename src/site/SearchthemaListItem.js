@@ -4,12 +4,11 @@ import handleBookmark from "./bookmark";
 
 function SearchthemaItem({searchthemaitem}){
 
-    let target_thema = searchthemaitem["_id"]["$oid"]
+    let target_thema = searchthemaitem._id.$oid
     let MyThema = 0;  // 1:내 테마, 0:남의 테마
     
     function movetoMap(event){
         console.log(window.localStorage.getItem('userID'))
-        console.log(event.target.id)
 
         if (window.localStorage.getItem('userID') == searchthemaitem.thema_host) {
             MyThema = 1;
@@ -19,7 +18,7 @@ function SearchthemaItem({searchthemaitem}){
             console.log(MyThema);
           }
 
-        sessionStorage.setItem("thema_id", event.target.id)
+        sessionStorage.setItem("thema_id", searchthemaitem._id.$oid)
         document.location.href = `/Createtheme?host=${MyThema}`
     }
 

@@ -26,7 +26,7 @@ function MythemaItem({mythemaitem}){
     return(
         <div className="theme" id={target_thema} onClick={movetoMap}>
             <div className="aligntheme">
-                <div className="themeName"  >{mythemaitem.thema_name}</div>
+                <div className="themeName">{mythemaitem.thema_name}</div>
                 <div className="themeExplain">{mythemaitem.thema_explain}</div>
             </div>
         </div>
