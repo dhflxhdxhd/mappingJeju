@@ -12,7 +12,6 @@ body{
 /* Header */
 .header{
   height: 70px;
-  position: fixed;
   width : 100%;
 }
 
@@ -32,8 +31,12 @@ body{
   left: 14vw;
   line-height: 66px;
   font-family: 'GmarketSansBold';
+  display: block;
 }
 
+.hideLogo{
+  display: none;
+}
 .header_item {
   float: right;
   line-height: 36px;
@@ -162,7 +165,6 @@ span.sidetext {
 
 .searchboxdiv img{
   position: absolute;
-  padding-right: 10px;
   cursor: pointer;
 }
 

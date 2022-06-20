@@ -6,7 +6,11 @@ import Map from './Map';
 import ShowPlaceList from './ShowPlaceList';
 
 const Createtheme = () => {
-  
+
+  console.log(window.location.pathname)
+
+
+
   const query = window.location.search;
   const param = new URLSearchParams(query);
   const host = param.get('host');
@@ -16,6 +20,9 @@ const Createtheme = () => {
   const [PlaceList, setPlaceList] = useState([]);
   const [ThemaInfo, setThemaInfo] = useState([]);
   const [Showing, setShowing] = useState(MyThema ? true : false);
+
+
+ 
 
   const onChange = (e) => {
     setInputText(e.target.value)

@@ -1,8 +1,21 @@
 import logout from "./login/Logout";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import headerImg from '../src/img/header.png';
 
 const Header = () => {
+
+    const [isMap, setIsMap] = useState(false)
+
+    useEffect(()=>{
+        if(window.location.pathname === '/Createtheme' ){
+            setIsMap(true)
+        }else(
+            setIsMap(false)
+        )
+
+    }, [])
+
+
     let isLogin = JSON.parse(localStorage.getItem("isAuthorized"))
     console.log(isLogin);
 
@@ -24,7 +37,14 @@ const Header = () => {
     return (
         <nav className="header" >
             <img src={headerImg} alt="헤더 이미지" className="headerImg"/>
-            <span className="logo">맵핑제주</span>
+            {isMap ? (
+                <span className="hideLogo logo">맵핑제주</span>
+            ):(
+                <span className="logo">맵핑제주</span>
+            )
+
+            }
+            
             {isLogin ? (
                 <ul>
                     <li className="header_item" onClick={handleLogOut}>로그아웃</li>
