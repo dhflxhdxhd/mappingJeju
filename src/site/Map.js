@@ -5,7 +5,7 @@ import markerImg from '../img/pin.png'
 
 const { kakao } = window
 // 장소 등록 모달 창에 넘길 위도, 경도, 장소 이름
-var placeLat, placeLng = 0.0,
+let placeLat, placeLng = 0.0,
     placeName = ""
 
 const Map = (props) => {
@@ -189,7 +189,7 @@ const Map = (props) => {
       : null}
     </div>
     <Registerplace open={modalOpen} close={closeModal} header="장소 등록" className="modaltitle">
-      <Placemodal lat={placeLat} lng={placeLng} place_name={placeName} />
+      <Placemodal lat={placeLat} lng={placeLng} place_name={placeName} isEdit={false}/>
     </Registerplace></>
   )
 }

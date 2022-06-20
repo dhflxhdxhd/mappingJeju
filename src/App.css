@@ -218,11 +218,15 @@ input::placeholder{
 .theme:hover{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-
+ 
 .aligntheme {
   width: 250px;
-  margin-top: 30px;
+  margin-top: 20px;
   float: right;
+}
+
+.alignplace {
+  width: 250px;
 }
 
 .themeName{
@@ -231,6 +235,7 @@ input::placeholder{
 
 .themeExplain{
   font-size: 14px;
+  margin-bottom: 2px;
 }
 .course {
   margin: 10px 10px 0 0;
@@ -322,7 +327,6 @@ span.allcoursetext2 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-bottom: 10vh;
 }
 
 .searchsidetext {
@@ -350,6 +354,7 @@ span.searchtext2 {
 .searchedtheme {
   display: inline-block;
   width: 800px;
+  padding-bottom: 20vh;
 }
 
 @media only all and (min-width: 500px) and (max-width:820px) {
