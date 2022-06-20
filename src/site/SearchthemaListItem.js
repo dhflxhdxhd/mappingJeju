@@ -24,8 +24,10 @@ function SearchthemaItem({searchthemaitem}){
 
     return(
         <div className="theme" id={target_thema} onClick={movetoMap}>
-            <div className="themeName"  >{searchthemaitem.thema_name}</div>
-            <div className="themeExplain">{searchthemaitem.thema_explain}</div>
+            <div className="aligntheme">
+                <div className="themeName"  >{searchthemaitem.thema_name}</div>
+                <div className="themeExplain">{searchthemaitem.thema_explain}</div>
+            </div>
         </div>
     )
 }

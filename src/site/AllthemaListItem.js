@@ -14,8 +14,10 @@ function AllthemaItem({allthemaitem}){
 
     return(
         <div className="theme" id={target_thema} onClick={movetoMap}>
-            <div className="themeName">{allthemaitem.thema_name}</div>
-            <div className="themeExplain">{allthemaitem.thema_explain}</div>
+            <div className="aligntheme">
+                <div className="themeName">{allthemaitem.thema_name}</div>
+                <div className="themeExplain">{allthemaitem.thema_explain}</div>
+            </div>
         </div>
     )
 }
