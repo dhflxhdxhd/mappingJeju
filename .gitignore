@@ -2,8 +2,8 @@
 .vscode
 /settings.json
 
-/backend/**
-!backend/static/img/
+/backend
+
 # dependencies
 /node_modules
 /.pnp
