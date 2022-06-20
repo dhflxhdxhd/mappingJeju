@@ -6,15 +6,15 @@ import ShowPlaceList from './ShowPlaceList';
 
 const Createtheme = () => {
   
-  const [InputText, setInputText] = useState('');
-  const [Place, setPlace] = useState('');
-  const [PlaceList, setPlaceList] = useState([]);
-  const [ThemaInfo, setThemaInfo] = useState([]);
-  const [Showing, setShowing] = useState(true);
   const query = window.location.search;
   const param = new URLSearchParams(query);
   const host = param.get('host');
   const MyThema = Boolean(Number(host));
+  const [InputText, setInputText] = useState('');
+  const [Place, setPlace] = useState('');
+  const [PlaceList, setPlaceList] = useState([]);
+  const [ThemaInfo, setThemaInfo] = useState([]);
+  const [Showing, setShowing] = useState(MyThema ? true : false);
 
   const onChange = (e) => {
     setInputText(e.target.value)
@@ -40,7 +40,9 @@ const Createtheme = () => {
       setPlaceList(result.data.thema_place_info);
     }
 
-    fetchThema() 
+    fetchThema()
+
+    
 
   },[]);
 
