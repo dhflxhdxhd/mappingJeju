@@ -187,7 +187,7 @@ def add_zzim_thema():
         thema_id = request.form['thema_id']
         database.users.update_one({'id': session['user_id']},
                 {'$addToSet': {
-                    'zzim': thema_id
+                    'zzim': ObjectId(thema_id)
                     }
                 })
         return "zzim"
@@ -205,7 +205,7 @@ def find_my_zzim():
         zzim_list = []
         print("zzim",my_id['zzim'])
         for temp in my_id['zzim']:
-            t = database.thema.find_one({'_id':ObjectId(temp)})
+            t = database.thema.find_one({'_id':temp})
         
             if t:
                 print(json_util.dumps(t))
