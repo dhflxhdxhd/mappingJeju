@@ -281,7 +281,6 @@ def update_thema():
 
     return json.loads(json_util.dumps(data))
 
-
 # 장소 삭제
 @bp.route('/deletePlace', methods=['POST'])
 def delete_place():

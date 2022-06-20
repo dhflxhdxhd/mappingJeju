@@ -31,6 +31,7 @@ const Createtheme = () => {
   } 
 
   useEffect(()=>{
+    // console.log(sess ionStorage.getItem('thema_id'))
 
     const fetchThema = async() => {
       const params = {thema_id : sessionStorage.getItem('thema_id')}
