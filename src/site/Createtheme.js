@@ -36,7 +36,7 @@ const Createtheme = () => {
     const fetchThema = async() => {
       const params = {thema_id : sessionStorage.getItem('thema_id')}
       const result = await axios(`/thema/getThema`, {params});
-      console.log(result.data);
+      // console.log(result.data);
       setThemaInfo(result.data.thema_info);
       setPlaceList(result.data.thema_place_info);
     }
@@ -65,13 +65,17 @@ const Createtheme = () => {
         {Showing ?
         <form className="searchplace" onSubmit={handleSubmit}>
           <input className="placesearchbar" placeholder="검색어를 입력하세요" onChange={onChange} value={InputText} />
-          <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 -3 20 25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+          <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 -3 20 25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
         </form> 
         : null}
         <Map searchPlace={Place} Showing={Showing} placeList={PlaceList}/>
 
         <div className="themelist">
-            <div className="themetitle">{ThemaInfo.thema_name}</div>
+          <div className="themetitle">
+            <div className="alignplace">
+                <div className="listthemename">{ThemaInfo.thema_name}</div>
+            </div>
+          </div>
             <React.Fragment>
                 < ShowPlaceList placeitems={PlaceList} themahost={ThemaInfo.thema_host}/>
             </React.Fragment>

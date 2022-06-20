@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import ShowAllList from './ShowAllThemaList';
 
-
 function Alltheme(props) {
   const [AllthemaList, setAllThemaList] = useState([]);
 

@@ -215,11 +215,15 @@ input::placeholder{
 .theme:hover{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-
+ 
 .aligntheme {
   width: 250px;
   margin-top: 30px;
   float: right;
+}
+
+.alignplace {
+  width: 250px;
 }
 
 .themeName{
