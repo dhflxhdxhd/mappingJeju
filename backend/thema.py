@@ -130,23 +130,23 @@ def add_thema_place():
         place_name = request.form['place_name']
         place_lat = request.form['lat']
         place_lng = request.form['lng']
-        place_photos = request.files['photos']
+        place_photos = request.files.getlist('photos')
         place_explain = request.form['explain']
         thema_id = ObjectId(request.form['thema_id'])
-            
-        photoname = secure_filename(place_photos.filename)
-        path = os.path.join("./static/img", photoname)
-        # rename(f'static/img/{photoname}')
-        print(path)
-        
+        photo_names = []
         if place_photos:
-            place_photos.save(path)
+            for f in place_photos:
+                print(f)
+                photoname = secure_filename(f.filename)
+                path = rename(os.path.join("./static/img", photoname))
+                f.save(path)
+                photo_names.append(path)
         
         _id = database.place.insert_one({
                 "place_name": place_name,
                 "lat": place_lat,
                 "lng": place_lng,
-                "photos": path,
+                "photos": photo_names,
                 "explain": place_explain,
                 "thema_id": thema_id
         })
@@ -229,11 +229,12 @@ def search_thema():
     keyword = request.args.get('keyword', type=str)
     # keyword = "커피"
 
-    if len(str(keyword)) == 0 :
-        data = {'result': Null}
-    else:
-        search_result = database.thema.find({"thema_name": {"$regex": str(keyword)}})
-        data = {'result': search_result}
+    # if len(str(keyword)) == 0 :
+    #     data = {'result': Null}
+
+    # else:
+    search_result = database.thema.find({"thema_name": {"$regex": str(keyword)}})
+    data = {'result': search_result}
   
     return json.loads(json_util.dumps(data))
 
