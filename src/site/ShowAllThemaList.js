@@ -6,7 +6,7 @@ function ShowAllthemaList({allthemaitems}){
     return (
         <div className="viewalltheme" >
             {allthemaitems.map((allthemaitem,index) => 
-                <AllthemaItem allthemaitem = {allthemaitem}/>
+                <AllthemaItem key= {index} allthemaitem = {allthemaitem}/>
             )}
         </div>
     )
