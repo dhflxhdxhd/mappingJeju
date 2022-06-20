@@ -5,15 +5,15 @@ import '../New.css';
 import axios from 'axios';
 
 function PlaceItem({placeitem, themahost}){
-    console.log(placeitem)
+    // console.log(placeitem)
     let MyThema = false;  // true:내 테마, false:남의 테마
 
     if (window.localStorage.getItem('userID') == themahost) {
         MyThema = true;
-        console.log(MyThema);
+        // console.log(MyThema);
     } else {
         MyThema = false;
-        console.log(MyThema);
+        // console.log(MyThema);
     }
 
     const [modalOpen, setModalOpen] = useState(false)
