@@ -34,7 +34,7 @@ function Mytheme(props) {
             <span className="mythemetext2">제작한 테마지도 모음입니다.</span>
         </div>
         <div className="maketheme">
-        <button className="makethemebutton"><Link to="/Maketheme">+</Link></button>
+        <button className="makethemebutton"><Link to="/Maketheme" style={{textDecoration: 'none'}}>+</Link></button>
         </div>
       </div>
 

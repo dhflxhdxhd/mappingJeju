@@ -28,6 +28,7 @@ function Myzzim(props) {
 
   return (
     <div className="favoritetheme">
+      <div className="favoritethemetextandbtn">
         <div className="favoritethemesidetext">
             <span className="favoritethemetext">찜한 테마들</span> 
             <span className="favoritethemetext2">즐겨찾기를 한 테마, 코스 리스트입니다.</span>
@@ -36,7 +37,7 @@ function Myzzim(props) {
         <div className="maketheme">
             <button className="makethemebutton"><Link to="/Maketheme" style={{textDecoration: 'none'}}>+</Link></button>
         </div>
-
+      </div>
         <ShowzzimList zzimitems={MyzzimList} />
         <button className="goallthemebutton"><Link to="/alltheme" style={{textDecoration: 'none'}}>전체 테마 보러가기</Link></button>     
     </div>

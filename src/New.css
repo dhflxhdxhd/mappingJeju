@@ -76,7 +76,6 @@ span.mypagetext {
     display: block;
     margin: auto;
     width: 780px;
-    
 }
   
 .mythemesidetext {
@@ -135,10 +134,22 @@ span.mythemetext2 {
     margin-top: 10vh;
     padding-bottom: 10vh;
 }
+
+.favoritethemetextandbtn {
+    display: block;
+    margin: auto;
+    width: 780px;
+}
   
 .favoritethemesidetext {
     width: 780px;
     margin: auto;
+}
+
+.favoritethemesidetext {
+    display: inline-block;
+    width: 350px;
+    margin-left: -29%;
 }
   
 span.favoritethemetext {
@@ -836,12 +847,30 @@ color:#777;
     .viewalltheme, .viewallcourse {
         margin-left: 0;
     }
-    .mypagetextd {
-        margin-left: -20vh;
+    .mypagebutton button{
+        width: 300px;
+        height: 100px;
     }
     .mypagebutton {
-        width: 270px;
-        margin-top: 10vh;
+        display: block;
+        width: 600px;
+        margin-top: -20vh;
+        margin-left: 6vh;
+        font-size: 20px;
+    }
+    .favoritethemetextandbtn, .mythemetextandbtn {
+        margin-top: -8vh;
+        margin-left: -7vh;
+    }
+    .favoritethemesidetext {
+        margin-left: -25vh;
+      }
+    .maketheme {
+        margin-top: 1vh;
+        display: block;
+    }
+    .makethemebutton {
+        font-size: 40px;
     }
     .gofavoritebutton {
         margin-top: 3vh;

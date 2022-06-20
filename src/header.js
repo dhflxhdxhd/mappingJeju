@@ -46,13 +46,13 @@ const Header = () => {
             }
             
             {isLogin ? (
-                <ul>
+                <ul className="head">
                     <li className="header_item" onClick={handleLogOut}>로그아웃</li>
                     <li className="header_item" onClick={handleMypage}>MYPAGE</li>
                     <li className="header_item" onClick={GotoMain}>HOME</li>
                 </ul>
             ) : (
-                <ul>
+                <ul className="head">
                     <li className="header_item" onClick={handleLogIn}>LOGIN</li>
                     <li className="header_item" onClick={GotoMain}>HOME</li>
                 </ul>
