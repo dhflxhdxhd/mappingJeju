@@ -5,7 +5,6 @@ from cgitb import text
 from itertools import count
 from re import T
 from unittest import result
-# from xxlimited import Null
 from flask import Flask
 from flask import Blueprint, session, request, redirect, url_for, jsonify
 import bson
@@ -237,4 +236,62 @@ def search_thema():
     search_result = database.thema.find({"thema_name": {"$regex": str(keyword)}})
     data = {'result': search_result}
   
+    return json.loads(json_util.dumps(data))
+
+
+# 테마 삭제
+@bp.route('/deleteThema', methods=['POST'])
+def delete_thema():
+
+    thema_id = request.form['thema_id']
+    delete_thema = database.thema.delete_one({"_id": ObjectId(thema_id)})
+
+    data = {'result': thema_id }
+
+    return json.loads(json_util.dumps(data))
+
+
+# 테마 수정
+@bp.route('/updateThema', methods=['POST'])
+def update_thema():
+
+    thema_id = request.form['thema_id']
+    thema_name = request.form['thema_name']
+    thema_explain = request.form['thema_explain']
+    share = json.loads(request.form['share'].lower())
+
+    update_thema = database.thema.update_one({'_id' : ObjectId(thema_id)}, {'$set' : {'thema_name' : thema_name, 'thema_explain' : thema_explain, 'share': share}})
+
+    thema_info = database.thema.find_one({'_id': ObjectId(thema_id)})
+    data = {'result': thema_info}
+
+    return json.loads(json_util.dumps(data))
+
+
+# 장소 삭제
+@bp.route('/deletePlace', methods=['POST'])
+def delete_place():
+
+    place_id = request.form['place_id']
+    thema_id = request.form['thema_id']
+
+    delete_place = database.thema.update_one({"_id": ObjectId(thema_id)}, {'$pull' : {'place': ObjectId(place_id) }})
+    
+    data = {'result': place_id }
+
+    return json.loads(json_util.dumps(data))
+
+
+# 장소 수정
+@bp.route('/updatePlace', methods=['POST'])
+def update_place():
+    place_name = request.form['place_name']
+    place_photos = request.form['photos']
+    place_explain = request.form['explain']
+    place_id = ObjectId(request.form['place_id'])
+
+    update_place = database.place.update_one({'_id' : ObjectId(place_id)}, {'$set' : {'place_name' : place_name, 'place_explain' : place_explain, 'place_photos': place_photos}})
+    
+    data = {'result': place_id }
+
     return json.loads(json_util.dumps(data))

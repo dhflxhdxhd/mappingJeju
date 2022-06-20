@@ -79,7 +79,9 @@ function Main(props) {
         <Searchtheme>
         </Searchtheme>
         <div className="searchtheme">
-            <ShowSearchList searchthemaitems={Searchedtheme} />
+          <div className="searchedtheme">
+              <ShowSearchList searchthemaitems={Searchedtheme} />
+          </div>
         </div>
       </div>
   );

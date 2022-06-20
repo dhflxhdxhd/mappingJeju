@@ -202,18 +202,24 @@ input::placeholder{
 .theme {
   margin: 10px 10px 0 0;
   display: inline-block;
-  display:inline-block;
+  align-items:center;
   width: 250px;
   height: 100px;
   background-color: #9b9b9b;
   background-color: #F8F8F8;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
   border-radius: 12px;
-  padding: 2px;
+  padding: 0px;
 }
 
 .theme:hover{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.aligntheme {
+  width: 250px;
+  margin-top: 30px;
+  float: right;
 }
 
 .themeName{
@@ -361,6 +367,15 @@ span.searchtext2 {
   .theme, .course {
     width: 230px;
   }
+  .aligntheme {
+    width: 230px;
+  }
+  .themeName {
+    font-size: 22px;
+  }
+  .themeExplain {
+    font-size: 20px;
+  }
   .searchedtheme, .viewallcourse, .viewalltheme, .viewmytheme {
     margin-left: -1vh;
   }
@@ -385,6 +400,15 @@ span.searchtext2 {
   .theme, .course {
     width: 350px;
     height: 150px;
+  }
+  .aligntheme {
+    width: 350px;
+  }
+  .themeName {
+    font-size: 22px;
+  }
+  .themeExplain {
+    font-size: 20px;
   }
   .searchedtheme, .viewalltheme, .viewallcourse {
     width: 430px;

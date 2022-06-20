@@ -18,8 +18,10 @@ function ZzimListItem({zzimitem}){
 
     return(
         <div className="theme zzim_thema" id={target_zzim} onClick={movetoMap}>
-            <div className="themeName zzimName"  >{zzimitem.thema_name}</div>
-            <div className="themeExplain zzimExplain">{zzimitem.thema_explain}</div>
+            <div className="aligntheme">
+                <div className="themeName zzimName"  >{zzimitem.thema_name}</div>
+                <div className="themeExplain zzimExplain">{zzimitem.thema_explain}</div>
+            </div>
         </div>
     )
 }
