@@ -497,6 +497,35 @@ li {
     height: 80px;
 }
 
+.placecomment {
+    margin-top: 20px;
+    display: block;
+}
+
+.placecommenttext {
+    margin-left: 8px;
+}
+
+.placecommentbox {
+    margin-top: 7px;
+    margin-left: 25px;
+    width: 80%;
+    height: 25px;
+}
+
+.commentbutton {
+    height: 25px;
+    margin-left: 5px;
+}
+
+.wrap_comments {
+    margin-top: 5px;
+    margin-left: 15px;
+    overflow-y: scroll;
+    height: 200px;
+    width: 80%;
+}
+
 .createtheme {
     margin-top: 5vh;
 }

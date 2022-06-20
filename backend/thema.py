@@ -322,7 +322,6 @@ def update_place():
 # 장소 댓글 조회
 @bp.route('/getComment', methods=['POST'])
 def get_place_comment():
-
     comment_list=[]
     place_id = ObjectId(request.form['place_id'])
 

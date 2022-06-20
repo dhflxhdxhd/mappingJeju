@@ -44,8 +44,6 @@ const Createtheme = () => {
 
     fetchThema()
 
-    
-
   },[]);
 
   return (
