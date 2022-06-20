@@ -8,19 +8,19 @@ const PlaceInfoModal = ({place}) => {
     // console.log(showImage)
     let photo = place.photos
 
-    // const isEmptyArr = (arr) => {
-    //     if(Array.isArray(arr) && arr.length === 0)  {
-    //       return true;
-    //     }
-    //     return false;
-    //   }
+    const isEmptyArr = (arr) => {
+        if(Array.isArray(arr) && arr.length === 0)  {
+          return true;
+        }
+        return false;
+      }
 
     return(
         <div className='modaldata'>
             <div className='picwrapper'>
                 <div className="pic-text">사진</div>
                 {// 저장해둔 이미지들을 순회하면서 화면에 이미지 출력
-                photo === "" ? null : 
+                isEmptyArr(photo) ? null : 
                 <span className="piccontainer">
                     <img className="pic" src={photo.substr(1)} alt={`${photo}`} />
                 </span>
