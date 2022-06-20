@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import '../App.css';
 import '../New.css';
 import Map from './Map';
 import ShowPlaceList from './ShowPlaceList';

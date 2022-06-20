@@ -11,6 +11,7 @@ function Mytheme(props) {
     const fetchMytheme = async() => {
       const result = await axios(`/thema/getMyThema`);
       // console.log(result.data.thema_list)
+      console.log(result.data.thema_list);
       setMyThemaList(result.data.thema_list);
     };
 

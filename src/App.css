@@ -12,7 +12,10 @@ body{
 /* Header */
 .header{
   height: 70px;
+  position: fixed;
+  width : 100%;
 }
+
 
 .headerImg {
   width: 100%;

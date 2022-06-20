@@ -6,7 +6,7 @@ import Main from './Main';
 import Searchtheme from './Searchtheme';
 import Mypage from './Mypage';
 import Mytheme from './Mytheme';
-// import Favoritetheme from './Favoritetheme';
+
 
 class MypageP extends Component {
     render() {
@@ -14,7 +14,7 @@ class MypageP extends Component {
             <div className="MypageP">
                 <Mypage/>
                 {/* <Mytheme/> */}
-                {/* <Favoritetheme/> */}
+
             </div>
         );
     }
