@@ -299,11 +299,19 @@ def delete_place():
 @bp.route('/updatePlace', methods=['POST'])
 def update_place():
     place_name = request.form['place_name']
-    place_photos = request.form['photos']
-    place_explain = request.form['explain']
-    place_id = ObjectId(request.form['place_id'])
+    photos = request.files.getlist('photos')
+    explain = request.form['explain']
+    place_id = request.form['place_id']
+    photo_names = []
+    if photos:
+        for f in photos:
+            print(f)
+            photoname = secure_filename(f.filename)
+            path = rename(os.path.join("./static/img", photoname))
+            f.save(path)
+            photo_names.append(path)
 
-    update_place = database.place.update_one({'_id' : ObjectId(place_id)}, {'$set' : {'place_name' : place_name, 'place_explain' : place_explain, 'place_photos': place_photos}})
+    update_place = database.place.update_one({'_id' : ObjectId(place_id)}, {'$set' : {'place_name' : place_name, 'explain' : explain, 'photos': photo_names}})
     
     data = {'result': place_id }
 

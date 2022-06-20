@@ -398,6 +398,7 @@ li {
 
 .placename {
     display: block;
+    margin-bottom: 5px;
 }
 .pic-text {
     margin-left: 8px;
@@ -459,6 +460,20 @@ li {
     background-color: #ffff;
 }
 
+.placedelete {
+    display: inline-block;
+    background-color: #ffff;
+    border: none;
+    background: none;
+}
+
+.placeupdate {
+    display: inline-block;
+    background-color: #ffff;
+    border: none;
+    background: none;
+}
+
 .placeexplain {
     margin-top: 20px;
     display: block;
@@ -498,7 +513,18 @@ li {
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 .createbutton {
-    margin-left: 30%;
+    margin-left: 36%;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 20px;
+    width: 140px;
+    height: 40px;
+    font-weight: bolder;
+    font-size: 17px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+.updatebutton {
+    margin-left: 36%;
     background-color: white;
     margin-top: 20px;
     border-radius: 20px;
