@@ -10,7 +10,7 @@ const Createtheme = () => {
   const [Place, setPlace] = useState('');
   const [PlaceList, setPlaceList] = useState([]);
   const [ThemaInfo, setThemaInfo] = useState([]);
-  const [Showing, setShowing] = useState(false);
+  const [Showing, setShowing] = useState(true);
   const query = window.location.search;
   const param = new URLSearchParams(query);
   const host = param.get('host');
@@ -65,7 +65,7 @@ const Createtheme = () => {
           <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 -3 20 25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
         </form> 
         : null}
-        <Map searchPlace={Place} Showing={Showing}/>
+        <Map searchPlace={Place} Showing={Showing} placeList={PlaceList}/>
 
         <div className="themelist">
             <div className="themetitle">{ThemaInfo.thema_name}</div>

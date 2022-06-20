@@ -13,7 +13,8 @@ from importlib_metadata import NullFinder
 from . import db
 from bson import json_util, ObjectId
 import json, pymongo
-
+from werkzeug.utils import secure_filename
+import os
 
 database = db.get_db()
 bp = Blueprint('thema', __name__, url_prefix='/thema')
@@ -106,8 +107,22 @@ def find_my_thema():
         err = '로그인이 필요합니다.'
         return redirect(url_for('home'))
 
-
-
+# 이미지 파일 저장 시 중복(덮어쓰기) 방지
+def rename(path):
+    while True:
+        if os.path.isfile(path):
+            idx = path.rindex('.')
+            if idx == -1:
+                path += '1'
+            else:
+                try:
+                    num = int(path[idx+1]) + 1
+                except:
+                    num = 1
+                path = path[:idx] + str(num) + path[idx:]
+        else: 
+            return path 
+    
 # 장소 생성
 @bp.route('/sendPlace', methods=['POST'])
 def add_thema_place():
@@ -116,15 +131,23 @@ def add_thema_place():
         place_name = request.form['place_name']
         place_lat = request.form['lat']
         place_lng = request.form['lng']
-        place_photos = request.form['photos']
+        place_photos = request.files['photos']
         place_explain = request.form['explain']
         thema_id = ObjectId(request.form['thema_id'])
-
+            
+        photoname = secure_filename(place_photos.filename)
+        path = os.path.join("./static/img", photoname)
+        # rename(f'static/img/{photoname}')
+        print(path)
+        
+        if place_photos:
+            place_photos.save(path)
+        
         _id = database.place.insert_one({
                 "place_name": place_name,
                 "lat": place_lat,
                 "lng": place_lng,
-                "photos": place_photos,
+                "photos": path,
                 "explain": place_explain,
                 "thema_id": thema_id
         })

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Placemodal from './Placemodal'
 import Registerplace from './Registerplace'
+import markerImg from '../img/pin.png'
 
 const { kakao } = window
 // 장소 등록 모달 창에 넘길 위도, 경도, 장소 이름
@@ -8,7 +9,7 @@ var placeLat, placeLng = 0.0,
     placeName = ""
 
 const Map = (props) => {
-  const {searchPlace, Showing} = props
+  const {searchPlace, Showing, placeList} = props
 
   const [modalOpen, setModalOpen] = useState(false)
   const [Places, setPlaces] = useState([]) // 검색결과 배열에 담아줌
@@ -17,7 +18,6 @@ const Map = (props) => {
     placeLat = lat
     placeLng = lng
     placeName = place_name
-    console.log(placeName)
     setModalOpen(true)
   }
   const closeModal = () => {
@@ -95,8 +95,8 @@ const Map = (props) => {
               map: map
           });
 
-      kakao.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>')
+      kakao.maps.event.addListener(marker, 'click', () => {
+        infowindow.setContent('<div id="infowindow" style="padding:5px;font-size:12px;">' + place.place_name + '</div>')
         infowindow.open(map, marker)
       })
     }
@@ -108,15 +108,35 @@ const Map = (props) => {
       })
       
       marker.setMap(Showing ? map : null)
-      Showing ? console.log("yes"):console.log("no")
 
       kakao.maps.event.addListener(map, 'click', (MouseEvent) => {
         let latlng = MouseEvent.latLng
-
         marker.setPosition(latlng)
 
-        kakao.maps.event.addListener(marker, 'click',(MouseEvent) => {
+        kakao.maps.event.addListener(marker, 'click',() => {
           openModal(latlng.getLat(), latlng.getLng(), "")
+        })
+      })
+    }
+
+    // 저장된 장소들을 마커로 표시
+    function placeMarker(place) {
+      let imageSrc = markerImg,
+          imageSize = new kakao.maps.Size(36, 37),
+          markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
+          
+      const placeItems = place.map((placeItem) => {
+        let latlng = new kakao.maps.LatLng(Number(placeItem.lat), Number(placeItem.lng)),
+            marker = new kakao.maps.Marker({
+              clickable: true,
+              image: markerImage,
+              position: latlng,
+              map: map
+            })
+
+        kakao.maps.event.addListener(marker, 'click', () => {
+          infowindow.setContent('<div id="infowindow" style="padding:5px;font-size:12px;">' + placeItem.place_name + '</div>')
+          infowindow.open(map, marker)
         })
       })
     }
@@ -130,8 +150,9 @@ const Map = (props) => {
     ps.keywordSearch(searchPlace, placesSearchCB)
 
     positionMarker()   
+    placeMarker(placeList)
 
-  }, [searchPlace, Showing])
+  }, [searchPlace, Showing, placeList])
 
   return (
     <><div className='map_wrap'>
@@ -167,11 +188,9 @@ const Map = (props) => {
       </ul>
       : null}
     </div>
-    {Showing ?
     <Registerplace open={modalOpen} close={closeModal} header="장소 등록" className="modaltitle">
       <Placemodal lat={placeLat} lng={placeLng} place_name={placeName} />
-    </Registerplace> 
-    : null}</>
+    </Registerplace></>
   )
 }
 

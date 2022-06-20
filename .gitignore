@@ -3,6 +3,7 @@
 /settings.json
 
 /backend
+
 # dependencies
 /node_modules
 /.pnp

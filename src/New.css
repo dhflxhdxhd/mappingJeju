@@ -388,6 +388,10 @@ li {
 .placename {
     display: block;
 }
+.pic-text {
+    margin-left: 8px;
+    margin-bottom: 5px;
+}
 
 .picinput {
     display: none;
@@ -443,6 +447,9 @@ li {
     margin-top: 20px;
     display: block;
 }
+.placeexplaintext {
+    margin-left: 8px;
+}
 
 .placenamebox {
     width: 95%;
@@ -451,8 +458,10 @@ li {
 }
 
 .placeexplainbox {
+    margin-top: 5px;
+    margin-left: 5px;
     width: 95%;
-    height: 150px;
+    height: 80px;
 }
 
 .createtheme {
@@ -511,7 +520,7 @@ li {
 
 .modal > section {
     width: 90%;
-    max-width: 450px;
+    max-width: 600px;
     margin: 0 auto;
     border-radius: 0.3rem;
     background-color: #fff;

@@ -4,7 +4,8 @@ import '../New.css';
 
 const Placemodal = (props) => {
     const {lat, lng, place_name} = props
-    const [showImages, setShowImages] = useState([]);
+    const [showImages, setShowImages] = useState([])
+    const [images, setImages] = useState([])
 
     const [inputs, setInputs] = useState({
         name : place_name,
@@ -20,21 +21,25 @@ const Placemodal = (props) => {
             [name]:value
         });
     };
-    console.log(inputs.name)
-        console.log(inputs.explain)
 
     const handleSubmit = (event) =>{
         event.preventDefault();
+        console.log(images)
+
         const thema_id = sessionStorage.getItem('thema_id')
         let form = new FormData()
         form.append('thema_id',thema_id )
         form.append('place_name', inputs.name)
         form.append('explain',inputs.explain)
-        form.append('photos', showImages)
         form.append('lat', lat)
         form.append('lng', lng)
+        form.append('photos', images)
+        // for (let i = 0; i < images.length; i++) {  }
+        for (var pair of form.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }
 
-        axios.post(`/thema/sendPlace`,form)
+        axios.post(`/thema/sendPlace`, form)
         .then(response => {
             console.log('response', response)
             document.location.href = "/Createtheme?host=1"
@@ -43,23 +48,26 @@ const Placemodal = (props) => {
         })            
     }    
 
-    // 이미지 상대경로 저장
+    // 이미지 경로 저장
     const handleAddImages = (event) => {
         const imageLists = event.target.files;
         let imageUrlLists = [...showImages];
+        // let imageInputLists = [...images];
+        console.log(imageLists[0])
 
         for (let i = 0; i < imageLists.length; i++) {
             const currentImageUrl = URL.createObjectURL(imageLists[i]);
             imageUrlLists.push(currentImageUrl);
-            
+            // imageInputLists.push(imageLists[i]);
         }
 
         if (imageUrlLists.length > 10) {
             imageUrlLists = imageUrlLists.slice(0, 10);
         }
-
-        setShowImages(imageUrlLists);
+        setImages(imageLists[0])
+        setShowImages(imageUrlLists)
         console.log(showImages)
+        console.log(images)
     };
 
     // X버튼 클릭 시 이미지 삭제
@@ -69,7 +77,7 @@ const Placemodal = (props) => {
     return(     
         <>
             <div className="modaldata">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} encType="multipart/form-data">
                     <div className="placename">
                         <span className="placename">장소 이름</span>
                         <input name="name" type="text" className="placenamebox" defaultValue={name} onChange={handleChange}></input>
@@ -95,7 +103,7 @@ const Placemodal = (props) => {
                                         
                     </div>
                     <div className="placeexplain">
-                        <span className="placeexplain">장소 설명</span>
+                        <span className="placeexplaintext">장소 설명</span>
                         <input name="explain" type="text" className="placeexplainbox" defaultValue={explain} onChange={handleChange} placeholder="꿀팁, 가는 길..."></input>
                     </div>
                     <div className="createplace">
