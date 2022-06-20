@@ -18,7 +18,7 @@ function AllthemaItem({allthemaitem}){
             console.log(MyThema);
           }
 
-        sessionStorage.setItem("thema_id", event.target.id)
+        sessionStorage.setItem("thema_id", allthemaitem._id.$oid)
         document.location.href = `/Createtheme?host=${MyThema}`
     }
 
