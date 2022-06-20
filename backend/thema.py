@@ -289,6 +289,7 @@ def delete_place():
     place_id = request.form['place_id']
     thema_id = request.form['thema_id']
 
+    delete_place = database.place.delete_one({"_id": ObjectId(place_id)})
     delete_place = database.thema.update_one({"_id": ObjectId(thema_id)}, {'$pull' : {'place': ObjectId(place_id) }})
     
     data = {'result': place_id }
@@ -348,3 +349,18 @@ def create_place_comment():
         data = {'err': err}
 
     return json.loads(json_util.dumps(data))
+
+# 장소 댓글 삭제
+# @bp.route('/deleteComment', methods=['POST'])
+# def delete_place_comment():
+#     user_id = 2245903549
+#     place_id = ObjectId(request.form['place_id'])
+
+#     place_info = database.place.find({"_id": place_id})
+#     comment_info = place_info['comment']
+#     data = {'result': comment_info}
+    
+#     # for temp in data:
+#     #     if temp[0] == user_id:
+#     #         delete_comment = database.place.update_one({"id": user_id}, {'$pull' : {'comment': ObjectId(thema_id)}})
+#     return json.loads(json_util.dumps(data))
