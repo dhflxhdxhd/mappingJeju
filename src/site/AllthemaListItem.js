@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css';
 import handleBookmark from "./bookmark";
-import notMark from '../img/heart.svg'
-import mark from '../img/fillheart.svg'
 
 function AllthemaItem({allthemaitem}){
 
