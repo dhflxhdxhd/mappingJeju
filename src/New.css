@@ -871,9 +871,14 @@ color:#777;
         margin-left: 6vh;
         font-size: 20px;
     }
-    .favoritethemetextandbtn, .mythemetextandbtn {
+    .favoritethemetextandbtn {
         margin-top: -8vh;
         margin-left: -7vh;
+    }
+    .mythemetextandbtn {
+        margin-top: -4vh;
+        margin-left: -7vh;
+
     }
     .favoritethemesidetext {
         margin-left: -25vh;
