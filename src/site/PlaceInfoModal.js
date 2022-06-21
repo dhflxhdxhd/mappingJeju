@@ -76,9 +76,12 @@ const PlaceInfoModal = ({place}) => {
                     <input name="comment" maxLength='30' type="text" className="placecommentbox" defaultValue={comment} placeholder="댓글을 입력해주세요. (최대 30자)" onChange={handleChange}></input>
                     <button type="submit" className="commentbutton">입력</button>
                 </form>
+                {isEmptyArr(allComments) ? null : 
                 <React.Fragment>
                     < ShowCommentList commentitems={allComments}/>
                 </React.Fragment>
+                }
+                
             </div>
         </div>
     )
