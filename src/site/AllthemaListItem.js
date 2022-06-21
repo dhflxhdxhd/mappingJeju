@@ -20,9 +20,12 @@ function AllthemaItem({allthemaitem}){
 
         sessionStorage.setItem("thema_id", allthemaitem._id.$oid)
         document.location.href = `/Createtheme?host=${MyThema}`
+
+
     }
 
-
+  
+       
 
     return(
         <div className="theme" id={target_thema} onClick={movetoMap}>

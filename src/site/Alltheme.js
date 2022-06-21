@@ -28,10 +28,6 @@ function Alltheme(props) {
 
     <ShowAllList allthemaitems={AllthemaList} />
 
-    <div className="viewmore">
-    <button className="viewmorebutton">
-    </button>
-    </div>
   </div>
 
   );
