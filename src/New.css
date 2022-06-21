@@ -27,6 +27,7 @@
 span.mypagetext {
     font-size: 25px;
     font-weight: bolder;
+    font-family: 'S-CoreDream-5Medium';
     color: black;
 }
 
@@ -41,8 +42,7 @@ span.mypagetext {
     border: none;
     width: 250px;
     height: 100px;
-    background-color: #9b9b9b;
-    background-color: #F8F8F8;
+    background-color: #68C481;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
     border-radius: 12px;
     padding: 2px;
@@ -58,9 +58,19 @@ span.mypagetext {
     margin-right: 5%;
 }
 
+.gothemebutton > a {
+    font-family: 'S-CoreDream-5Medium';
+    color: #fff;
+}
+
 .gofavoritebutton {
     margin-left: 5%;
 } 
+
+.gofavoritebutton > a {
+    font-family: 'S-CoreDream-5Medium';
+    color: #fff;
+}
 
 /* Mytheme */
 .mytheme {
@@ -104,6 +114,7 @@ span.mythemetext2 {
 .viewmytheme {
     display: inline-block;
     width: 800px;
+    margin-top: 15px;
 }
 
 .maketheme {
@@ -116,12 +127,13 @@ span.mythemetext2 {
     float: right;
     width: 100px;
     height: 40px;
-
     background: #68C481;
     border-radius: 20px;
     border: none;
     font-size: 25px;
     font-weight: bolder;
+}
+.makethemebutton > a {
     color: white;
 }
 
@@ -131,7 +143,7 @@ span.mythemetext2 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 10vh;
+    margin-top: 15px;
     padding-bottom: 10vh;
 }
 

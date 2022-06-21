@@ -26,6 +26,9 @@ const PlaceInfoModal = ({place}) => {
         form.append('place_id', place._id.$oid)
         form.append('place_comment', comment)
 
+        for (var pair of form.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }
         axios.post(`/thema/creatComment`, form)
         .then(response => {
             console.log('response', response)
