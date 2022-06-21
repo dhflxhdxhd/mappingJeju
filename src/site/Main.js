@@ -52,7 +52,6 @@ function Main(props) {
                 </div>
                 <div className='mainText-search'>
                   <div className="searchboxdiv">
-                  <div className="searchboxdiv">
                   <form method="GET"
                     onSubmit={handleSubmit}>
                       <input type="text" className="searchbox" placeholder="테마를 검색하세요!"
@@ -62,7 +61,6 @@ function Main(props) {
                       />
                       <img src={searchBtn} alt="검색버튼"/>
                       </form>
-                  </div>
                   </div>
                 </div>          
                 <div className='sidetext3'>

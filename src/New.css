@@ -364,6 +364,19 @@ li {
 .explainplace {
     border: none;
     background-color: transparent;
+    margin-top: 10px;
+}
+
+.placeitem {
+    margin-top: 20px;
+}
+
+.placerevise {
+    padding-top: 5px;
+}
+
+.listplacename {
+    padding-top: 10px;
 }
 
 .createthemeheader {
@@ -858,9 +871,14 @@ color:#777;
         margin-left: 6vh;
         font-size: 20px;
     }
-    .favoritethemetextandbtn, .mythemetextandbtn {
+    .favoritethemetextandbtn {
         margin-top: -8vh;
         margin-left: -7vh;
+    }
+    .mythemetextandbtn {
+        margin-top: -4vh;
+        margin-left: -7vh;
+
     }
     .favoritethemesidetext {
         margin-left: -25vh;
