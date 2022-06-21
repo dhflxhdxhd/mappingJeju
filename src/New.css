@@ -390,9 +390,6 @@ li {
     padding-top: 5px;
 }
 
-.listplaceName {
-
-}
 
 .createthemeheader {
     position: absolute;
@@ -403,8 +400,19 @@ li {
 
 .bookmark {
     cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin-left: 10px;
+    /* background-color: white; */
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.listMark{
     position: absolute;
     right: 10px;
+    cursor: pointer;
     width: 30px;
     height: 30px;
     border: none;
@@ -412,7 +420,6 @@ li {
     border-radius: 20px;
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
-
 .plus {
     margin-left: 10px;
     width: 30px;
