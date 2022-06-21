@@ -364,6 +364,19 @@ li {
 .explainplace {
     border: none;
     background-color: transparent;
+    margin-top: 10px;
+}
+
+.placeitem {
+    margin-top: 20px;
+}
+
+.placerevise {
+    padding-top: 5px;
+}
+
+.listplacename {
+    padding-top: 10px;
 }
 
 .createthemeheader {

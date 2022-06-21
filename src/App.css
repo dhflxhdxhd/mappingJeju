@@ -52,15 +52,21 @@ body{
 /* Login */
 .Login-wrapper p{
   text-align: center;
-  color: #b2bec3;
+  color: black;
 }
 
 .Login-wrapper #Login-title{
+  margin-top: 20vh;
   font-size: 18px;
 }
 
 .Login-wrapper #Login-sub{
   font-size: 15px;
+}
+
+.LoginBtn {
+  margin-top: 10vh;
+  text-align: center;
 }
 
 /* .MainP{
@@ -71,6 +77,11 @@ body{
   width: 100%;
   height: 100%;
 } 
+
+.spinner-wrapper {
+  text-align: center;
+  margin-top: 25%;
+}
 
 /* Main */
 .main-wrapper{
