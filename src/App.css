@@ -376,7 +376,7 @@ span.searchtext2 {
 .searchedtheme {
   display: inline-block;
   width: 800px;
-  padding-bottom: 20vh;
+  padding-bottom: 30vh;
 }
 
 @media only all and (min-width: 500px) and (max-width:820px) {
