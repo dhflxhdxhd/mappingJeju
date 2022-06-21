@@ -330,6 +330,7 @@ li {
 }
 
 .themetitle {
+    font-family: 'S-CoreDream-5Medium';
     display: block;
     background-color: #68C481;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -341,6 +342,7 @@ li {
 }
 
 .place {
+    font-family: 'S-CoreDream-4Regular';
     display: block;
     background-color: white;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -387,6 +389,7 @@ li {
 }
 
 .bookmark {
+    cursor: pointer;
     margin-left: 10px;
     width: 30px;
     height: 30px;

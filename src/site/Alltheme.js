@@ -30,7 +30,6 @@ function Alltheme(props) {
 
     <div className="viewmore">
     <button className="viewmorebutton">
-    <img src={moreImg} className="viewmorepic" />
     </button>
     </div>
   </div>
