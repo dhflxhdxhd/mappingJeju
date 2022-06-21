@@ -239,7 +239,9 @@ input::placeholder{
   background-color: #F8F8F8;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
   border-radius: 12px;
-  padding: 0px;
+  padding-top: 2px;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 .theme:hover{
@@ -247,9 +249,10 @@ input::placeholder{
 }
  
 .aligntheme {
-  width: 250px;
+  width: 100%;
   margin-top: 20px;
   float: right;
+  position: relative;
 }
 
 .alignplace {
@@ -257,12 +260,13 @@ input::placeholder{
 }
 
 .themeName{
-  font-size: 16px;
+  font-size: 15px;
   font-family: 'S-CoreDream-5Medium';
 }
 
 .themeExplain{
   font-size: 12px;
+  margin-top: 7px;
   margin-bottom: 2px;
 }
 .course {
