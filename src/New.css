@@ -545,7 +545,7 @@ li {
 .wrap_comments {
     margin-top: 5px;
     margin-left: 15px;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 200px;
     width: 80%;
 }
