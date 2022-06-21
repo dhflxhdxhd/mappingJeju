@@ -355,12 +355,13 @@ li {
 
 .listthemename {
     padding-top: 30px;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .listplacename {
-    margin-top: 10px;
-    font-size: 17px;
+    font-family: 'S-CoreDream-4Regular';
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .explainplace {
@@ -377,8 +378,8 @@ li {
     padding-top: 5px;
 }
 
-.listplacename {
-    padding-top: 10px;
+.listplaceName {
+
 }
 
 .createthemeheader {
@@ -425,10 +426,13 @@ li {
     text-align: center;
 }
 
-.placename {
-    display: block;
-    margin-bottom: 5px;
+.placeName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
+
 .pic-text {
     margin-left: 8px;
     margin-bottom: 5px;
