@@ -6,7 +6,7 @@
 
 ---
 
-👉🏻 [맵핑제주 서비스 요약 바로가기](https://docs.google.com/presentation/d/1TPNJSB8-3Ak64CxPvIKdvKU_JNcsfb-O6WOrEDMULyk/edit?usp=sharing)
+👉🏻 [맵핑제주 서비스 요약 바로가기](https://github.com/dhflxhdxhd/mappingJeju/blob/main/%EB%A7%B5%ED%95%91%EC%A0%9C%EC%A3%BC.pdf)
 
 프로젝트명 : **맵핑제주🌿**
 
